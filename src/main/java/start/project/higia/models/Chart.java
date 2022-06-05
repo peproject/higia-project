@@ -30,6 +30,7 @@ public class Chart {
 	@Column(nullable = false)
 	private String name;
 	
+	//ver depois
 	//@OneToOne
 	//@Column(nullable = false)
 	//private User cpf;
