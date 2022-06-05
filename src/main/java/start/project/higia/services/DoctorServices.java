@@ -1,5 +1,7 @@
 package start.project.higia.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +17,11 @@ public class DoctorServices {
 	//Serviço para salvar o doutor no banco de dados
 	public Doctor create(Doctor doctor) {
 		return repository.save(doctor);
+	}
+	
+	//Serviço para listar o doutor
+	public List<Doctor> index(Doctor doctor) {
+	   return repository.findAll();
 	}
 	
 }
