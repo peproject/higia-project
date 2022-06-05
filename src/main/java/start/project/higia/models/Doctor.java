@@ -2,6 +2,8 @@ package start.project.higia.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,7 +17,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Doctor {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -32,13 +34,15 @@ public class Doctor {
 	@Column(nullable = false)
 	private String password;
 	
-	private Role role;
+	@Enumerated(EnumType.STRING)
+	private Roles role;
 	
-	public Role getRole() {
+	public Roles getRole() {
 		return role;
 	}
-	
-	public void setRole(Role role) {
-		this.role = role;
+
+	public void setRole(Roles role) {
+		this.role = Roles.DOCTOR;
 	}
+	
 }

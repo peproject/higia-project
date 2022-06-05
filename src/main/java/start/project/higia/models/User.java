@@ -1,9 +1,9 @@
 package start.project.higia.models;
 
-import java.sql.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -35,11 +35,20 @@ public class User {
     private String password;
 
     @Column(nullable = false)
-    private Date birthday;
+    private String birthday;
 
     @Column(nullable = false)
     private String number;
-
+    
+    @Enumerated(EnumType.STRING)
     private Roles role;
+    
+    public Roles getRole() {
+		return role;
+	}
 
+	public void setRole(Roles role) {
+		this.role = Roles.USER;
+	}
+	
 }
