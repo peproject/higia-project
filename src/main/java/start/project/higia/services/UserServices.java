@@ -1,6 +1,7 @@
 package start.project.higia.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -22,6 +23,15 @@ public class UserServices {
 	//Serviço para exibir todos os usuarios
 	public List<User> index (User user) {
 		return repository.findAll();
+	}
+	
+	public Optional<User> editById(Long id) {
+		return repository.findById(id);
+	}
+	
+	public String deleteById(Long id) {
+		repository.deleteById(id);
+		return "";
 	}
 	
 }

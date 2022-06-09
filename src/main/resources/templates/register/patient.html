@@ -29,25 +29,26 @@
 </div>
 
 <div class="hg-container hg-container-register position-absolute top-50 end-0 translate-middle-y me-5">
-	<form action="" method="post">
+	<form action="/save_user" method="post">
 		<section>
+				<input type="hidden" name="role">
 			<div class="input-group mb-3">
-				<input type="text" class="form-control" placeholder="Nome Completo">
+				<input type="text" class="form-control" placeholder="Nome Completo" name="name">
 			</div>
 			<div class="input-group mb-3">
-				<input type="text" class="form-control" placeholder="Cpf">
+				<input type="text" class="form-control" placeholder="Cpf" name="cpf">
 			</div>
 			<div class="input-group mb-3">
-				<input type="tel" class="form-control" placeholder="Celular">
+				<input type="tel" class="form-control" placeholder="Celular"name="number">
 			</div>
 			<div class="input-group mb-3">
-				<input type="date" class="form-control" placeholder="Data de nascimento">
+				<input type="date" class="form-control" placeholder="Data de nascimento" name="birthday">
 			</div>
 			<div class="input-group mb-3">
-				<input type="email" class="form-control" placeholder="Email">
+				<input type="email" class="form-control" placeholder="Email" name="email">
 			</div>
 			<div class="input-group mb-3">
-				<input type="password" class="form-control" placeholder="Senha">
+				<input type="password" class="form-control" placeholder="Senha" name="password">
 			</div>
 			<div class="input-group mb-3">
 				<input type="password" class="form-control" placeholder="Confirmar senha">

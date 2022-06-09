@@ -38,7 +38,7 @@ public class User {
     private String birthday;
 
     @Column(nullable = false)
-    private String number;
+    private String number;   
     
     @Enumerated(EnumType.STRING)
     private Roles role;
