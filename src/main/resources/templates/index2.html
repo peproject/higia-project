@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>EMAIL</th>
+            <th>Ação</th>
+        </tr>
+        <tr th:each="use : ${users}">
+            <td th:text="${use.name	}"></td>
+            <td th:text="${use.cpf}"></td>
+            <td th:text="${use.email}"></td>
+            <td><a th:href="|editar_user?id=${use.id}|">Editar</a></td>
+            <td><a th:href="|excluir_user?id=${use.id}|">excluir</a></td>
+        </tr>
+    </table>
+</body>
+</html>
