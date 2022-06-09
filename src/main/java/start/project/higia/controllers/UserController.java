@@ -1,5 +1,7 @@
 package start.project.higia.controllers;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +20,7 @@ public class UserController {
 	//Rota para tela de Cadastro de usuarios
 	@GetMapping("/user_registration")
 	public String registration() {
-		return "index";
+		return "/register/patient";
 	}
 	
 	//Rota post para salvar os usuarios
@@ -32,7 +34,22 @@ public class UserController {
 	@GetMapping("/index_users")
 	public String index(User user, Model model) {
 		model.addAttribute("users", this.services.index(user));
-		return "";
+		return "index2";
+	}
+	
+	//Rota para edição de usuario
+	@GetMapping("/editar_user")
+	public String editar_user(Long id, Model model) {
+		Optional<User> usu = this.services.editById(id);
+		model.addAttribute("users", usu);
+		return "cadastraruserss";
+	}
+
+	//Rota para exclusão do usuario
+	@GetMapping("/excluir_user")
+	public String excluir_user(Long id) {
+		services.deleteById(id);
+		return "redirect:index_users";
 	}
 	
 }

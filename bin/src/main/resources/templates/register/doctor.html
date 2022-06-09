@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/vendor/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" href="/styles/style.css">
-	<title>Higia - Criar conta paciente</title>
+	<title>Higia - Criar conta doutor</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-white bg-hg-bg">
@@ -29,26 +29,19 @@
 </div>
 
 <div class="hg-container hg-container-register position-absolute top-50 end-0 translate-middle-y me-5">
-	<form action="/save_user" method="post">
+	<form action="" method="post">
 		<section>
-				<input type="hidden" name="role">
 			<div class="input-group mb-3">
-				<input type="text" class="form-control" placeholder="Nome Completo" name="name">
+				<input type="email" class="form-control" placeholder="Nome Completo">
 			</div>
 			<div class="input-group mb-3">
-				<input type="text" class="form-control" placeholder="Cpf" name="cpf">
+				<input type="email" class="form-control" placeholder="Crm">
 			</div>
 			<div class="input-group mb-3">
-				<input type="tel" class="form-control" placeholder="Celular"name="number">
+				<input type="email" class="form-control" placeholder="Email">
 			</div>
 			<div class="input-group mb-3">
-				<input type="date" class="form-control" placeholder="Data de nascimento" name="birthday">
-			</div>
-			<div class="input-group mb-3">
-				<input type="email" class="form-control" placeholder="Email" name="email">
-			</div>
-			<div class="input-group mb-3">
-				<input type="password" class="form-control" placeholder="Senha" name="password">
+				<input type="password" class="form-control" placeholder="Senha">
 			</div>
 			<div class="input-group mb-3">
 				<input type="password" class="form-control" placeholder="Confirmar senha">

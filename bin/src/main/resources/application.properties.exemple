@@ -1,0 +1,11 @@
+spring.datasource.url=jdbc:mysql://localhost:3306/BANCO?useSSL=false
+spring.datasource.username=USUARIO
+spring.datasource.password=SENHA
+
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
+spring.jpa.hibernate.ddl-auto=update
+
+spring.jpa.properties.hibernate.jdbc.time_zone=UTC
+
+spring.jpa.show-sql=false
+spring.jpa.properties.hibernate.format_sql=true
