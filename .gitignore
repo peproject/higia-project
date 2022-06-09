@@ -4,7 +4,7 @@ target/
 !**/src/test/**/target/
 
 application.properties
-
+/src/main/resources/templates/tests
 ### STS ###
 .apt_generated
 .classpath
