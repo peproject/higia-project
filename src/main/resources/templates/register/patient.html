@@ -17,7 +17,7 @@
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
 			</ul>
-			<ul class="navbar-nav d-flex" role="search">
+			<ul class="navbar-nav d-flex">
 				<li class="nav-item"><a href="#" class="nav-link">Entrar</a></li>
 			</ul>
 		</div>
@@ -29,29 +29,44 @@
 </div>
 
 <div class="hg-container hg-container-register position-absolute top-50 end-0 translate-middle-y me-5">
-	<form action="/save_user" method="post">
+	<form action="/save_user" method="post" th:object="${user}">
 		<section>
-				<input type="hidden" name="role">
 			<div class="input-group mb-3">
-				<input type="text" class="form-control" placeholder="Nome Completo" name="name">
+				<label>
+					<input type="text" class="form-control" placeholder="Nome Completo" name="name">
+				</label>
 			</div>
 			<div class="input-group mb-3">
-				<input type="text" class="form-control" placeholder="Cpf" name="cpf">
+				<label>
+					<input type="text" class="form-control"
+								 placeholder="000.000.000-00" pattern="\d{3}.\d{3}.\d{3}-\d{2}" name="cpf">
+				</label>
 			</div>
 			<div class="input-group mb-3">
-				<input type="tel" class="form-control" placeholder="Celular"name="number">
+				<label>
+					<input type="tel" class="form-control"
+								 placeholder="(00) 90000-0000" pattern="(\d{2})) \d{5}-\d{4}" name="number">
+				</label>
 			</div>
 			<div class="input-group mb-3">
-				<input type="date" class="form-control" placeholder="Data de nascimento" name="birthday">
+				<label>
+					<input type="date" class="form-control" placeholder="Data de nascimento" name="birthday">
+				</label>
 			</div>
 			<div class="input-group mb-3">
-				<input type="email" class="form-control" placeholder="Email" name="email">
+				<label>
+					<input type="email" class="form-control" placeholder="Email" name="email">
+				</label>
 			</div>
 			<div class="input-group mb-3">
-				<input type="password" class="form-control" placeholder="Senha" name="password">
+				<label>
+					<input type="password" class="form-control" placeholder="Senha" name="password">
+				</label>
 			</div>
 			<div class="input-group mb-3">
-				<input type="password" class="form-control" placeholder="Confirmar senha">
+				<label>
+					<input type="password" class="form-control" placeholder="Confirmar senha" name="re-password">
+				</label>
 			</div>
 		</section>
 		<section class="text-center">
