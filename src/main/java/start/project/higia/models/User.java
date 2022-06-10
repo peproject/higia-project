@@ -38,17 +38,17 @@ public class User {
     private String birthday;
 
     @Column(nullable = false)
-    private String number;   
-    
+    private String number;
+
     @Enumerated(EnumType.STRING)
     private Roles role;
-    
+
     public Roles getRole() {
 		return role;
 	}
 
-	public void setRole(Roles role) {
+	public void setRole() {
 		this.role = Roles.USER;
 	}
-	
+
 }

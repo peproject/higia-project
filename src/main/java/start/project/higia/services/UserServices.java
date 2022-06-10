@@ -14,24 +14,26 @@ public class UserServices {
 
 	@Autowired
 	private UserRepository repository;
-	
+
 	//Serviço para salvar o user no banco
 	public User create(User user) {
+
+		user.setRole();
 		return repository.save(user);
 	}
-	
+
 	//Serviço para exibir todos os usuarios
 	public List<User> index (User user) {
 		return repository.findAll();
 	}
-	
+
 	public Optional<User> editById(Long id) {
 		return repository.findById(id);
 	}
-	
+
 	public String deleteById(Long id) {
 		repository.deleteById(id);
 		return "";
 	}
-	
+
 }
