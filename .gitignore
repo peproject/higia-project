@@ -3,8 +3,11 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+### Java ###
 application.properties
 /src/main/resources/templates/tests
+/bin
+
 ### STS ###
 .apt_generated
 .classpath
