@@ -35,5 +35,9 @@ public class UserServices {
 		repository.deleteById(id);
 		return "";
 	}
-
+	
+	public User findByEmailAndSenha(String email, String password) {
+		
+		return repository.findByEmailAndPassword(email, password);
+	}
 }
