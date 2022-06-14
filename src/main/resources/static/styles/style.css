@@ -3,7 +3,8 @@
 :root {
 	--hg-blue: #467be3;
 	--white: #fff;
-	--hg-bg: f3f6fa;
+	--hg-bg: #f3f6fa;
+	--hg-danger: #ff6347;
 }
 
 body {
@@ -87,21 +88,32 @@ body {
 	}
 }
 
+.hg-container-register {
+	margin-top: 7.5em;
+}
+
+input[type="date"], ::placeholder {
+	color: #797878;
+}
+
 @media screen and (max-width: 767px) {
 	.hg-photo {
 		display: none;
 	}
 
-
-
 	.hg-container-register {
 		max-width: 100%;
-
+		margin-top: 10em;
 		width: 20em;
 		padding: 2%;
 	}
 
-	.hg-container-register form {
+	.btn-hg-blue, .btn-hg-outline-danger {
+		width: 100%;
+	}
+
+
+	.hg-container-register {
 		width: 16em;
 	}
 
@@ -126,7 +138,22 @@ body {
 }
 
 .btn-hg-blue {
+	margin-bottom: 4%;
 	background-color: var(--hg-blue);
+	color: var(--white);
+}
+
+.btn-hg-outline-danger {
+	margin-bottom: 4%;
+	background: none;
+	border: 1px solid var(--hg-danger);
+	color: var(--hg-danger);
+}
+
+.btn-hg-outline-danger:hover {
+	margin-bottom: 4%;
+	background-color: var(--hg-danger);
+	border: 1px solid var(--hg-danger);
 	color: var(--white);
 }
 
@@ -142,4 +169,3 @@ body {
 .form-link:hover {
 	text-decoration: underline;
 }
-

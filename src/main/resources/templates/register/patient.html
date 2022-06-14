@@ -29,6 +29,9 @@
 </div>
 
 <div class="hg-container hg-container-register position-absolute top-50 end-0 translate-middle-y me-5">
+	<div th:class="${style}" th:text="${message}">
+		<i th:class="${icon}"></i>
+	</div>
 	<form action="/save_user" method="post" th:object="${user}">
 		<section>
 			<div class="input-group mb-3">
