@@ -26,7 +26,7 @@ public class LoginUserController {
 	public String userLogon(User user, HttpSession session) {
 		
 		user = services.findByEmailAndSenha(user.getEmail(), user.getPassword());
-		//Testando o meu nome
+		
 		if (user != null) {
 			
 			session.setAttribute("loggedUser", user);
