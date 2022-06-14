@@ -36,6 +36,7 @@ public class UserServices {
 		return "";
 	}
 	
+	//Rota para encontrar o user
 	public User findByEmailAndSenha(String email, String password) {
 		
 		return repository.findByEmailAndPassword(email, password);

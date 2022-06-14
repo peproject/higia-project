@@ -22,6 +22,8 @@ public class LoginUserController {
 		return "/tests/index";
 	}
 	
+	//User Login
+	
 	@PostMapping("/logon_user")
 	public String userLogon(User user, HttpSession session) {
 		
