@@ -22,6 +22,8 @@ public class LoginUserController {
 		return "/tests/index";
 	}
 	
+	//User Login
+	
 	@PostMapping("/logon_user")
 	public String userLogon(User user, HttpSession session) {
 		
@@ -29,7 +31,7 @@ public class LoginUserController {
 		
 		if (user != null) {
 			
-			session.setAttribute("loggedUser", userss);
+			session.setAttribute("loggedUser", user);
 			
 			return "redirect:/user_registration";
 		} else 
