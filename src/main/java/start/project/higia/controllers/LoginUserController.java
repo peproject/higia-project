@@ -29,7 +29,7 @@ public class LoginUserController {
 		
 		if (user != null) {
 			
-			session.setAttribute("loggedUser", user);
+			session.setAttribute("loggedUser", userss);
 			
 			return "redirect:/user_registration";
 		} else 
