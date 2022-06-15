@@ -36,7 +36,7 @@ public class DoctorServices {
 		return "";
 	}
 
-	public Doctor findByEmailAndSenha(String email, String password) {
+	public Doctor findByEmailAndPassword(String email, String password) {
 		return repository.findByEmailAndPassword(email, password);
 	}
 

@@ -17,15 +17,15 @@ public class LoginDoctorController {
 	DoctorServices services;
 
 	@GetMapping("/doctor_login")
-	public String userLogin() {
+	public String doctorLogin() {
 
 		return "/tests/index";
 	}
 
 	@PostMapping("/logon_doctor")
-	public String userLogon(Doctor doctor, HttpSession session) {
+	public String doctorLogon(Doctor doctor, HttpSession session) {
 
-		doctor = services.findByEmailAndSenha(doctor.getEmail(), doctor.getPassword());
+		doctor = services.findByEmailAndPassword(doctor.getEmail(), doctor.getPassword());
 
 		if (doctor != null) {
 
