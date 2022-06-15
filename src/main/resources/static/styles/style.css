@@ -102,12 +102,17 @@ input[type="date"], ::placeholder {
 	}
 
 	.hg-container-register {
+		background-color: red;
 		max-width: 20em;
 		width: 100%;
 		padding: 2%;
 	}
 
-	.btn-hg-blue, .btn-hg-outline-danger {
+	.form-control {
+		height: 10%;
+	}
+
+	.btn-hg-blue, .btn-hg-outline-danger, .form-control1 {
 		width: 100%;
 	}
 

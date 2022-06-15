@@ -35,41 +35,27 @@
 	<form action="/save_user" method="post" th:object="${user}">
 		<section>
 			<div class="input-group mb-3">
-				<label>
 					<input type="text" class="form-control" placeholder="Nome Completo" name="name">
-				</label>
 			</div>
 			<div class="input-group mb-3">
-				<label>
 					<input type="text" class="form-control"
 								 placeholder="000.000.000-00" pattern="\d{3}.\d{3}.\d{3}-\d{2}" name="cpf">
-				</label>
 			</div>
 			<div class="input-group mb-3">
-				<label>
 					<input type="tel" class="form-control"
 								 placeholder="(00) 90000-0000" pattern="(\d{2})) \d{5}-\d{4}" name="number">
-				</label>
 			</div>
 			<div class="input-group mb-3">
-				<label>
 					<input type="date" class="form-control" placeholder="Data de nascimento" name="birthday">
-				</label>
 			</div>
 			<div class="input-group mb-3">
-				<label>
 					<input type="email" class="form-control" placeholder="Email" name="email">
-				</label>
 			</div>
 			<div class="input-group mb-3">
-				<label>
 					<input type="password" class="form-control" placeholder="Senha" name="password">
-				</label>
 			</div>
 			<div class="input-group mb-3">
-				<label>
 					<input type="password" class="form-control" placeholder="Confirmar senha" name="re-password">
-				</label>
 			</div>
 		</section>
 		<section class="text-center">
