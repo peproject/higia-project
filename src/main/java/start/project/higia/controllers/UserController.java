@@ -5,6 +5,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -29,21 +30,21 @@ public class UserController {
 
 	//Rota post para salvar os usuarios
 	@PostMapping("/save_user")
-	public String create(@Valid User user, BindingResult result, Model model) {
+	public String create(@Valid User user, Model model) {
 
-		if(result.hasErrors()) {
-			model.addAttribute("message", "Não foi possivel criar conta! Email ou CPF já cadastrado.");
+		try {
 			model.addAttribute("style", "p-3 mb-2 bg-success text-white");
-			model.addAttribute("icon", "fa-solid fa-check");
-			return "index";
+			model.addAttribute("message", "Conta criada com sucesso!");
+			model.addAttribute("icon", "fa-solid fa-triangle-exclamation");
+
+			services.create(user);
+			return "register/patient";
+		} catch(DataIntegrityViolationException ex) {
+				model.addAttribute("message", "Não foi possivel criar conta! Email ou CPF já cadastrado.");
+				model.addAttribute("style", "p-3 mb-2 bg-danger text-white");
+				model.addAttribute("icon", "fa-solid fa-check");
+				return "register/patient";
 		}
-
-		model.addAttribute("style", "p-3 mb-2 bg-success text-white");
-		model.addAttribute("message", "Conta criada com sucesso!");
-		model.addAttribute("icon", "fa-solid fa-triangle-exclamation");
-
-		services.create(user);
-		return "register/patient";
 	}
 
 	//Rota para exibir todos os users
