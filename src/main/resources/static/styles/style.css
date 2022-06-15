@@ -89,7 +89,7 @@ body {
 }
 
 .hg-container-register {
-	margin-top: 7.5em;
+	margin-top: 1.5em;
 }
 
 input[type="date"], ::placeholder {
@@ -102,19 +102,18 @@ input[type="date"], ::placeholder {
 	}
 
 	.hg-container-register {
-		max-width: 100%;
-		margin-top: 10em;
-		width: 20em;
+		background-color: red;
+		max-width: 20em;
+		width: 100%;
 		padding: 2%;
 	}
 
-	.btn-hg-blue, .btn-hg-outline-danger {
-		width: 100%;
+	.form-control {
+		height: 10%;
 	}
 
-
-	.hg-container-register {
-		width: 16em;
+	.btn-hg-blue, .btn-hg-outline-danger, .form-control1 {
+		width: 100%;
 	}
 
 	.hg-select {
