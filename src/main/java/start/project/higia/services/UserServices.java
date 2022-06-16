@@ -35,10 +35,10 @@ public class UserServices {
 		repository.deleteById(id);
 		return "";
 	}
-	
+
 	//Rota para encontrar o user
-	public User findByEmailAndSenha(String email, String password) {
-		
+	public User findByEmailAndPassword(String email, String password) {
+
 		return repository.findByEmailAndPassword(email, password);
 	}
 }
