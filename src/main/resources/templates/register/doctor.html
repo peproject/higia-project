@@ -32,30 +32,34 @@
 	<div th:class="${style}" th:text="${message}">
 		<i th:class="${icon}"></i>
 	</div>
-	<form action="/doctor" method="post">
+	<form action="/doctor" method="post" id="form-register">
+		<p class="password-error" id="password-error">*senhas não batem!</p>
 		<section>
 			<div class="input-group mb-3">
 				<input type="text" class="form-control" name="name"
-					placeholder="Nome Completo">
+					placeholder="Nome Completo" required>
 			</div>
 			<div class="input-group mb-3">
-				<input type="text" class="form-control" name="crm" placeholder="Crm">
+				<input type="text" class="form-control" name="crm" placeholder="Crm" required>
 			</div>
 			<div class="input-group mb-3">
-				<input type="email" class="form-control" name="email" placeholder="Email">
+				<input type="email" class="form-control" name="email" placeholder="Email" required>
 			</div>
 			<div class="input-group mb-3">
-				<input type="password" class="form-control" name="password" placeholder="Senha" minlength="8">
+				<input type="password" class="form-control" name="password"
+					placeholder="Senha" minlength="8" id="password" required>
 			</div>
 			<div class="input-group mb-3">
-				<input type="password" class="form-control" placeholder="Confirmar senha" minlength="8">
+				<input type="password" class="form-control"
+					placeholder="Confirmar senha" minlength="8" id="re-password" required>
 			</div>
 		</section>
 		<section class="text-center">
-			<button type="submit" class="btn btn-hg-blue">Cadastrar</button>
+			<button type="button" class="btn btn-hg-blue" onclick="verifyPassword()">Cadastrar</button>
 		</section>
 	</form>
 </div>
+<script src="/scripts/verify_password.js"></script>
 <script src="/vendor/popper/popper.min.js"></script>
 <script src="/vendor/bootstrap/bootstrap.min.js"></script>
 </body>
