@@ -171,3 +171,8 @@ input[type="date"], ::placeholder {
 .form-link:hover {
 	text-decoration: underline;
 }
+
+.password-error {
+	display: none;
+	color: var(--hg-danger);
+}
