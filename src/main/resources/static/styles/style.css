@@ -25,6 +25,10 @@ body {
 	padding: 2%;
 }
 
+.hg-container-edit {
+	margin-top: 10em;
+}
+
 .hg-photo {
 	max-width: 100%;
 	width: 40em;
@@ -102,7 +106,6 @@ input[type="date"], ::placeholder {
 	}
 
 	.hg-container-register {
-		background-color: red;
 		max-width: 20em;
 		width: 100%;
 		padding: 2%;
