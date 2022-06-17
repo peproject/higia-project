@@ -64,8 +64,8 @@ public class DoctorController {
 	}
 
 	//Rota para exclusão do doutor
-	@GetMapping("/delete_doctor")
-	public String excluir_user(Long id) {
+	@GetMapping("/delete_doctor/{id}")
+	public String excluir_user(@PathVariable Long id) {
 		services.deleteById(id);
 		return "redirect:/doctor";
 	}
