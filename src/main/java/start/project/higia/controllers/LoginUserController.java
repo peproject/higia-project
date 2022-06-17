@@ -19,7 +19,7 @@ public class LoginUserController {
 	@GetMapping("/user_login")
 	public String userLogin() {
 
-		return "/tests/index";
+		return "login/patient";
 	}
 
 	//User Login
@@ -33,7 +33,7 @@ public class LoginUserController {
 
 			session.setAttribute("loggedUser", user);
 
-			return "redirect:/user_registration";
+			return "redirect:/";
 		} else
 		{
 			return "redirect:/user_login";
