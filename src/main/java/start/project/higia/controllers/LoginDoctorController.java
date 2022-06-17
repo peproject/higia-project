@@ -19,7 +19,7 @@ public class LoginDoctorController {
 	@GetMapping("/doctor_login")
 	public String doctorLogin() {
 
-		return "/tests/index";
+		return "login/doctor";
 	}
 
 	@PostMapping("/logon_doctor")
@@ -31,7 +31,7 @@ public class LoginDoctorController {
 
 			session.setAttribute("loggedDoctor", doctor);
 
-			return "redirect:/user_registration";
+			return "redirect:/";
 		} else {
 			return "redirect:/doctor_login";
 		}
