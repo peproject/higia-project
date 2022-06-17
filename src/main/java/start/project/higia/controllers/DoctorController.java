@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import start.project.higia.models.Doctor;
+import start.project.higia.models.Roles;
 import start.project.higia.services.DoctorServices;
 
 @Controller
@@ -43,6 +44,7 @@ public class DoctorController {
 			model.addAttribute("message", "Conta criada com sucesso!");
 			model.addAttribute("icon", "fa-solid fa-triangle-exclamation");
 
+			doctor.setRole(Roles.DOCTOR);
 			this.services.create(doctor);
 
 			return "register/doctor";
