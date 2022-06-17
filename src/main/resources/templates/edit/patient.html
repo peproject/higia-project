@@ -61,7 +61,7 @@
 				</section>
 				<section class="text-center">
 					<button type="submit" class="btn btn-hg-blue">Editar</button>
-					<a th:href="@{'/delete_user/'(id=${id})}" class="btn btn-hg-outline-danger">
+					<a th:href="/delete_user/' + ${session.loggedUser.id}" class="btn btn-hg-outline-danger">
 						<i class="fas fa-trash"></i>
 						Excluir conta
 					</a>
