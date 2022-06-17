@@ -12,33 +12,33 @@ import start.project.higia.services.UserServices;
 
 @Controller
 public class LoginUserController {
-	
+
 	@Autowired
 	UserServices services;
-	
+
 	@GetMapping("/user_login")
 	public String userLogin() {
-		
+
 		return "/tests/index";
 	}
-	
+
 	//User Login
-	
+
 	@PostMapping("/logon_user")
 	public String userLogon(User user, HttpSession session) {
-		
-		user = services.findByEmailAndSenha(user.getEmail(), user.getPassword());
-		
+
+		user = services.findByEmailAndPassword(user.getEmail(), user.getPassword());
+
 		if (user != null) {
-			
+
 			session.setAttribute("loggedUser", user);
-			
+
 			return "redirect:/user_registration";
-		} else 
+		} else
 		{
 			return "redirect:/user_login";
 		}
-		
+
 	}
 
 }
