@@ -37,12 +37,7 @@ public class UserServices {
 	}
 
 	//Rota para encontrar o user
-<<<<<<< HEAD
-	public User findByEmailAndSenha(String email, String password) {
-=======
 	public User findByEmailAndPassword(String email, String password) {
->>>>>>> a8bca30844d736ad79e0c1daa912c837dbc49381
-
 		return repository.findByEmailAndPassword(email, password);
 	}
 }
