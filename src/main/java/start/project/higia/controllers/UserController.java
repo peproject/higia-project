@@ -62,8 +62,8 @@ public class UserController {
 	}
 
 	//Rota para exclusão do usuario
-	@GetMapping("/excluir_user")
-	public String excluir_user(Long id) {
+	@GetMapping("/excluir_user/{id}")
+	public String excluir_user(@PathVariable Long id) {
 		services.deleteById(id);
 		return "redirect:index_users";
 	}
