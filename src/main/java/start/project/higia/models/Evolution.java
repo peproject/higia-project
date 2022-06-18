@@ -18,7 +18,7 @@ public class Evolution {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(length = 32672, nullable = false)
+	@Column(length = 10000, nullable = false)
 	private String body;
 
 }
