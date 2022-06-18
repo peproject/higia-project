@@ -23,10 +23,10 @@ public class DoctorController {
 	@Autowired
 	private DoctorServices services;
 
-	@GetMapping("/doctor")
+	@GetMapping("/doc")
 	public String index(Doctor doctor, Model model) {
 		model.addAttribute("doctor", this.services.index(doctor));
-		return "index";
+		return "login/doctor";
 	}
 
 	//Rota para tela de cadastro
@@ -58,16 +58,16 @@ public class DoctorController {
 	}
 
 	//Rota para edição de doutor
-	@GetMapping("/edit_doctor/{id}")
-	public String editar_user(@PathVariable Long id, Model model) {
+	@GetMapping("/doc/edit/{id}")
+	public String editDoctor(@PathVariable Long id, Model model) {
 		Optional<Doctor> doctor = this.services.editById(id);
 		model.addAttribute("doctor", doctor);
 		return "edit/doctor";
 	}
 
 	//Rota para exclusão do doutor
-	@GetMapping("/delete_doctor/{id}")
-	public String excluir_user(@PathVariable Long id) {
+	@GetMapping("/doc/delete/{id}")
+	public String deleteDoctor(@PathVariable Long id) {
 		services.deleteById(id);
 		return "redirect:/doctor";
 	}
