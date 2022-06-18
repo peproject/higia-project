@@ -44,7 +44,7 @@ public class ChartController {
 	}
 
 	//rota para exclusão do chart
-	@GetMapping("/delete_chart")
+	@GetMapping("/delete_chart/{id}")
 	public String delete_chart(Long id) {
 		services.deleteById(id);
 		return "redirect:/chart";
