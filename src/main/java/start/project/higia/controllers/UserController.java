@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import start.project.higia.models.User;
 import start.project.higia.services.UserServices;
@@ -54,7 +55,7 @@ public class UserController {
 	}
 
 	//Rota para edição de usuario
-	@GetMapping("/edit_user/{id}")
+	@GetMapping("/user/edit/{id}")
 	public String editar_user(@PathVariable Long id, Model model) {
 		Optional<User> usu = this.services.editById(id);
 		model.addAttribute("users", usu);
@@ -62,8 +63,8 @@ public class UserController {
 	}
 
 	//Rota para exclusão do usuario
-	@GetMapping("/excluir_user/{id}")
-	public String excluir_user(@PathVariable Long id) {
+	@GetMapping("/user/delete")
+	public String excluir_user(@RequestParam Long id) {
 		services.deleteById(id);
 		return "redirect:index_users";
 	}
