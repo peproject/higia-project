@@ -176,3 +176,46 @@ input[type="date"], ::placeholder {
 	display: none;
 	color: var(--hg-danger);
 }
+
+.home-img {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}
+
+.home-link {
+	text-decoration: none;
+	color: #5171da;
+}
+
+.home-link:hover {
+	color: #2891e7;
+	cursor: pointer;
+}
+
+.hg-link {
+	color: #3a3838;
+}
+.hg-link:hover {
+	cursor: pointer;
+	color: #575454;
+}
+
+.doctor {
+	display: block;
+	border-radius: 50px;
+  width: 40px;
+  height: 40px;
+  background: url(../images/doctor.png);
+	background-size: 40px 40px;
+}
+
+.patient {
+	display: block;
+	border-radius: 50px;
+  width: 40px;
+  height: 40px;
+	margin-right: 8pt;
+  background: url(../images/people.png);
+	background-size: 40px 40px;
+}
