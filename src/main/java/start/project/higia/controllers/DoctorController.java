@@ -30,7 +30,7 @@ public class DoctorController {
 	}
 
 	//Rota para tela de cadastro
-	@GetMapping("/doctor_registration")
+	@GetMapping("/doctor/registration")
 	public String registration() {
 		return "register/doctor";
 	}
@@ -59,7 +59,7 @@ public class DoctorController {
 
 	//Rota para edição de doutor
 	@GetMapping("/doc/edit/{id}")
-	public String editDoctor(@PathVariable Long id, Model model) {
+	public String edit(@PathVariable Long id, Model model) {
 		Optional<Doctor> doctor = this.services.editById(id);
 		model.addAttribute("doctor", doctor);
 		return "edit/doctor";
@@ -67,7 +67,7 @@ public class DoctorController {
 
 	//Rota para exclusão do doutor
 	@GetMapping("/doc/delete/{id}")
-	public String deleteDoctor(@PathVariable Long id) {
+	public String delete(@PathVariable Long id) {
 		services.deleteById(id);
 		return "redirect:/doctor";
 	}
