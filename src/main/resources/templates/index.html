@@ -1,16 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela Inicial</title>
-</head>
-<body>
-    
-<a href="user_login">User</a>
-<a href="">Doctor</a>
-    
 
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://kit.fontawesome.com/c25abe3fb5.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="/vendor/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="/styles/style.css">
+	<title>Higia - Seja bem-vindo</title>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-white bg-hg-bg">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">Navbar</a>
+
+			<div class="" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container position-absolute top-50 start-50 translate-middle">
+		<h3 class="text-primary">Diga-nos qual é a sua situação</h3>
+		<div class="row mt-3">
+			<div class="col-sm">
+				<div class="card">
+					<a href="doctor_login" class="card-body home-link">
+						<h4>
+							<i class="fa-solid fa-user-doctor"></i>
+							Entrar como doutor
+
+							<i class="fa-solid fa-angle-right position-absolute top-50 end-0 translate-middle-y me-3"></i>
+						</h4>
+					</a>
+				</div>
+				<div class="card mt-3">
+					<a href="user_login" class="card-body home-link">
+						<h4>
+							<i class="fa-solid fa-hospital-user"></i>
+							Entrar como paciente
+
+							<i class="fa-solid fa-angle-right position-absolute top-50 end-0 translate-middle-y me-3"></i>
+						</h4>
+					</a>
+				</div>
+			</div>
+		</div>
+		<p class="text-center mt-4">Novo por aqui? <a href="" class="hg-link">Registre-se</a></p>
+	</div>
+
+	<script src="/vendor/popper/popper.min.js"></script>
+	<script src="/vendor/bootstrap/bootstrap.min.js"></script>
 </body>
+
 </html>
