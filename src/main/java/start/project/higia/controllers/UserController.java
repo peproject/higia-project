@@ -23,13 +23,13 @@ public class UserController {
 	private UserServices services;
 
 	//Rota para tela de Cadastro de usuarios
-	@GetMapping("/user_registration")
+	@GetMapping("/user/registration")
 	public String registration() {
 		return "/register/patient";
 	}
 
 	//Rota post para salvar os usuarios
-	@PostMapping("/save_user")
+	@PostMapping("/user")
 	public String create(@Valid User user, Model model) {
 
 		try {
@@ -48,25 +48,25 @@ public class UserController {
 	}
 
 	//Rota para exibir todos os users
-	@GetMapping("/user/index_users")
+	@GetMapping("/use/index")
 	public String index(User user, Model model) {
 		model.addAttribute("users", this.services.index(user));
 		return "index2";
 	}
 
 	//Rota para edição de usuario
-	@GetMapping("/user/edit/{id}")
-	public String editar_user(@PathVariable Long id, Model model) {
+	@GetMapping("/use/edit/{id}")
+	public String edit(@PathVariable Long id, Model model) {
 		Optional<User> usu = this.services.editById(id);
 		model.addAttribute("users", usu);
 		return "edit/patient";
 	}
 
 	//Rota para exclusão do usuario
-	@GetMapping("/user/delete")
-	public String excluir_user(@RequestParam Long id) {
+	@GetMapping("/use/delete")
+	public String delete(@RequestParam Long id) {
 		services.deleteById(id);
-		return "redirect:index_users";
+		return "redirect:/use/index";
 	}
 
 }
