@@ -33,7 +33,7 @@ public class LoginDoctorController {
 
 			return "redirect:/";
 		} else {
-			return "redirect:/doctor_login";
+			return "redirect:/doctor/login";
 		}
 
 	}
