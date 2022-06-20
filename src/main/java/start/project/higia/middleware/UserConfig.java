@@ -9,12 +9,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class UserConfig implements WebMvcConfigurer {
 
 	@Autowired
-	private UserInterceptor interceptor; 
-	
+	private UserInterceptor interceptor;
+
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(interceptor)
-		.addPathPatterns(new String[] { "/user", "/user/*" });
+		.addPathPatterns(new String[] { "/user", "/user/*", "/user/*/*" });
 	}
 
 }

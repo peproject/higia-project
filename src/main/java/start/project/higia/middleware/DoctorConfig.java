@@ -9,12 +9,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class DoctorConfig implements WebMvcConfigurer {
 
 	@Autowired
-	private DoctorInterceptor interceptor; 
-	
+	private DoctorInterceptor interceptor;
+
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(interceptor)
-		.addPathPatterns(new String[] { "/doc", "/doc/*" });
+		.addPathPatterns(new String[] { "/doc", "/doc/*", "/doc/*/*" });
 	}
 
 }
