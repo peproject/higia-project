@@ -14,7 +14,7 @@ public class DoctorInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		if (request.getSession().getAttribute("loggedDoctor") == null) {
-			request.getRequestDispatcher("/rota").forward(request, response);
+			request.getRequestDispatcher("/doctor/login").forward(request, response);
 			return false;
 		} else {
 			return true;

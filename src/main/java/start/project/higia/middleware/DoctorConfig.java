@@ -14,7 +14,7 @@ public class DoctorConfig implements WebMvcConfigurer {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(interceptor)
-		.addPathPatterns(new String[] { "/doc", "/doc/*", "/doc/*/*" });
+		.addPathPatterns(new String[] { "/doc", "/doc/**",});
 	}
 
 }
