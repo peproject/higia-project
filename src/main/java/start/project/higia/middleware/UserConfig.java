@@ -14,7 +14,7 @@ public class UserConfig implements WebMvcConfigurer {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(interceptor)
-		.addPathPatterns(new String[] { "/user", "/user/*", "/user/*/*" });
+		.addPathPatterns(new String[] { "/use", "/use/*", "/use/*/*" });
 	}
 
 }
