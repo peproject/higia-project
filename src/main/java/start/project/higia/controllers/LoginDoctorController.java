@@ -16,14 +16,14 @@ public class LoginDoctorController {
 	@Autowired
 	DoctorServices services;
 
-	@GetMapping("/doctor_login")
-	public String doctorLogin() {
+	@GetMapping("/doctor/login")
+	public String login() {
 
 		return "login/doctor";
 	}
 
-	@PostMapping("/logon_doctor")
-	public String doctorLogon(Doctor doctor, HttpSession session) {
+	@PostMapping("/doctor/logon")
+	public String logon(Doctor doctor, HttpSession session) {
 
 		doctor = services.findByEmailAndPassword(doctor.getEmail(), doctor.getPassword());
 
@@ -36,6 +36,12 @@ public class LoginDoctorController {
 			return "redirect:/doctor_login";
 		}
 
+	}
+	
+	@GetMapping("/doc/exit")
+	public String exit(HttpSession session) {
+		session.invalidate();
+		return "redirect:/doctor/login";
 	}
 
 }
