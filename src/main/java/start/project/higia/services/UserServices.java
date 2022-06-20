@@ -23,7 +23,7 @@ public class UserServices {
 	}
 
 	//Serviço para exibir todos os usuarios
-	public List<User> index (User user) {
+	public List<User> index(User user) {
 		return repository.findAll();
 	}
 
