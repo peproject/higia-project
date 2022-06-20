@@ -17,6 +17,7 @@ public class DoctorServices {
 
 	// Serviço para salvar o doutor no banco de dados
 	public Doctor create(Doctor doctor) {
+		doctor.setRole();
 		return repository.save(doctor);
 	}
 
