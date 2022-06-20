@@ -36,7 +36,7 @@ public class LoginUserController {
 			return "redirect:/";
 		} else
 		{
-			return "redirect:/user_login";
+			return "redirect:/user/login";
 		}
 		
 
