@@ -47,7 +47,7 @@ public class UserController {
 	}
 
 	//Rota para exibir todos os users
-	@GetMapping("/index_users")
+	@GetMapping("/user/index_users")
 	public String index(User user, Model model) {
 		model.addAttribute("users", this.services.index(user));
 		return "index2";
