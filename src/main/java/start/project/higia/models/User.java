@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import start.project.higia.utils.Util;
 
 @Entity
 @Data
@@ -51,4 +52,12 @@ public class User {
 		this.role = Roles.USER;
 	}
 
+    public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = Util.md5(password);
+	}
+	
 }
