@@ -9,6 +9,7 @@
 
 body {
 	background-color: var(--hg-bg);
+	color: #121212;
 }
 
 .bg-hg-blue {
@@ -30,6 +31,7 @@ body {
 }
 
 .hg-photo {
+	margin-top: -4%;
 	max-width: 100%;
 	width: 40em;
 	height: 25em;
@@ -142,6 +144,20 @@ input[type="date"], ::placeholder {
 .btn-hg-blue {
 	margin-bottom: 4%;
 	background-color: var(--hg-blue);
+	color: var(--white);
+}
+
+.btn-hg-outline-blue {
+	margin-bottom: 4%;
+	background: none;
+	border: 1px solid var(--hg-blue);
+	color: var(--hg-blue);
+}
+
+.btn-hg-outline-blue:hover {
+	margin-bottom: 4%;
+	background-color: var(--hg-blue);
+	border: 1px solid var(--hg-blue);
 	color: var(--white);
 }
 
