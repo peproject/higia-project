@@ -1,74 +1,84 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://kit.fontawesome.com/c25abe3fb5.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="/vendor/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" href="/styles/style.css">
 	<title>Higia - Criar conta paciente</title>
 </head>
+
 <body>
-<nav class="navbar navbar-expand-lg navbar-white bg-hg-bg">
-	<div class="container-fluid">
-		<a class="navbar-brand" href="#">Navbar</a>
+	<nav class="navbar navbar-expand-lg navbar-white bg-hg-bg">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">Navbar</a>
 
-		<div class="" id="navbarSupportedContent">
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			<div class="" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-			</ul>
-			<ul class="navbar-nav d-flex">
-				<li class="nav-item"><a href="#" class="nav-link">Entrar</a></li>
-			</ul>
+				</ul>
+				<ul class="navbar-nav d-flex">
+					<li class="nav-item">
+						<a href="/user_login" class="btn btn-hg-outline-blue">
+							<i class="fa-solid fa-right-to-bracket me-2"></i>
+							Entrar
+						</a>
+					</li>
+				</ul>
+			</div>
 		</div>
-	</div>
-</nav>
+	</nav>
 
-<div class="hg-photo position-absolute top-50 start-0 translate-middle-y ms-5 mt-3" style="border: 1px solid grey; background-color: grey;">
-	<h1 style="color: white;">AQUI VAI FICAR UMA IMAGEM</h1>
-</div>
-
-<div class="hg-container hg-container-register position-absolute top-50 end-0 translate-middle-y me-5">
-	<div th:class="${style}" th:text="${message}">
-		<i th:class="${icon}"></i>
+	<div class="hg-photo position-absolute top-50 start-0 translate-middle-y ms-5 mt-3"
+		style="border: 1px solid grey; background-color: grey;">
+		<h1 style="color: white;">AQUI VAI FICAR UMA IMAGEM</h1>
 	</div>
-	<form action="/save_user" method="post" th:object="${user}" id="form-register">
-		<p class="password-error" id="password-error">*senhas não batem!</p>
-		<section>
-			<div class="input-group mb-3">
-					<input type="text" class="form-control"
-						placeholder="Nome Completo" name="name" required>
-			</div>
-			<div class="input-group mb-3">
-					<input type="text" class="form-control"
-								 placeholder="000.000.000-00" pattern="\d{3}.\d{3}.\d{3}-\d{2}" name="cpf" required>
-			</div>
-			<div class="input-group mb-3">
-					<input type="tel" class="form-control"
-								 placeholder="0090000-0000" pattern="\d{2}\d{5}-\d{4}" name="number" required>
-			</div>
-			<div class="input-group mb-3">
+
+	<div class="hg-container hg-container-register position-absolute top-50 end-0 translate-middle-y me-5">
+		<div th:class="${style}" th:text="${message}">
+			<i th:class="${icon}"></i>
+		</div>
+		<h2>Criar conta!</h2>
+		<form action="/save_user" method="post" th:object="${user}" id="form-register">
+			<p class="password-error" id="password-error">*senhas não batem!</p>
+			<section>
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" placeholder="Nome Completo" name="name" required>
+				</div>
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" placeholder="000.000.000-00" pattern="\d{3}.\d{3}.\d{3}-\d{2}"
+						name="cpf" required>
+				</div>
+				<div class="input-group mb-3">
+					<input type="tel" class="form-control" placeholder="0090000-0000" pattern="\d{2}\d{5}-\d{4}" name="number"
+						required>
+				</div>
+				<div class="input-group mb-3">
 					<input type="date" class="form-control" placeholder="Data de nascimento" name="birthday" required>
-			</div>
-			<div class="input-group mb-3">
+				</div>
+				<div class="input-group mb-3">
 					<input type="email" class="form-control" placeholder="Email" name="email" required>
-			</div>
-			<div class="input-group mb-3">
-					<input type="password" class="form-control"
-						placeholder="Senha" name="password" minlength="8" id="password" required>
-			</div>
-			<div class="input-group mb-3">
-					<input type="password" class="form-control"
-						placeholder="Confirmar senha" name="re-password" minlength="8" id="re-password" required>
-			</div>
-		</section>
-		<section class="text-center">
-			<button type="button" class="btn btn-hg-blue" onclick="verifyPassword()">Cadastrar</button>
-		</section>
-	</form>
-</div>
-<script src="/scripts/verify_password.js"></script>
-<script src="/vendor/popper/popper.min.js"></script>
-<script src="/vendor/bootstrap/bootstrap.min.js"></script>
+				</div>
+				<div class="input-group mb-3">
+					<input type="password" class="form-control" placeholder="Senha" name="password" minlength="8" id="password"
+						required>
+				</div>
+				<div class="input-group mb-3">
+					<input type="password" class="form-control" placeholder="Confirmar senha" name="re-password" minlength="8"
+						id="re-password" required>
+				</div>
+			</section>
+			<section class="text-center">
+				<button type="button" class="btn btn-hg-blue" onclick="verifyPassword()">Cadastrar</button>
+			</section>
+		</form>
+	</div>
+	<script src="/scripts/verify_password.js"></script>
+	<script src="/vendor/popper/popper.min.js"></script>
+	<script src="/vendor/bootstrap/bootstrap.min.js"></script>
 </body>
+
 </html>
