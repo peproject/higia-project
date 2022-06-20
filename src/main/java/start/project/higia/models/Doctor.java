@@ -41,7 +41,7 @@ public class Doctor {
 		return role;
 	}
 
-	public void setRole(Roles role) {
+	public void setRole() {
 		this.role = Roles.DOCTOR;
 	}
 	
