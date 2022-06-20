@@ -9,6 +9,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,10 +32,9 @@ public class Chart {
 	@Column(nullable = false)
 	private String name;
 	
-	//ver depois
-	//@OneToOne
-	//@Column(nullable = false)
-	//private User cpf;
+	@OneToOne
+	@NotNull
+	private User user;
 	
 	@Column(nullable = false, length = 400)
 	private String occupation;
@@ -42,6 +43,9 @@ public class Chart {
 	@Column(nullable = false)
 	private Limitation limitation;
 	
-	@Column(length = 400)
+	@Column(length = 400, nullable = false)
 	private String allergy;
+	
+	@Column(nullable = false)
+	private String medication;
 }
