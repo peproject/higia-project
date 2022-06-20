@@ -16,15 +16,15 @@ public class LoginUserController {
 	@Autowired
 	UserServices services;
 
-	@GetMapping("/user_login")
-	public String userLogin() {
+	@GetMapping("/user/login")
+	public String login() {
 
 		return "login/patient";
 	}
 
 	//User Login
 
-	@PostMapping("/logon_user")
+	@PostMapping("/user/logon")
 	public String userLogon(User user, HttpSession session) {
 
 		user = services.findByEmailAndPassword(user.getEmail(), user.getPassword());
@@ -43,7 +43,7 @@ public class LoginUserController {
 	}
 	
 	@GetMapping("/user/exit")
-	public String userExit(HttpSession session) {
+	public String exit(HttpSession session) {
 		session.invalidate();
 		return "redirect:/user_login";
 	}
