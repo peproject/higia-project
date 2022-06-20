@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import start.project.higia.utils.Util;
 
 @Entity
 @Data
@@ -44,5 +45,14 @@ public class Doctor {
 	public void setRole() {
 		this.role = Roles.DOCTOR;
 	}
+	 
+    public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = Util.md5(password);
+	}
+	
 	
 }
