@@ -7,7 +7,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -43,16 +42,7 @@ public class User {
     private String number;
 
     @Enumerated(EnumType.STRING)
-    @NotNull
     private Roles role;
-
-    public Roles getRole() {
-		return role;
-	}
-
-	public void setRole() {
-		this.role = Roles.USER;
-	}
 
     public String getPassword() {
 		return password;
@@ -61,5 +51,5 @@ public class User {
 	public void setPassword(String password) {
 		this.password = Util.md5(password);
 	}
-	
+
 }

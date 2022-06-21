@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import start.project.higia.models.Roles;
 import start.project.higia.models.User;
 import start.project.higia.repositories.UserRepository;
 
@@ -18,7 +19,7 @@ public class UserServices {
 	//Serviço para salvar o user no banco
 	public User create(User user) {
 
-		user.setRole();
+		user.setRole(Roles.USER);
 		return repository.save(user);
 	}
 

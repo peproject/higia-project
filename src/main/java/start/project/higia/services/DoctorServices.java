@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import start.project.higia.models.Doctor;
+import start.project.higia.models.Roles;
 import start.project.higia.repositories.DoctorRepository;
 
 @Component
@@ -17,7 +18,7 @@ public class DoctorServices {
 
 	// Serviço para salvar o doutor no banco de dados
 	public Doctor create(Doctor doctor) {
-		doctor.setRole();
+		doctor.setRole(Roles.DOCTOR);
 		return repository.save(doctor);
 	}
 
