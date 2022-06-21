@@ -24,7 +24,7 @@ public class ChartController {
 		return "index";
 	}
 
-	@GetMapping("chart_registration")
+	@GetMapping("/chart/registration")
 	public String registration() {
 		return "register/chart";
 	}
@@ -36,16 +36,16 @@ public class ChartController {
 	}
 
 	//rota para edição de chart
-	@GetMapping("/edit_chart/{id}")
-	public String edit_chart(@PathVariable Long id, Model model) {
+	@GetMapping("/chart/edit/{id}")
+	public String edit(@PathVariable Long id, Model model) {
 		Optional<Chart> chart = this.services.editById(id);
 		model.addAttribute("chart", chart);
 		return "edit/chart";
 	}
 
 	//rota para exclusão do chart
-	@GetMapping("/delete_chart/{id}")
-	public String delete_chart(Long id) {
+	@GetMapping("/chart/delete/{id}")
+	public String delete(Long id) {
 		services.deleteById(id);
 		return "redirect:/chart";
 	}
