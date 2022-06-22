@@ -1,0 +1,17 @@
+<header th:fragment="header">
+	<span th:if="${session.isEmpty()}">
+		<nav class="navbar navbar-expand-lg navbar-white bg-hg-bg">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">Navbar</a>
+				<div class="" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+					<ul class="navbar-nav d-flex" role="search">
+						<li class="nav-item ">
+							<a th:href="${link}" class="btn btn-hg-outline-blue" th:text="${text}"></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</span>
+</header>
