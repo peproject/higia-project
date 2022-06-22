@@ -3,9 +3,18 @@ spring.datasource.username=USUARIO
 spring.datasource.password=SENHA
 
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
-spring.jpa.hibernate.ddl-auto=update
+spring.jpa.hibernate.ddl-auto=create-drop
 
 spring.jpa.properties.hibernate.jdbc.time_zone=UTC
 
 spring.jpa.show-sql=false
 spring.jpa.properties.hibernate.format_sql=true
+
+//ACESSO AO SERVIDOR DE E-MAIL
+
+spring.mail.host=smtp.gmail.com
+spring.mail.port= 587
+spring.mail.username = higiaprojectstart@gmail.com
+spring.mail.password = kfbigotrurdlhbsn
+spring.mail.properties.smtp.aut=true
+spring.mail.properties.mail.smtp.starttls.enable=true

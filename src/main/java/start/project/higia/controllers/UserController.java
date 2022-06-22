@@ -15,12 +15,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import start.project.higia.models.User;
 import start.project.higia.services.UserServices;
+import start.project.higia.utils.EmailSenderService;
 
 @Controller
 public class UserController {
 
 	@Autowired
 	private UserServices services;
+	
+	@Autowired
+	private EmailSenderService emailSender;
 
 	//Rota para tela de Cadastro de usuarios
 	@GetMapping("/user/registration")
@@ -38,6 +42,7 @@ public class UserController {
 			model.addAttribute("icon", "fa-solid fa-triangle-exclamation");
 
 			services.create(user);
+			emailSender.sendEmail(user.getEmail(), "Higia - Create Account", "Account created successfully");
 			return "register/patient";
 		} catch(DataIntegrityViolationException ex) {
 				model.addAttribute("message", "Não foi possivel criar conta! Email ou CPF já cadastrado.");
@@ -68,5 +73,9 @@ public class UserController {
 		services.deleteById(id);
 		return "redirect:/use/index";
 	}
+	
+	
+		
+	
 
 }
