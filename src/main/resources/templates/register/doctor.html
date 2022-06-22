@@ -12,25 +12,7 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-white bg-hg-bg">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="#">Navbar</a>
-
-			<div class="" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-				</ul>
-				<ul class="navbar-nav d-flex" role="search">
-					<li class="nav-item">
-						<a href="/doctor/login" class="btn btn-hg-outline-blue">
-							<i class="fa-solid fa-right-to-bracket me-2"></i>
-							Entrar
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	<header th:replace="_fragments/header :: header(link='/doctor/login', text='Entrar')"></header>
 
 	<div class="hg-photo position-absolute top-50 start-0 translate-middle-y ms-5 mt-3"
 		style="border: 1px solid grey; background-color: grey;">
