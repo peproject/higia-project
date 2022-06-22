@@ -26,7 +26,7 @@ public class EvolutionController {
 	}
 	
 	//rota para tela de cadastro
-	@GetMapping("/evolution_registration")
+	@GetMapping("/evolution/registration")
 	public String registration() {
 		return "index";
 	
@@ -39,7 +39,7 @@ public class EvolutionController {
 	}
 	
 	//Rota para edição da evolution
-	@GetMapping("/edit_evolution/{id}")
+	@GetMapping("/edit/evolution/{id}")
 	public String editar_user(@PathVariable Long id, Model model) {
 		Optional<Evolution> evolution = this.services.editById(id);
 		model.addAttribute("evolution", evolution);
@@ -47,7 +47,7 @@ public class EvolutionController {
 	}
 
 	//Rota para exclusão da evolution
-	@GetMapping("/delete_evolution")
+	@GetMapping("/delete/evolution")
 	public String excluir_user(Long id) {
 		services.deleteById(id);
 		return "redirect:/evolution";
