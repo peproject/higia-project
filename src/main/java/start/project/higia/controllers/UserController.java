@@ -22,7 +22,7 @@ public class UserController {
 
 	@Autowired
 	private UserServices services;
-	
+
 	@Autowired
 	private EmailSenderService emailSender;
 
@@ -53,14 +53,14 @@ public class UserController {
 	}
 
 	//Rota para exibir todos os users
-	@GetMapping("/use/index")
+	@GetMapping("/user/index")
 	public String index(User user, Model model) {
 		model.addAttribute("users", this.services.index(user));
 		return "index2";
 	}
 
 	//Rota para edição de usuario
-	@GetMapping("/use/edit/{id}")
+	@GetMapping("/user/edit/{id}")
 	public String edit(@PathVariable Long id, Model model) {
 		Optional<User> usu = this.services.editById(id);
 		model.addAttribute("users", usu);
@@ -68,14 +68,10 @@ public class UserController {
 	}
 
 	//Rota para exclusão do usuario
-	@GetMapping("/use/delete")
+	@GetMapping("/user/delete")
 	public String delete(@RequestParam Long id) {
 		services.deleteById(id);
 		return "redirect:/use/index";
 	}
-	
-	
-		
-	
 
 }
