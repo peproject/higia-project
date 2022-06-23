@@ -14,22 +14,22 @@ import start.project.higia.services.EvolutionServices;
 
 @Controller
 public class EvolutionController {
-	
-    //Lendo classe de serviço da evolution 
+
+    //Lendo classe de serviço da evolution
 	@Autowired
 	private EvolutionServices services;
-	
+
 	@GetMapping("/Evolution")
 	public String index(Evolution evolution, Model model) {
 		model.addAttribute("evolution", this.services.index(evolution));
 		return "index";
 	}
-	
+
 	//rota para tela de cadastro
 	@GetMapping("/evolution/registration")
 	public String registration() {
 		return "index";
-	
+
 	}
 	//Rota para salvar a evolution no banco de dados
 	@PostMapping("/evolution")
@@ -37,10 +37,10 @@ public class EvolutionController {
 		this.services.create(evolution);
 		return "index";
 	}
-	
+
 	//Rota para edição da evolution
 	@GetMapping("/edit/evolution/{id}")
-	public String editar_user(@PathVariable Long id, Model model) {
+	public String edit(@PathVariable Long id, Model model) {
 		Optional<Evolution> evolution = this.services.editById(id);
 		model.addAttribute("evolution", evolution);
 		return "";
@@ -48,7 +48,7 @@ public class EvolutionController {
 
 	//Rota para exclusão da evolution
 	@GetMapping("/delete/evolution")
-	public String excluir_user(Long id) {
+	public String delete(Long id) {
 		services.deleteById(id);
 		return "redirect:/evolution";
 	}
