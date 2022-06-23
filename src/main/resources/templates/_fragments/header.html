@@ -7,11 +7,16 @@
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
 					<ul class="navbar-nav d-flex" role="search">
 						<li class="nav-item ">
-							<a th:href="${link}" class="btn btn-hg-outline-blue" th:text="${text}"></a>
+							<a  th:href="${link}" class="btn btn-hg-outline-blue">
+								<span class="me-1" th:classappend="${icon}"></span>
+								<span  th:text="${text}"></span>
+							</a>
 						</li>
 					</ul>
 				</div>
 			</div>
 		</nav>
+	</span>
+	<span th:unless="${session.isEmpty()}">
 	</span>
 </header>
