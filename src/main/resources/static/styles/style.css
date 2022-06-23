@@ -235,3 +235,8 @@ input[type="date"], ::placeholder {
   background: url(../images/people.png);
 	background-size: 40px 40px;
 }
+
+input:focus:invalid {
+	border-color: var(--hg-danger);
+	color: var(--hg-danger);
+}
