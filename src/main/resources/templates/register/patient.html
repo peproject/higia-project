@@ -24,7 +24,8 @@
 			<i th:class="${icon}"></i>
 		</div>
 		<h2>Criar conta!</h2>
-		<form action="/user" method="post" th:object="${user}" id="form-register">
+		<form action="/user" method="post" th:object="${user}" id="form-register"
+		oninput="rePassword.setCustomValidity(password.value != rePassword.value ? 'Passwords do not match.' : '')">
 			<p class="password-error" id="password-error">*senhas não batem!</p>
 			<section>
 				<div class="input-group mb-3">
@@ -49,12 +50,12 @@
 						required>
 				</div>
 				<div class="input-group mb-3">
-					<input type="password" class="form-control" placeholder="Confirmar senha" name="re-password" minlength="8"
+					<input type="password" class="form-control" placeholder="Confirmar senha" name="rePassword" minlength="8"
 						id="re-password" required>
 				</div>
 			</section>
 			<section class="text-center">
-				<button type="button" class="btn btn-hg-blue" onclick="verifyPassword()">Cadastrar</button>
+				<button type="submit" class="btn btn-hg-blue">Cadastrar</button>
 			</section>
 		</form>
 	</div>
