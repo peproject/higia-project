@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head>
+<head >
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://kit.fontawesome.com/c25abe3fb5.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="/vendor/bootstrap/bootstrap.min.css">
-	<link rel="stylesheet" href="/styles/style.css">
 	<title>Higia - Criar conta paciente</title>
+	<span th:replace="_fragments/imports_head :: imports_head"></span>
 </head>
 
 <body>
@@ -24,44 +22,50 @@
 			<i th:class="${icon}"></i>
 		</div>
 		<h2>Criar conta!</h2>
-		<form action="/user" method="post" th:object="${user}" id="form-register"
-		oninput="rePassword.setCustomValidity(password.value != rePassword.value ? 'Passwords do not match.' : '')">
-			<p class="password-error" id="password-error">*senhas não batem!</p>
+		<form action="/user" method="post" th:object="${user}" id="form-register" class="needs-validation"
+		oninput="rePassword.setCustomValidity(password.value != rePassword.value ? 'Senha não bate!' : '')">
+			<p class="password-error" id="password-error">Senhas não batem!</p>
 			<section>
 				<div class="input-group mb-3">
-					<input type="text" class="form-control" placeholder="Nome Completo" name="name" required>
+					<input type="text" class="form-control"
+						placeholder="Nome Completo" name="name" id="name" required>
 				</div>
 				<div class="input-group mb-3">
-					<input type="text" class="form-control" placeholder="000.000.000-00" pattern="\d{3}.\d{3}.\d{3}-\d{2}"
-						name="cpf" required>
+					<input type="text" class="form-control"
+						placeholder="000.000.000-00" pattern="\d{3}.\d{3}.\d{3}-\d{2}"
+						name="cpf" id="cpf" required>
 				</div>
 				<div class="input-group mb-3">
-					<input type="tel" class="form-control" placeholder="0090000-0000" pattern="\d{2}\d{5}-\d{4}" name="number"
+					<input type="tel" class="form-control"
+						placeholder="0090000-0000" pattern="\d{2}\d{5}-\d{4}" name="number" id="number"
 						required>
 				</div>
 				<div class="input-group mb-3">
-					<input type="date" class="form-control" placeholder="Data de nascimento" name="birthday" required>
+					<input type="date" class="form-control"
+					placeholder="Data de nascimento" name="birthday" id="birthday" required>
 				</div>
 				<div class="input-group mb-3">
-					<input type="email" class="form-control" placeholder="Email" name="email" required>
+					<input type="email" class="form-control"
+						placeholder="Email" name="email" id="email" required>
 				</div>
 				<div class="input-group mb-3">
-					<input type="password" class="form-control" placeholder="Senha" name="password" minlength="8" id="password"
-						required>
+					<input type="password" class="form-control"
+					placeholder="Senha" name="password" minlength="8" id="password" required>
 				</div>
 				<div class="input-group mb-3">
-					<input type="password" class="form-control" placeholder="Confirmar senha" name="rePassword" minlength="8"
+					<input type="password" class="form-control"
+					placeholder="Confirmar senha" name="rePassword" minlength="8"
 						id="re-password" required>
 				</div>
 			</section>
 			<section class="text-center">
-				<button type="submit" class="btn btn-hg-blue">Cadastrar</button>
+				<button type="submit" class="btn btn-hg-blue" onclick="verifyInput()">Cadastrar</button>
 			</section>
 		</form>
 	</div>
-	<script src="/scripts/verify_password.js"></script>
-	<script src="/vendor/popper/popper.min.js"></script>
-	<script src="/vendor/bootstrap/bootstrap.min.js"></script>
+
+	<script src="/scripts/verify_input.js"></script>
+	<span th:replace="_fragments/imports_body :: imports_body"></span>
 </body>
 
 </html>
