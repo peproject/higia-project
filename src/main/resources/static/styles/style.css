@@ -236,7 +236,7 @@ input[type="date"], ::placeholder {
 	background-size: 40px 40px;
 }
 
-input:focus:invalid {
-	border-color: var(--hg-danger);
+.hg-error::placeholder {
 	color: var(--hg-danger);
 }
+
