@@ -10,13 +10,18 @@
 </head>
 
 <body>
-	<header th:replace="_fragments/header :: header(link='/doctor/registration', text='Registrar-se', icon='fa-solid fa-user-plus')"></header>
+	<header
+		th:replace="_fragments/header :: header(link='/doctor/registration', text='Registrar-se', icon='fa-solid fa-user-plus')">
+	</header>
 
 	<div class="hg-photo position-absolute top-50 start-0 translate-middle-y ms-5">
 		<img src="/images/medical-team.png" alt="">
 	</div>
 
 	<div class="hg-container position-absolute top-50 end-0 translate-middle-y me-5">
+		<div th:class="${style}" th:text="${message}">
+			<i th:class="${icon}"></i>
+		</div>
 		<h3>Entrar</h3>
 		<form action="/doctor/logon" method="post">
 			<section>
@@ -24,7 +29,8 @@
 					<input type="email" class="form-control" placeholder="Email" name="email" required>
 				</div>
 				<div class="input-group mb-3">
-					<input type="password" class="form-control" placeholder="Password" name="password" required>
+					<input type="password" class="form-control"
+						placeholder="Password" name="password" minlength="8" required>
 				</div>
 			</section>
 			<section class="text-center">
