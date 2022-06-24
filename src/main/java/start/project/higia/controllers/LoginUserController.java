@@ -38,14 +38,14 @@ public class LoginUserController {
 		{
 			return "redirect:/user/login";
 		}
-		
+
 
 	}
-	
+
 	@GetMapping("/user/exit")
 	public String exit(HttpSession session) {
 		session.invalidate();
-		return "redirect:/user_login";
+		return "redirect:/";
 	}
 
 }

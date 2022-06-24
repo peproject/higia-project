@@ -37,11 +37,11 @@ public class LoginDoctorController {
 		}
 
 	}
-	
+
 	@GetMapping("/doc/exit")
 	public String exit(HttpSession session) {
 		session.invalidate();
-		return "redirect:/doctor/login";
+		return "redirect:/";
 	}
 
 }
