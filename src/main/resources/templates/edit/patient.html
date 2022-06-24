@@ -1,134 +1,117 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="https://thymeleaf.org">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="/vendor/bootstrap/bootstrap.min.css">
-	<link rel="stylesheet" href="/styles/style.css">
 	<title>Higia - Editar dados</title>
-	<script src="https://kit.fontawesome.com/c25abe3fb5.js" crossorigin="anonymous"></script>
+	<span th:replace="_fragments/imports_head :: imports_head"></span>
 </head>
+
 <body class="text-center">
-<nav class="navbar navbar-expand-lg navbar-dark bg-hg-blue">
-	<div class="container-fluid">
-		<a class="navbar-brand" href="#">Navbar</a>
+	<header th:replace="_fragments/header :: header"></header>
 
-		<div class="" id="navbarSupportedContent">
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	<div class="container hg-container-edit">
 
-			</ul>
-			<ul class="navbar-nav d-flex" role="search">
-				<li class="nav-item"><a href="#" class="nav-link">Sair</a></li>
-			</ul>
+		<div class="row">
+			<div class="col-sm">
+				<h3>Alterar dados</h3>
+				<div class="p-3 mb-2 bg-success text-white">
+					<i class="fa-solid fa-check"></i>
+					Dados salvos!
+				</div>
+
+				<div class="p-3 mb-2 bg-danger text-white">
+					<i class="fa-solid fa-triangle-exclamation"></i>
+					Não foi possivel salvar os dados!
+				</div>
+
+				<form action="" method="post" th:object="${users}">
+					<section>
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" th:field="*{name}" placeholder="Nome Completo" disabled>
+						</div>
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" th:field="*{cpf}" placeholder="Cpf" disabled>
+						</div>
+						<div class="input-group mb-3">
+							<input type="tel" class="form-control" th:field="*{number}" placeholder="Celular" required>
+						</div>
+						<div class="input-group mb-3">
+							<input type="date" class="form-control" th:field="*{birthday}" placeholder="Data de nascimento" required>
+						</div>
+					</section>
+					<section class="text-center">
+						<button type="submit" class="btn btn-hg-blue">Editar</button>
+						<a th:href="@{/user/delete(id=${session.loggedUser.id})}" class="btn btn-hg-outline-danger">
+							<i class="fas fa-trash"></i>
+							Excluir conta
+						</a>
+					</section>
+				</form>
+			</div>
+
+			<div class="col-sm">
+				<h3>Alterar e-mail</h3>
+				<div class="p-3 mb-2 bg-success text-white">
+					<i class="fa-solid fa-check"></i>
+					E-mail alterado com sucesso!
+				</div>
+				<div class="p-3 mb-2 bg-danger text-white">
+					<i class="fa-solid fa-triangle-exclamation"></i>
+					Não foi possivel alterar o e-mail!
+				</div>
+				<form action="" method="post">
+					<div class="input-group mb-3">
+						<input type="password" class="form-control" placeholder="Email">
+					</div>
+					<div class="input-group mb-3">
+						<input type="password" class="form-control" placeholder="Senha">
+					</div>
+					<section class="text-center">
+						<button type="submit" class="btn btn-hg-blue">Alterar email</button>
+					</section>
+				</form>
+
+				<h3>Alterar senha</h3>
+				<div class="p-3 mb-2 bg-success text-white">
+					<i class="fa-solid fa-check"></i>
+					Senha alterada com sucesso!
+				</div>
+				<div class="p-3 mb-2 bg-danger text-white">
+					<i class="fa-solid fa-triangle-exclamation"></i>
+					Não foi possivel alterar a senha conta! Limite de caractere de 8 dig.
+				</div>
+				<form action="" method="post">
+					<div class="input-group mb-3">
+						<input type="password" class="form-control" placeholder="Senha">
+					</div>
+					<div class="input-group mb-3">
+						<input type="password" class="form-control" placeholder="Confirmar senha">
+					</div>
+					<section class="text-center">
+						<button type="submit" class="btn btn-hg-blue">Alterar senha</button>
+					</section>
+				</form>
+
+
+			</div>
+			<div class="col-sm">
+
+			</div>
 		</div>
 	</div>
-</nav>
 
-<div class="container hg-container-edit position-absolute top-50 end-0 translate-middle-y me-5">
-
-	<div class="row">
-		<div class="col-sm">
-			<h3>Alterar dados</h3>
-			<div class="p-3 mb-2 bg-success text-white">
-				<i class="fa-solid fa-check"></i>
-				Dados salvos!
-			</div>
-
-			<div class="p-3 mb-2 bg-danger text-white">
-				<i class="fa-solid fa-triangle-exclamation"></i>
-				Não foi possivel salvar os dados!
-			</div>
-
-			<form action="" method="post" th:object="${users}">
-				<section>
-					<div class="input-group mb-3">
-						<input type="text" class="form-control" th:field="*{name}"
-									 placeholder="Nome Completo" disabled>
-					</div>
-					<div class="input-group mb-3">
-						<input type="text" class="form-control" th:field="*{cpf}"
-									 placeholder="Cpf" disabled>
-					</div>
-					<div class="input-group mb-3">
-						<input type="tel" class="form-control" th:field="*{number}"
-									 placeholder="Celular" required>
-					</div>
-					<div class="input-group mb-3">
-						<input type="date" class="form-control" th:field="*{birthday}"
-									 placeholder="Data de nascimento" required>
-					</div>
-				</section>
-				<section class="text-center">
-					<button type="submit" class="btn btn-hg-blue">Editar</button>
-					<a th:href="@{/user/delete(id=${session.loggedUser.id})}" class="btn btn-hg-outline-danger">
-						<i class="fas fa-trash"></i>
-						Excluir conta
-					</a>
-				</section>
-			</form>
-		</div>
-
-		<div class="col-sm">
-			<h3>Alterar e-mail</h3>
-			<div class="p-3 mb-2 bg-success text-white">
-				<i class="fa-solid fa-check"></i>
-				E-mail alterado com sucesso!
-			</div>
-			<div class="p-3 mb-2 bg-danger text-white">
-				<i class="fa-solid fa-triangle-exclamation"></i>
-				Não foi possivel alterar o e-mail!
-			</div>
-			<form action="" method="post">
-				<div class="input-group mb-3">
-					<input type="password" class="form-control" placeholder="Email">
-				</div>
-				<div class="input-group mb-3">
-					<input type="password" class="form-control" placeholder="Senha">
-				</div>
-				<section class="text-center">
-					<button type="submit" class="btn btn-hg-blue">Alterar email</button>
-				</section>
-			</form>
-
-			<h3>Alterar senha</h3>
-			<div class="p-3 mb-2 bg-success text-white">
-				<i class="fa-solid fa-check"></i>
-				Senha alterada com sucesso!
-			</div>
-			<div class="p-3 mb-2 bg-danger text-white">
-				<i class="fa-solid fa-triangle-exclamation"></i>
-				Não foi possivel alterar a senha conta! Limite de caractere de 8 dig.
-			</div>
-			<form action="" method="post">
-				<div class="input-group mb-3">
-					<input type="password" class="form-control" placeholder="Senha">
-				</div>
-				<div class="input-group mb-3">
-					<input type="password" class="form-control" placeholder="Confirmar senha">
-				</div>
-				<section class="text-center">
-					<button type="submit" class="btn btn-hg-blue">Alterar senha</button>
-				</section>
-			</form>
+	<div class="hg-container hg-container-register ">
 
 
-		</div>
-		<div class="col-sm">
 
-		</div>
+
+
 	</div>
-</div>
 
-<div class="hg-container hg-container-register ">
-
-
-
-
-
-</div>
-
-<script src="/vendor/popper/popper.min.js"></script>
-<script src="/vendor/bootstrap/bootstrap.min.js"></script>
+	<span th:replace="_fragments/imports_body :: imports_body"></span>
 </body>
+
 </html>
