@@ -53,14 +53,14 @@ public class UserController {
 	}
 
 	//Rota para exibir todos os users
-	@GetMapping("/user/index")
+	@GetMapping("/use/index")
 	public String index(User user, Model model) {
 		model.addAttribute("users", this.services.index(user));
 		return "index2";
 	}
 
 	//Rota para edição de usuario
-	@GetMapping("/user/edit/{id}")
+	@GetMapping("/use/edit/{id}")
 	public String edit(@PathVariable Long id, Model model) {
 		Optional<User> usu = this.services.editById(id);
 		model.addAttribute("users", usu);
@@ -68,7 +68,7 @@ public class UserController {
 	}
 
 	//Rota para exclusão do usuario
-	@GetMapping("/user/delete")
+	@GetMapping("/use/delete")
 	public String delete(@RequestParam Long id) {
 		services.deleteById(id);
 		return "redirect:/use/index";
