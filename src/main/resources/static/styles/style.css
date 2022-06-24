@@ -27,7 +27,8 @@ body {
 }
 
 .hg-container-edit {
-	margin-top: 10em;
+	margin-top: 5em;
+	margin-left: 15em;
 }
 
 .hg-photo {
@@ -139,9 +140,20 @@ input[type="date"], ::placeholder {
 	.hg-mr-10 {
 		margin-right: 17em;
 	}
+
+	.hg-container-edit {
+		margin-top: 5em;
+		margin-left: 0;
+	}
 }
 
 .btn-hg-blue {
+	margin-bottom: 4%;
+	background-color: var(--hg-blue);
+	color: var(--white);
+}
+
+.btn-hg-blue:focus {
 	margin-bottom: 4%;
 	background-color: var(--hg-blue);
 	color: var(--white);
