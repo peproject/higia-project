@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -23,7 +24,7 @@ public class LoginDoctorController {
 	}
 
 	@PostMapping("/doctor/logon")
-	public String logon(Doctor doctor, HttpSession session) {
+	public String logon(Doctor doctor, HttpSession session, Model model) {
 
 		doctor = services.findByEmailAndPassword(doctor.getEmail(), doctor.getPassword());
 
@@ -33,7 +34,11 @@ public class LoginDoctorController {
 
 			return "redirect:/";
 		} else {
-			return "redirect:/doctor/login";
+			model.addAttribute("message", "E-mail não cadastrado ou senha inválida.");
+			model.addAttribute("style", "p-3 mb-2 bg-danger text-white");
+			model.addAttribute("icon", "fa-solid fa-check");
+
+			return "login/doctor";
 		}
 
 	}
