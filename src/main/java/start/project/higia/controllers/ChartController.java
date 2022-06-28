@@ -18,14 +18,14 @@ public class ChartController {
 	@Autowired
 	private ChartServices services;
 
+
 	@GetMapping("/chart")
-	public String index(Chart chart, Model model) {
-		model.addAttribute("chart", this.services.index(chart));
+	public String index(Chart chart) {
 		return "index";
 	}
 
 	@GetMapping("/chart/registration")
-	public String registration() {
+	public String registration(Chart chart) {
 		return "register/chart";
 	}
 

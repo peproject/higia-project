@@ -25,27 +25,27 @@ public class Chart {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@Column(nullable = false)
 	private Date date;
-	
+
 	@Column(nullable = false)
 	private String name;
-	
+
 	@OneToOne
 	@NotNull
 	private User user;
-	
+
 	@Column(nullable = false, length = 400)
 	private String occupation;
-	
+
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	private Limitation limitation;
-	
-	@Column(length = 400, nullable = false)
+
+	@Column(length = 400, nullable = true)
 	private String allergy;
-	
+
 	@Column(nullable = false)
 	private String medication;
 }
