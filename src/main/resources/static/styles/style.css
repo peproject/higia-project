@@ -262,3 +262,7 @@ input[type="date"], ::placeholder {
 	font-family: 'Rubik Moonrocks', cursive;
 	font-size: 20pt;
 }
+
+.hg-link-m-blue {
+	color: #83B5F9;
+}
