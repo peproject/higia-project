@@ -5,24 +5,12 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://kit.fontawesome.com/c25abe3fb5.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="/vendor/bootstrap/bootstrap.min.css">
-	<link rel="stylesheet" href="/styles/style.css">
+	<span th:replace="_fragments/imports_head :: imports_head"></span>
 	<title>Higia - Seja bem-vindo</title>
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-white bg-hg-bg">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="#">Navbar</a>
-
-			<div class="" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-				</ul>
-			</div>
-		</div>
-	</nav>
+	<header th:replace="_fragments/header :: header(link='/registration', text='Criar uma conta', icon='fa-solid fa-user-plus me-2')"></header>
 
 	<div class="container position-absolute top-50 start-50 translate-middle">
 		<h3 class="text-primary">Diga-nos qual é a sua situação</h3>
@@ -50,16 +38,9 @@
 				</div>
 			</div>
 		</div>
-		<p class="text-center mt-4">
-			<a href="" class="btn btn-hg-outline-blue">
-				<i class="fa-solid fa-user-plus me-2"></i>
-				Criar uma conta
-			</a>
-		</p>
 	</div>
 
-	<script src="/vendor/popper/popper.min.js"></script>
-	<script src="/vendor/bootstrap/bootstrap.min.js"></script>
+	<span th:replace="_fragments/imports_body :: imports_body"></span>
 </body>
 
 </html>
