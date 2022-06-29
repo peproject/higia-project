@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import start.project.higia.models.Doctor;
 import start.project.higia.models.Roles;
 import start.project.higia.services.DoctorServices;
+import start.project.higia.utils.EmailSenderService;
 
 @Controller
 public class DoctorController {
@@ -22,6 +23,9 @@ public class DoctorController {
     //Lendo classe de serviço do doutor
 	@Autowired
 	private DoctorServices services;
+
+	@Autowired
+	private EmailSenderService emailSender;
 
 	@GetMapping("/doc")
 	public String index(Doctor doctor, Model model) {
@@ -46,7 +50,7 @@ public class DoctorController {
 
 			doctor.setRole(Roles.DOCTOR);
 			this.services.create(doctor);
-
+			emailSender.sendEmail(doctor.getEmail(), "Higia - Create Account", "Account created successfully");
 			return "register/doctor";
 		} catch(DataIntegrityViolationException ex) {
 				model.addAttribute("message", "Não foi possivel criar conta! Email ou CRM já cadastrado.");
