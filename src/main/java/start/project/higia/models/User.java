@@ -25,6 +25,9 @@ public class User {
 
 	@Column(nullable = false)
 	private String name;
+	
+	@Column(nullable = false)
+	private String lastname;
 
     @Column(nullable = false, unique = true)
     private String cpf;
