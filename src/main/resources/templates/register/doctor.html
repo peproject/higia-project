@@ -21,7 +21,7 @@
 		<div th:class="${style}" th:text="${message}">
 			<i th:class="${icon}"></i>
 		</div>
-		<h2>Criar conta!</h2>
+		<h2 class="mb-3 hg-black-light">Criar conta!</h2>
 		<form action="/doctor" method="post" id="form-register"
 		oninput="rePassword.setCustomValidity(password.value != rePassword.value ? 'Passwords do not match.' : '')">
 			<p class="password-error" id="password-error">Senhas não batem!</p>

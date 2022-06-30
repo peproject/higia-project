@@ -22,7 +22,7 @@
 		<div th:class="${style}" th:text="${message}">
 			<i th:class="${icon}"></i>
 		</div>
-		<h3>Entrar</h3>
+		<h2 class="mb-3 hg-black-light">Entrar</h2>
 		<form action="/doctor/logon" method="post">
 			<section>
 				<div class="input-group mb-3">
@@ -35,11 +35,11 @@
 			</section>
 			<section class="text-center">
 				<a href="#" class="pe-5 form-link">Esqueceu a senha?</a>
-				<button type="submit" class="btn btn-hg-blue">Entrar</button>
+				<button type="submit" class="btn btn-hg-blue mt-2">Entrar</button>
 			</section>
 		</form>
 		<div class="text-center mt-5">
-			<a href="/" class="btn btn-hg-outline-blue">
+			<a href="/" class="btn btn-outline-secondary">
 				<i class="fa-solid fa-arrow-left me-1"></i>
 				voltar
 			</a>
