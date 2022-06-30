@@ -35,7 +35,7 @@ body {
 .hg-photo {
 	margin-top: -4%;
 	max-width: 100%;
-	width: 40em;
+	width: 30em;
 	height: 25em;
 	padding: 2%;
 }
@@ -107,6 +107,16 @@ input[type="date"], ::placeholder {
 @media screen and (max-width: 767px) {
 	.hg-photo {
 		display: none;
+	}
+
+	.hg-container {
+		position: absolute;
+		left: 20%;
+
+		height: 20px;
+		margin-left: -10px;
+		/* -1/2 width */
+		margin-top: -10em;
 	}
 
 	.hg-container-register {
@@ -266,3 +276,5 @@ input[type="date"], ::placeholder {
 .hg-link-m-blue {
 	color: #83B5F9;
 }
+
+
