@@ -6,11 +6,16 @@
 	--white: #fff;
 	--hg-bg: #f3f6fa;
 	--hg-danger: #ff6347;
+	--hg-black-light: #353434;
 }
 
 body {
 	background-color: var(--hg-bg);
 	color: #121212;
+}
+
+.hg-black-light {
+	color: var(--hg-black-light);
 }
 
 .bg-hg-blue {
@@ -38,6 +43,7 @@ body {
 	width: 30em;
 	height: 25em;
 	padding: 2%;
+	object-fit: contain;
 }
 
 .hg-select {
