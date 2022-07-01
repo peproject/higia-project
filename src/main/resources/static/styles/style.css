@@ -135,6 +135,10 @@ input[type="date"], ::placeholder {
 		height: 10%;
 	}
 
+	.form-control-mobile-col {
+		height: 100%;
+	}
+
 	.btn-hg-blue, .btn-hg-outline-danger, .form-control1 {
 		width: 100%;
 	}
