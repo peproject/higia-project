@@ -9,41 +9,40 @@
 	<span th:replace="_fragments/imports_head :: imports_head"></span>
 </head>
 
-<body class="text-center">
+<body>
 	<header th:replace="_fragments/header :: header"></header>
 
 	<div class="container hg-container-edit">
 
 		<div class="row">
 			<div class="col-sm">
-				<h3>Alterar dados</h3>
-				<div class="p-3 mb-2 bg-success text-white">
-					<i class="fa-solid fa-check"></i>
-					Dados salvos!
-				</div>
-
-				<div class="p-3 mb-2 bg-danger text-white">
-					<i class="fa-solid fa-triangle-exclamation"></i>
-					Não foi possivel salvar os dados!
-				</div>
+				<h3 class="text-center">Dados</h3>
 
 				<form action="" method="post" th:object="${users}">
 					<section>
 						<div class="input-group mb-3">
-							<input type="text" class="form-control" th:field="*{name}" placeholder="Nome Completo" disabled>
+							<div class="row">
+								<div class="col-sm">
+									<label for="name" class="form-label">Nome:</label>
+									<input type="text" class="form-control form-control-mobile-col-edit" th:field="*{name}" placeholder="Nome" disabled>
+								</div>
+								<div class="col-sm">
+									<label for="lastname" class="form-label">Sobrenome:</label>
+									<input type="text" class="form-control form-control-mobile-col-edit" th:field="*{lastname}" placeholder="Sobrenome" disabled>
+								</div>
+							</div>
 						</div>
 						<div class="input-group mb-3">
 							<input type="text" class="form-control" th:field="*{cpf}" placeholder="Cpf" disabled>
 						</div>
 						<div class="input-group mb-3">
-							<input type="tel" class="form-control" th:field="*{number}" placeholder="Celular" required>
+							<input type="tel" class="form-control" th:field="*{number}" placeholder="Celular" disabled>
 						</div>
 						<div class="input-group mb-3">
-							<input type="date" class="form-control" th:field="*{birthday}" placeholder="Data de nascimento" required>
+							<input type="date" class="form-control" th:field="*{birthday}" placeholder="Data de nascimento" disabled>
 						</div>
 					</section>
 					<section class="text-center">
-						<button type="submit" class="btn btn-hg-blue">Editar</button>
 						<a th:href="@{/user/delete(id=${session.loggedUser.id})}" class="btn btn-hg-outline-danger">
 							<i class="fas fa-trash"></i>
 							Excluir conta
@@ -53,7 +52,7 @@
 			</div>
 
 			<div class="col-sm">
-				<h3>Alterar e-mail</h3>
+				<h3 class="text-center">Alterar e-mail</h3>
 				<div class="p-3 mb-2 bg-success text-white">
 					<i class="fa-solid fa-check"></i>
 					E-mail alterado com sucesso!
@@ -74,7 +73,7 @@
 					</section>
 				</form>
 
-				<h3>Alterar senha</h3>
+				<h3 class="text-center">Alterar senha</h3>
 				<div class="p-3 mb-2 bg-success text-white">
 					<i class="fa-solid fa-check"></i>
 					Senha alterada com sucesso!
