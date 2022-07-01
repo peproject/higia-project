@@ -39,20 +39,22 @@
 						<li class="nav-item">
 							<a class="nav-link" href="#">Adicionar prontuário</a>
 						</li>
-						<li class="nav-item dropdown">
+						</li>
+					</ul>
+					<ul class="navbar-nav d-flex">
+						<li class="nav-item dropdown dropstart">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
 								aria-expanded="false">
 								<i class="fa-solid fa-user"></i>
 								<span th:if="${session.containsKey('loggedUser')}" th:text="${session.loggedUser.name}"></span>
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li><a class="dropdown-item" href="#">Editar dados</a></li>
+								<li><a class="dropdown-item" th:href="${session.containsKey('loggedUser')? '/use/edit/' + session.loggedUser.id:'/doc/edit/' + session.loggedDoctor.id}">Editar dados</a></li>
 								<li>
 									<hr class="dropdown-divider">
 								</li>
 								<li><a class="dropdown-item" href="/user/exit">Sair</a></li>
 							</ul>
-						</li>
 					</ul>
 				</div>
 			</div>
