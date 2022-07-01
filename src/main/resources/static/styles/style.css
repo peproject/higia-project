@@ -139,6 +139,10 @@ input[type="date"], ::placeholder {
 		height: 100%;
 	}
 
+	.form-control-mobile-col-edit {
+		height: 54%;
+	}
+
 	.btn-hg-blue, .btn-hg-outline-danger, .form-control1 {
 		width: 100%;
 	}
