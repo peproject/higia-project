@@ -32,7 +32,8 @@ public class LoginUserController {
 
 		if (user != null) {
 
-			session.setAttribute("loggedUser", user);
+			session.setAttribute("logged", user);
+			session.setAttribute("user", 1);
 
 			return "redirect:/";
 		} else {
