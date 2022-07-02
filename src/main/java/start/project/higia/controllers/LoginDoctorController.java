@@ -30,7 +30,8 @@ public class LoginDoctorController {
 
 		if (doctor != null) {
 
-			session.setAttribute("loggedDoctor", doctor);
+			session.setAttribute("logged", doctor);
+			session.setAttribute("doctor", 0);
 
 			return "redirect:/";
 		} else {
