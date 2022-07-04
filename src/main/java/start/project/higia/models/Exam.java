@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Exam {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -37,10 +37,10 @@ public class Exam {
 	private User user;
 	@Column
 	private Date date;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date created_at;
-	
+	private Date createdAt;
+
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date updated_at;
+	private Date updatedAt;
 }
