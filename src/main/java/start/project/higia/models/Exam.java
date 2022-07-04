@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -36,5 +38,9 @@ public class Exam {
 	@Column
 	private Date date;
 	
-
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date created_at;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date updated_at;
 }
