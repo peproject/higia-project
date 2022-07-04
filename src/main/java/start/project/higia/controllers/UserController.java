@@ -71,7 +71,7 @@ public class UserController {
 	@GetMapping("/use/delete")
 	public String delete(@RequestParam Long id) {
 		services.deleteById(id);
-		return "redirect:/use/index";
+		return "redirect:/user/login";
 	}
 
 }
