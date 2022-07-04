@@ -43,8 +43,8 @@ public class Chart {
 	private String medication;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date created_at;
+	private Date createdAt;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date updated_at;
+	private Date updatedAt;
 }

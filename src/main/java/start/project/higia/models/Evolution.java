@@ -22,17 +22,17 @@ public class Evolution {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@Column(length = 16000, nullable = false)
 	private String body;
-	
+
 	@ManyToOne
 	@NotNull
 	private Chart chart;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date created_at;
-	
+	private Date createdAt;
+
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date updated_at;
+	private Date updatedAt;
 }
