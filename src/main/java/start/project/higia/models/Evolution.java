@@ -6,7 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -27,4 +30,9 @@ public class Evolution {
 	@NotNull
 	private Chart chart;
 	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date created_at;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date updated_at;
 }
