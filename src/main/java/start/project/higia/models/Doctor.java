@@ -1,17 +1,13 @@
 package start.project.higia.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import start.project.higia.utils.Util;
+
+import java.util.Date;
 
 @Entity
 @Data
@@ -35,8 +31,17 @@ public class Doctor {
 	@Column(nullable = false)
 	private String password;
 
+	@Column(nullable = false)
+	private Date birthday;
+
 	@Enumerated(EnumType.STRING)
 	private Roles role;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date created_at;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date updated_at;
 
 	public String getPassword() {
 		return password;
