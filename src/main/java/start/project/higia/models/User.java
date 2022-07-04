@@ -13,6 +13,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import start.project.higia.utils.Util;
 
+import java.util.Date;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -25,7 +27,7 @@ public class User {
 
 	@Column(nullable = false)
 	private String name;
-	
+
 	@Column(nullable = false)
 	private String lastname;
 
@@ -39,7 +41,7 @@ public class User {
     private String password;
 
     @Column(nullable = false)
-    private String birthday;
+    private Date birthday;
 
     @Column(nullable = false)
     private String number;
