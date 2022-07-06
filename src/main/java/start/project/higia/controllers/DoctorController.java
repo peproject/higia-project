@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import start.project.higia.models.Doctor;
-import start.project.higia.services.DoctorServices;
+import start.project.higia.services.DoctorService;
 import start.project.higia.utils.EmailSenderService;
 
 @Controller
@@ -21,14 +21,14 @@ public class DoctorController {
 
     //Lendo classe de serviço do doutor
 	@Autowired
-	private DoctorServices services;
+	private DoctorService doctorService;
 
 	@Autowired
 	private EmailSenderService emailSender;
 
 	@GetMapping("/doc")
 	public String index(Doctor doctor, Model model) {
-		model.addAttribute("doctor", this.services.index(doctor));
+		model.addAttribute("doctor", this.doctorService.index(doctor));
 		return "login/doctor";
 	}
 
@@ -47,7 +47,7 @@ public class DoctorController {
 			model.addAttribute("message", "Conta criada com sucesso!");
 			model.addAttribute("icon", "fa-solid fa-triangle-exclamation");
 
-			this.services.create(doctor);
+			this.doctorService.create(doctor);
 			emailSender.sendEmail(doctor.getEmail(), "Higia - Create Account", "Account created successfully");
 			return "register/doctor";
 		} catch(DataIntegrityViolationException ex) {
@@ -62,7 +62,7 @@ public class DoctorController {
 	//Rota para edição de doutor
 	@GetMapping("/doc/edit/{id}")
 	public String edit(@PathVariable Long id, Model model) {
-		Optional<Doctor> doctor = this.services.editById(id);
+		Optional<Doctor> doctor = this.doctorService.editById(id);
 		model.addAttribute("doctor", doctor);
 		return "edit/doctor";
 	}
@@ -70,7 +70,7 @@ public class DoctorController {
 	//Rota para exclusão do doutor
 	@GetMapping("/doc/delete/{id}")
 	public String delete(@PathVariable Long id) {
-		services.deleteById(id);
+		doctorService.deleteById(id);
 		return "redirect:/doctor";
 	}
 }
