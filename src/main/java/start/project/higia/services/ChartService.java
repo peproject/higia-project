@@ -10,7 +10,7 @@ import start.project.higia.models.Chart;
 import start.project.higia.repositories.ChartRepository;
 
 @Component
-public class ChartServices {
+public class ChartService {
 
 	@Autowired
 	private ChartRepository repository;
