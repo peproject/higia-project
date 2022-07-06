@@ -11,7 +11,7 @@ import start.project.higia.models.User;
 import start.project.higia.repositories.UserRepository;
 
 @Component
-public class UserServices {
+public class UserService {
 
 	@Autowired
 	private UserRepository repository;
