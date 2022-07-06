@@ -11,7 +11,7 @@ import start.project.higia.models.Roles;
 import start.project.higia.repositories.DoctorRepository;
 
 @Component
-public class DoctorServices {
+public class DoctorService {
 
 	@Autowired
 	private DoctorRepository repository;
