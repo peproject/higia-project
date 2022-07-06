@@ -10,18 +10,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import start.project.higia.models.Evolution;
-import start.project.higia.services.EvolutionServices;
+import start.project.higia.services.EvolutionService;
 
 @Controller
 public class EvolutionController {
 
     //Lendo classe de serviço da evolution
 	@Autowired
-	private EvolutionServices services;
+	private EvolutionService evolutionService;
 
 	@GetMapping("/Evolution")
 	public String index(Evolution evolution, Model model) {
-		model.addAttribute("evolution", this.services.index(evolution));
+		model.addAttribute("evolution", this.evolutionService.index(evolution));
 		return "index";
 	}
 
@@ -34,14 +34,14 @@ public class EvolutionController {
 	//Rota para salvar a evolution no banco de dados
 	@PostMapping("/evolution")
 	public String create(Evolution evolution) {
-		this.services.create(evolution);
+		this.evolutionService.create(evolution);
 		return "index";
 	}
 
 	//Rota para edição da evolution
 	@GetMapping("/edit/evolution/{id}")
 	public String edit(@PathVariable Long id, Model model) {
-		Optional<Evolution> evolution = this.services.editById(id);
+		Optional<Evolution> evolution = this.evolutionService.editById(id);
 		model.addAttribute("evolution", evolution);
 		return "";
 	}
@@ -49,7 +49,7 @@ public class EvolutionController {
 	//Rota para exclusão da evolution
 	@GetMapping("/delete/evolution")
 	public String delete(Long id) {
-		services.deleteById(id);
+		evolutionService.deleteById(id);
 		return "redirect:/evolution";
 	}
 }
