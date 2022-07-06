@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import start.project.higia.models.User;
-import start.project.higia.services.UserServices;
+import start.project.higia.services.UserService;
 import start.project.higia.utils.EmailSenderService;
 
 @Controller
 public class UserController {
 
 	@Autowired
-	private UserServices services;
+	private UserService userService;
 
 	@Autowired
 	private EmailSenderService emailSender;
@@ -41,7 +41,7 @@ public class UserController {
 			model.addAttribute("message", "Conta criada com sucesso!");
 			model.addAttribute("icon", "fa-solid fa-triangle-exclamation");
 
-			services.create(user);
+			userService.create(user);
 			emailSender.sendEmail(user.getEmail(), "Higia - Create Account", "Account created successfully");
 			return "register/patient";
 		} catch(DataIntegrityViolationException ex) {
@@ -55,14 +55,14 @@ public class UserController {
 	//Rota para exibir todos os users
 	@GetMapping("/use/index")
 	public String index(User user, Model model) {
-		model.addAttribute("users", this.services.index(user));
+		model.addAttribute("users", this.userService.index(user));
 		return "index2";
 	}
 
 	//Rota para edição de usuario
 	@GetMapping("/use/edit/{id}")
 	public String edit(@PathVariable Long id, Model model) {
-		Optional<User> usu = this.services.editById(id);
+		Optional<User> usu = this.userService.editById(id);
 		model.addAttribute("users", usu);
 		return "edit/patient";
 	}
@@ -70,7 +70,7 @@ public class UserController {
 	//Rota para exclusão do usuario
 	@GetMapping("/use/delete")
 	public String delete(@RequestParam Long id) {
-		services.deleteById(id);
+		userService.deleteById(id);
 		return "redirect:/user/login";
 	}
 
