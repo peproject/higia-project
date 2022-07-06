@@ -9,7 +9,7 @@ import start.project.higia.models.Evolution;
 import start.project.higia.repositories.EvolutionRepository;
 
 @Component
-public class EvolutionServices {
+public class EvolutionService {
 
 	@Autowired
 	private EvolutionRepository repository;
