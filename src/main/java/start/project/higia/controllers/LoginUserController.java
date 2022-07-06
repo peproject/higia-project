@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import start.project.higia.models.User;
-import start.project.higia.services.UserServices;
+import start.project.higia.services.UserService;
 
 @Controller
 public class LoginUserController {
 
 	@Autowired
-	UserServices services;
+	UserService userService;
 
 	@GetMapping("/user/login")
 	public String login() {
@@ -28,7 +28,7 @@ public class LoginUserController {
 	@PostMapping("/user/logon")
 	public String userLogon(User user, HttpSession session, Model model) {
 
-		user = services.findByEmailAndPassword(user.getEmail(), user.getPassword());
+		user = userService.findByEmailAndPassword(user.getEmail(), user.getPassword());
 
 		if (user != null) {
 
