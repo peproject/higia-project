@@ -38,10 +38,10 @@ public class Doctor {
 	private Roles role;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date created_at;
+	private Date createdAt;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date updated_at;
+	private Date updatedAt;
 
 	public String getPassword() {
 		return password;
