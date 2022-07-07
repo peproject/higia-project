@@ -33,7 +33,6 @@ public class Doctor {
 	private String password;
 
 	@Column(nullable = false)
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birthday;
 
 	@Enumerated(EnumType.STRING)
