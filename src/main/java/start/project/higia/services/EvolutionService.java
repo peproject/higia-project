@@ -12,26 +12,26 @@ import start.project.higia.repositories.EvolutionRepository;
 public class EvolutionService {
 
 	@Autowired
-	private EvolutionRepository repository;
+	private EvolutionRepository evolutionRepository;
 
 	// Serviço para salvar a evolution no banco de dados
 	public Evolution create(Evolution evolution) {
-		return repository.save(evolution);
+		return evolutionRepository.save(evolution);
 	}
 
 	// Serviço para listar as evolutions
 	public List<Evolution> index(Evolution evolution) {
-		return repository.findAll();
+		return evolutionRepository.findAll();
 	}
 
 	// Serviço para editar a evolution
 	public Optional<Evolution> editById(Long id) {
-		return repository.findById(id);
+		return evolutionRepository.findById(id);
 	}
 
 	// Serviço para deletar a evolution
 	public String deleteById(Long id) {
-		repository.deleteById(id);
+		evolutionRepository.deleteById(id);
 		return "";
 	}
 }
