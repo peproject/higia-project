@@ -14,32 +14,32 @@ import start.project.higia.repositories.DoctorRepository;
 public class DoctorService {
 
 	@Autowired
-	private DoctorRepository repository;
+	private DoctorRepository doctorRepository;
 
 	// Serviço para salvar o doutor no banco de dados
 	public Doctor create(Doctor doctor) {
 		doctor.setRole(Roles.DOCTOR);
-		return repository.save(doctor);
+		return doctorRepository.save(doctor);
 	}
 
 	// Serviço para listar o doutor
 	public List<Doctor> index(Doctor doctor) {
-		return repository.findAll();
+		return doctorRepository.findAll();
 	}
 
 	// Serviço para editar o doutor
 	public Optional<Doctor> editById(Long id) {
-		return repository.findById(id);
+		return doctorRepository.findById(id);
 	}
 
 	// Serviço para deletar o doutor
 	public String deleteById(Long id) {
-		repository.deleteById(id);
+		doctorRepository.deleteById(id);
 		return "";
 	}
 
 	public Doctor findByEmailAndPassword(String email, String password) {
-		return repository.findByEmailAndPassword(email, password);
+		return doctorRepository.findByEmailAndPassword(email, password);
 	}
 
 }
