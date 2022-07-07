@@ -14,31 +14,30 @@ import start.project.higia.repositories.UserRepository;
 public class UserService {
 
 	@Autowired
-	private UserRepository repository;
+	private UserRepository userRepository;
 
 	//Serviço para salvar o user no banco
 	public User create(User user) {
-
 		user.setRole(Roles.USER);
-		return repository.save(user);
+		return userRepository.save(user);
 	}
 
 	//Serviço para exibir todos os usuarios
 	public List<User> index(User user) {
-		return repository.findAll();
+		return userRepository.findAll();
 	}
 
 	public Optional<User> editById(Long id) {
-		return repository.findById(id);
+		return userRepository.findById(id);
 	}
 
 	public String deleteById(Long id) {
-		repository.deleteById(id);
+		userRepository.deleteById(id);
 		return "";
 	}
 
 	//Rota para encontrar o user
 	public User findByEmailAndPassword(String email, String password) {
-		return repository.findByEmailAndPassword(email, password);
+		return userRepository.findByEmailAndPassword(email, password);
 	}
 }
