@@ -13,24 +13,24 @@ import start.project.higia.repositories.ChartRepository;
 public class ChartService {
 
 	@Autowired
-	private ChartRepository repository;
+	private ChartRepository chartRepository;
 
 	public Chart create(Chart chart) {
-		return repository.save(chart);
+		return chartRepository.save(chart);
 	}
 
 	public List<Chart> index(Chart chart) {
-		return repository.findAll();
+		return chartRepository.findAll();
 	}
 
 	//serviço para editar o chart
 	public Optional<Chart> editById(Long id) {
-		return repository.findById(id);
+		return chartRepository.findById(id);
 	}
 
 	//serviço para deletar o chart
 	public String deleteById(Long id) {
-		repository.deleteById(id);
+		chartRepository.deleteById(id);
 		return "";
 	}
 
