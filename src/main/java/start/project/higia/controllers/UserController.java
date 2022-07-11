@@ -26,40 +26,41 @@ public class UserController {
 	@Autowired
 	private EmailSenderService emailSender;
 
-	//Rota para tela de Cadastro de usuarios
+	// Rota para tela de Cadastro de usuarios
 	@GetMapping("/user/registration")
 	public String registration() {
 		return "/register/patient";
 	}
 
-	//Rota post para salvar os usuarios
+	// Rota post para salvar os usuarios
 	@PostMapping("/user")
 	public String create(@Valid User user, Model model) {
 
 		try {
-			model.addAttribute("style", "p-3 mb-2 bg-success text-white");
+			model.addAttribute("style", "toast show align-items-center hg-text-success-dark hg-bg-success mb-5");
 			model.addAttribute("message", "Conta criada com sucesso!");
-			model.addAttribute("icon", "fa-solid fa-triangle-exclamation");
+			model.addAttribute("icon", "fa-solid fa-check");
 
 			userService.create(user);
 			emailSender.sendEmail(user.getEmail(), "Higia - Create Account", "Account created successfully");
 			return "register/patient";
-		} catch(DataIntegrityViolationException ex) {
-				model.addAttribute("message", "Não foi possivel criar conta! Email ou CPF já cadastrado.");
-				model.addAttribute("style", "p-3 mb-2 bg-danger text-white");
-				model.addAttribute("icon", "fa-solid fa-check");
-				return "register/patient";
+		} catch (DataIntegrityViolationException ex) {
+			model.addAttribute("message", "Não foi possivel criar conta! Email ou CRM já cadastrado.");
+			model.addAttribute("style", "toast show align-items-center hg-text-danger-dark hg-bg-danger mb-5");
+			model.addAttribute("icon", "fa-solid fa-triangle-exclamation");
+
+			return "register/patient";
 		}
 	}
 
-	//Rota para exibir todos os users
+	// Rota para exibir todos os users
 	@GetMapping("/use/index")
 	public String index(User user, Model model) {
 		model.addAttribute("users", this.userService.index(user));
 		return "index2";
 	}
 
-	//Rota para edição de usuario
+	// Rota para edição de usuario
 	@GetMapping("/use/edit/{id}")
 	public String edit(@PathVariable Long id, Model model) {
 		Optional<User> usu = this.userService.editById(id);
@@ -67,7 +68,7 @@ public class UserController {
 		return "edit/patient";
 	}
 
-	//Rota para exclusão do usuario
+	// Rota para exclusão do usuario
 	@GetMapping("/use/delete")
 	public String delete(@RequestParam Long id) {
 		userService.deleteById(id);

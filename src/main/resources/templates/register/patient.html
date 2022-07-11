@@ -20,9 +20,17 @@
 	</div>
 
 	<div class="hg-container hg-container-register position-absolute top-50 end-0 translate-middle-y me-5">
-		<div th:class="${style}" th:text="${message}">
-			<i th:class="${icon}"></i>
+		<div th:class="${style}" role="alert" aria-live="assertive" aria-atomic="true">
+			<div class="d-flex">
+				<div class="toast-body">
+					<i th:class="${icon}"></i>
+					<span th:text="${message}"></span>
+				</div>
+				<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+					aria-label="Close"></button>
+			</div>
 		</div>
+
 		<h2 class="mb-3 hg-black-light">Criar conta!</h2>
 		<form action="/user" method="post" th:object="${user}" id="form-register" class="needs-validation"
 			oninput="rePassword.setCustomValidity(password.value != rePassword.value ? 'Senha não bate!' : '')">
@@ -31,10 +39,12 @@
 				<div class="input-group mb-3">
 					<div class="row">
 						<div class="col-sm mt-3">
-							<input type="text" class="form-control form-control-mobile-col" placeholder="Nome" name="name" id="name" required>
+							<input type="text" class="form-control form-control-mobile-col" placeholder="Nome" name="name" id="name"
+								required>
 						</div>
 						<div class="col-sm mt-3">
-							<input type="text" class="form-control form-control-mobile-col" placeholder="Sobrenome" name="lastname" id="name" required>
+							<input type="text" class="form-control form-control-mobile-col" placeholder="Sobrenome" name="lastname"
+								id="name" required>
 						</div>
 					</div>
 				</div>

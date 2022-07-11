@@ -43,17 +43,17 @@ public class DoctorController {
 	public String create(@Valid Doctor doctor, Model model) {
 
 		try {
-			model.addAttribute("style", "p-3 mb-2 bg-success text-white");
+			model.addAttribute("style", "toast show align-items-center hg-text-success-dark hg-bg-success mb-5");
 			model.addAttribute("message", "Conta criada com sucesso!");
-			model.addAttribute("icon", "fa-solid fa-triangle-exclamation");
+			model.addAttribute("icon", "fa-solid fa-check");
 
 			this.doctorService.create(doctor);
 			emailSender.sendEmail(doctor.getEmail(), "Higia - Create Account", "Account created successfully");
 			return "register/doctor";
 		} catch(DataIntegrityViolationException ex) {
 				model.addAttribute("message", "Não foi possivel criar conta! Email ou CRM já cadastrado.");
-				model.addAttribute("style", "p-3 mb-2 bg-danger text-white");
-				model.addAttribute("icon", "fa-solid fa-check");
+				model.addAttribute("style", "toast show align-items-center hg-text-danger-dark hg-bg-danger mb-5");
+				model.addAttribute("icon", "fa-solid fa-triangle-exclamation");
 
 				return "register/doctor";
 		}
