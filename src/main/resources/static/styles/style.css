@@ -6,7 +6,10 @@
 	--white: #fff;
 	--hg-bg: #f3f6fa;
 	--hg-danger: #ff6347;
+	--hg-danger-dark: #CC0000;
 	--hg-black-light: #353434;
+	--hg-success: #00C851;
+	--hg-success-dark: #007E33;
 }
 
 body {
@@ -16,6 +19,38 @@ body {
 
 .hg-black-light {
 	color: var(--hg-black-light);
+}
+
+.hg-text-success {
+	color: var(--hg-success);
+}
+
+.hg-text-success-dark {
+	color: var(--hg-success-dark);
+}
+
+.hg-text-danger {
+	color: var(--hg-danger);
+}
+
+.hg-text-danger-dark {
+	color: var(--hg-danger-dark);
+}
+
+.hg-bg-success {
+	background-color: var(--hg-success)
+}
+
+.hg-bg-success-dark {
+	background-color: var(--hg-success-dark)
+}
+
+.hg-bg-danger {
+	background-color: var(--hg-danger);
+}
+
+.hg-bg-danger-dark {
+	background-color: var(--hg-danger-dark);
 }
 
 .bg-hg-blue {
