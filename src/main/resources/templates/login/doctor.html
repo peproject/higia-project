@@ -6,45 +6,52 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<span th:replace="_fragments/imports_head :: imports_head"></span>
+	<link rel="stylesheet" href="/styles/boot.css">
 	<title>Higia - Entrar</title>
 </head>
 
-<body>
-	<header
-		th:replace="_fragments/header :: header(link='/doctor/registration', text='Registrar-se', icon='fa-solid fa-user-plus')">
-	</header>
-
-	<div class="position-absolute top-50 start-0 translate-middle-y ms-5">
-		<img src="/images/medical-team.png" class="hg-photo" alt="">
-	</div>
-
-	<div class="hg-container position-absolute top-50 end-0 translate-middle-y me-5">
+<body class="text-center">
+	<div class="position-absolute top-0 end-0 mt-4 me-3">
 		<div th:class="${style}" th:text="${message}">
 			<i th:class="${icon}"></i>
 		</div>
-		<h2 class="mb-3 hg-black-light">Entrar</h2>
-		<form action="/doctor/logon" method="post">
-			<section>
-				<div class="input-group mb-3">
-					<input type="email" class="form-control" placeholder="Email" name="email" required>
-				</div>
-				<div class="input-group mb-3">
-					<input type="password" class="form-control"
-						placeholder="Password" name="password" minlength="8" required>
-				</div>
-			</section>
-			<section class="text-center">
-				<a href="#" class="pe-5 form-link">Esqueceu a senha?</a>
-				<button type="submit" class="btn btn-hg-blue mt-2">Entrar</button>
-			</section>
-		</form>
-		<div class="text-center mt-5">
-			<a href="/" class="btn btn-outline-secondary">
-				<i class="fa-solid fa-arrow-left me-1"></i>
-				voltar
-			</a>
-		</div>
 	</div>
+
+	<main class="form-signin w-100 m-auto">
+		<a class="navbar-brand hg-logo hg-logo-mobile" href="/">
+			<i class="fa-solid fa-stethoscope secret"></i>
+			HIG<span class="secret">i</span>A
+		</a>
+		<section class="row mx-5 my-5">
+			<section class="col-lg section-img">
+				<figure>
+					<img src="/images/medical-team.png" alt="" class="mb-3">
+					<a href="/doctor/registration">Crie uma conta</a>
+				</figure>
+			</section>
+			<section class="col-lg">
+				<div class="signin">
+					<form action="/doctor/logon" method="post" class="px-5 py-5">
+						<h2 class="text-start mb-3">Entrar</h2>
+						<div class="input-group input-group-lg mb-3">
+							<input type="email" class="form-control" placeholder="Email" name="email" required>
+						</div>
+						<div class="input-group input-group-lg mb-3">
+							<input type="password" class="form-control" placeholder="Senha" name="senha" required>
+						</div>
+
+						<button type="submit" class="btn bt-md btn-primary">Entrar</button>
+						<a href="/" class="btn btn-md btn-outline-secondary">
+							<i class="fa-solid fa-arrow-left"></i>
+							Voltar
+						</a>
+					</form>
+				</div>
+				<a href="/user/registration" class="mobile-show">Crie uma conta</a>
+			</section>
+		</section>
+		<footer class="mt-5 mb-3 text-muted ">HIGIA &copy; 2022 - Todos os direitos reservados</footer>
+	</main>
 
 	<span th:replace="_fragments/imports_body :: imports_body"></span>
 </body>

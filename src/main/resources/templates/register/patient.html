@@ -7,76 +7,71 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Higia - Criar conta paciente</title>
 	<span th:replace="_fragments/imports_head :: imports_head"></span>
+	<link rel="stylesheet" href="/styles/boot.css">
 </head>
 
-<body>
-	<header
-		th:replace="_fragments/header :: header(link='/user/login', text='Entrar', icon='fa-solid fa-right-to-bracket')">
-	</header>
-
-	<div class="hg-photo position-absolute top-50 start-0 translate-middle-y ms-5 mt-3"
-		style="border: 1px solid grey; background-color: grey;">
-		<h1 style="color: white;">AQUI VAI FICAR UMA IMAGEM</h1>
+<body class="text-center">
+	<div class="position-absolute top-0 end-0 mt-4 me-3">
+		<div th:class="${style}" th:text="${message}">
+			<i th:class="${icon}"></i>
+		</div>
 	</div>
 
-	<div class="hg-container hg-container-register position-absolute top-50 end-0 translate-middle-y me-5">
-		<div th:class="${style}" role="alert" aria-live="assertive" aria-atomic="true">
-			<div class="d-flex">
-				<div class="toast-body">
-					<i th:class="${icon}"></i>
-					<span th:text="${message}"></span>
-				</div>
-				<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-					aria-label="Close"></button>
-			</div>
-		</div>
-
-		<h2 class="mb-3 hg-black-light">Criar conta!</h2>
-		<form action="/user" method="post" th:object="${user}" id="form-register" class="needs-validation"
-			oninput="rePassword.setCustomValidity(password.value != rePassword.value ? 'Senha não bate!' : '')">
-			<p class="password-error" id="password-error">Senhas não batem!</p>
-			<section>
-				<div class="input-group mb-3">
-					<div class="row">
-						<div class="col-sm mt-3">
-							<input type="text" class="form-control form-control-mobile-col" placeholder="Nome" name="name" id="name"
-								required>
+	<main class="form-signin w-100 m-auto">
+		<div class="container signup">
+			<form action="/user" method="post" class="px-5 py-5"
+				oninput="rePassword.setCustomValidity(password.value != rePassword.value ? 'Senhas diferentes!' : '')">
+				<h2 class="text-start mb-3">Criar conta</h2>
+				<div class="row">
+					<div class="col-sm ">
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" placeholder="Nome" name="name" required>
 						</div>
-						<div class="col-sm mt-3">
-							<input type="text" class="form-control form-control-mobile-col" placeholder="Sobrenome" name="lastname"
-								id="name" required>
+					</div>
+					<div class="col-sm">
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" placeholder="Sobrenome" name="lastname" required>
 						</div>
 					</div>
 				</div>
 				<div class="input-group mb-3">
-					<input type="text" class="form-control" placeholder="000.000.000-00" pattern="\d{3}.\d{3}.\d{3}-\d{2}"
-						name="cpf" id="cpf" required>
+					<input type="text" class="form-control" placeholder="CPF" name="cpf" required>
+				</div>
+				<div class="row">
+					<div class="col-sm">
+						<div class="input-group mb-3">
+							<input type="date" class="form-control" name="birthday" required>
+						</div>
+					</div>
+					<div class="col-sm">
+						<div class="input-group mb-3">
+							<input type="tel" class="form-control" placeholder="(DDD) 90000-0000" name="number" required>
+						</div>
+					</div>
 				</div>
 				<div class="input-group mb-3">
-					<input type="tel" class="form-control" placeholder="0090000-0000" pattern="\d{2}\d{5}-\d{4}" name="number"
-						id="number" required>
+					<input type="email" class="form-control" placeholder="Email" name="email" required>
 				</div>
 				<div class="input-group mb-3">
-					<input type="date" class="form-control" placeholder="Data de nascimento" name="birthday" id="birthday"
-						required>
+					<input type="password" class="form-control" placeholder="Senha" name="password" minlength="8" required>
 				</div>
 				<div class="input-group mb-3">
-					<input type="email" class="form-control" placeholder="Email" name="email" id="email" required>
+					<input type="password" class="form-control" placeholder="Repetir senha" name="rePassword" minlength="8" required>
 				</div>
-				<div class="input-group mb-3">
-					<input type="password" class="form-control" placeholder="Senha" name="password" minlength="8" id="password"
-						required>
-				</div>
-				<div class="input-group mb-3">
-					<input type="password" class="form-control" placeholder="Confirmar senha" name="rePassword" minlength="8"
-						id="re-password" required>
-				</div>
-			</section>
-			<section class="text-center">
-				<button type="submit" class="btn btn-hg-blue" onclick="verifyInput()">Cadastrar</button>
-			</section>
-		</form>
-	</div>
+
+				<button type="submit" class="btn btn-primary" onclick="verifyInput()">Registrar-se</button>
+				<button type="reset" class="btn btn-danger">
+					<i class="fa-solid fa-trash"></i>
+					limpar
+				</button>
+			</form>
+		</div>
+
+		<a href="/user/login" class="btn btn-outline-secondary">
+			<i class="fa-solid fa-arrow-left"></i>
+			Voltar
+		</a>
+	</main>
 
 	<script src="/scripts/verify_input.js"></script>
 	<span th:replace="_fragments/imports_body :: imports_body"></span>

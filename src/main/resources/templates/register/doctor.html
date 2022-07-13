@@ -7,63 +7,73 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Higia - Criar conta doutor</title>
 	<span th:replace="_fragments/imports_head :: imports_head"></span>
+	<link rel="stylesheet" href="/styles/boot.css">
 </head>
 
-<body>
-	<header
-		th:replace="_fragments/header :: header(link='/doctor/login', text='Entrar', icon='fa-solid fa-right-to-bracket')">
-	</header>
-
-	<div class="hg-photo position-absolute top-50 start-0 translate-middle-y ms-5 mt-3"
-		style="border: 1px solid grey; background-color: grey;">
-		<h1 style="color: white;">AQUI VAI FICAR UMA IMAGEM</h1>
+<body class="text-center">
+	<div class="position-absolute top-0 end-0 mt-4 me-3">
+		<div th:class="${style}" th:text="${message}">
+			<i th:class="${icon}"></i>
+		</div>
 	</div>
 
-	<div class="hg-container hg-container-register position-absolute top-50 end-0 translate-middle-y me-5">
-		<div th:class="${style}" role="alert" aria-live="assertive" aria-atomic="true">
-			<div class="d-flex">
-				<div class="toast-body">
-					<i th:class="${icon}"></i>
-					<span th:text="${message}"></span>
+	<main class="form-signin w-100 m-auto">
+		<div class="container signup">
+			<form action="/doctor" method="post" class="px-5 py-5"
+				oninput="rePassword.setCustomValidity(password.value != rePassword.value ? 'Senhas diferentes!' : '')">
+				<h2 class="text-start mb-3">Criar conta</h2>
+				<div class="row">
+					<div class="col-sm ">
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" placeholder="Nome" name="name" required>
+						</div>
+					</div>
+					<div class="col-sm">
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" placeholder="Sobrenome" name="lastname" required>
+						</div>
+					</div>
 				</div>
-				<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-					aria-label="Close"></button>
-			</div>
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" placeholder="CRM" name="crm" required>
+				</div>
+				<div class="row">
+					<div class="col-sm">
+						<div class="input-group mb-3">
+							<input type="date" class="form-control" name="birthday" required>
+						</div>
+					</div>
+					<div class="col-sm">
+						<div class="input-group mb-3">
+							<input type="tel" class="form-control" placeholder="(DDD) 90000-0000" name="number" required>
+						</div>
+					</div>
+				</div>
+				<div class="input-group mb-3">
+					<input type="email" class="form-control" placeholder="Email" name="email" required>
+				</div>
+				<div class="input-group mb-3">
+					<input type="password" class="form-control" placeholder="Senha" name="password" minlength="8" required>
+				</div>
+				<div class="input-group mb-3">
+					<input type="password" class="form-control" placeholder="Repetir senha" name="rePassword" minlength="8" required>
+				</div>
+
+				<button type="submit" class="btn btn-primary" onclick="verifyInput()">Registrar-se</button>
+				<button type="reset" class="btn btn-danger">
+					<i class="fa-solid fa-trash"></i>
+					limpar
+				</button>
+			</form>
 		</div>
 
-		<h2 class="mb-3 hg-black-light">Criar conta!</h2>
-		<form action="/doctor" method="post" id="form-register"
-			oninput="rePassword.setCustomValidity(password.value != rePassword.value ? 'Passwords do not match.' : '')">
-			<p class="password-error" id="password-error">Senhas não batem!</p>
-			<section>
-				<div class="input-group mb-3">
-					<input type="text" class="form-control" name="name" id="name" placeholder="Nome Completo" required>
-				</div>
-				<div class="input-group mb-3">
-					<input type="text" class="form-control" name="crm" id="crm" placeholder="Crm" required>
-				</div>
-				<div class="input-group mb-3">
-					<input type="date" class="form-control" placeholder="Data de nascimento" name="birthday" id="birthday"
-						required>
-				</div>
-				<div class="input-group mb-3">
-					<input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
-				</div>
-				<div class="input-group mb-3">
-					<input type="password" class="form-control" name="password" placeholder="Senha" minlength="8" id="password"
-						required>
-				</div>
-				<div class="input-group mb-3">
-					<input type="password" class="form-control" placeholder="Confirmar senha" minlength="8" id="re-password"
-						name="rePassword" required>
-				</div>
-			</section>
-			<section class="text-center">
-				<button type="submit" class="btn btn-hg-blue" onclick="verifyInput()">Cadastrar</button>
-			</section>
-		</form>
-	</div>
-	<script src="/scripts/verify_input_doctor.js"></script>
+		<a href="/doctor/login" class="btn btn-outline-secondary">
+			<i class="fa-solid fa-arrow-left"></i>
+			Voltar
+		</a>
+	</main>
+
+	<script src="/scripts/verify_input.js"></script>
 	<span th:replace="_fragments/imports_body :: imports_body"></span>
 </body>
 
