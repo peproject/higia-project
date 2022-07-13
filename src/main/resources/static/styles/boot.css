@@ -1,0 +1,137 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap');
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #e5effc;
+}
+
+.hg-logo {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  font-family: 'Rubik Moonrocks', cursive;
+  font-size: 50pt;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+figure {
+  margin: 0;
+}
+
+.form-signin {
+  max-width: 50em;
+  max-height: 50em;
+  padding: 15px;
+  background-color: #fff;
+  margin: 0 auto;
+  box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  -o-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  -ms-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -o-border-radius: 20px;
+  -ms-border-radius: 20px;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.signup {
+  width: 70%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hg-col-mg-min {
+  margin-left: -26%;
+}
+
+.hg-logo-mobile {
+  display: none;
+}
+
+.mobile-show {
+	display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .form-signin {
+    max-width: 26em;
+    margin-bottom: 5%;
+  }
+
+  .hg-logo-mobile {
+    display: block;
+    margin-bottom: -12%;
+  }
+
+  .form-signin .section-img {
+    display: none;
+  }
+
+	.mobile-show {
+		display: block;
+	}
+
+  .signup {
+    width: 100%;
+  }
+
+  .hg-col-mg-min {
+    margin-left: 0;
+  }
+
+  .btn {
+    width: 100%;
+    margin-top: 2%;
+  }
+
+  .footer-mobile {
+    margin-top: -100%;
+  }
+}
+
+a {
+  color: #121212;
+}
+
+.secret {
+  color: #467be3;
+}
+
+.secret:hover {
+  color: #2a5ec7;
+}
