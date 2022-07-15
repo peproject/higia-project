@@ -45,7 +45,7 @@ public class UserController {
 			emailSender.sendEmail(user.getEmail(), "Higia - Create Account", "Account created successfully");
 			return "register/patient";
 		} catch (DataIntegrityViolationException ex) {
-			model.addAttribute("message", "E-mail não cadastrado ou senha inválida.");
+			model.addAttribute("message", "Não foi possivel criar conta! Email ou CRM já cadastrado.");
 			model.addAttribute("style", "p-3 mb-2 bg-danger text-white");
 			model.addAttribute("icon", "fa-solid fa-check");
 

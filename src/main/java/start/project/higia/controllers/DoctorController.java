@@ -19,7 +19,7 @@ import start.project.higia.utils.EmailSenderService;
 @Controller
 public class DoctorController {
 
-    //Lendo classe de serviço do doutor
+	// Lendo classe de serviço do doutor
 	@Autowired
 	private DoctorService doctorService;
 
@@ -32,34 +32,34 @@ public class DoctorController {
 		return "login/doctor";
 	}
 
-	//Rota para tela de cadastro
+	// Rota para tela de cadastro
 	@GetMapping("/doctor/registration")
 	public String registration() {
 		return "register/doctor";
 	}
 
-	//Rota para salvar o doutor no banco de dados
+	// Rota para salvar o doutor no banco de dados
 	@PostMapping("/doctor")
 	public String create(@Valid Doctor doctor, Model model) {
 
 		try {
-			model.addAttribute("style", "toast show align-items-center hg-text-success-dark hg-bg-success mb-5");
-			model.addAttribute("message", "Conta criada com sucesso!");
+			model.addAttribute("message", "Conta criada com sucesso.");
+			model.addAttribute("style", "p-3 mb-2 bg-success text-white");
 			model.addAttribute("icon", "fa-solid fa-check");
 
 			this.doctorService.create(doctor);
 			emailSender.sendEmail(doctor.getEmail(), "Higia - Create Account", "Account created successfully");
 			return "register/doctor";
-		} catch(DataIntegrityViolationException ex) {
-				model.addAttribute("message", "Não foi possivel criar conta! Email ou CRM já cadastrado.");
-				model.addAttribute("style", "toast show align-items-center hg-text-danger-dark hg-bg-danger mb-5");
-				model.addAttribute("icon", "fa-solid fa-triangle-exclamation");
+		} catch (DataIntegrityViolationException ex) {
+			model.addAttribute("message", "Não foi possivel criar conta! Email ou CRM já cadastrado.");
+			model.addAttribute("style", "p-3 mb-2 bg-danger text-white");
+			model.addAttribute("icon", "fa-solid fa-check");
 
-				return "register/doctor";
+			return "register/doctor";
 		}
 	}
 
-	//Rota para edição de doutor
+	// Rota para edição de doutor
 	@GetMapping("/doc/edit/{id}")
 	public String edit(@PathVariable Long id, Model model) {
 		Optional<Doctor> doctor = this.doctorService.editById(id);
@@ -67,7 +67,7 @@ public class DoctorController {
 		return "edit/doctor";
 	}
 
-	//Rota para exclusão do doutor
+	// Rota para exclusão do doutor
 	@GetMapping("/doc/delete/{id}")
 	public String delete(@PathVariable Long id) {
 		doctorService.deleteById(id);
