@@ -32,6 +32,18 @@ body {
 	background-repeat: no-repeat;
 }
 
+.doctor-register {
+	background-image: url("../images/doctor-registration.svg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+.patient-register {
+	background-image: url("../images/user-registration.svg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
 .hg-logo {
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -77,6 +89,14 @@ figure {
 
 .form-login-patient {
 	width: 40em;
+}
+
+.form-register {
+	width: 38em;
+}
+
+.main-register {
+	width: 40%;
 }
 
 .hg-me-9 {
@@ -139,6 +159,14 @@ figure {
 
     margin-bottom: 5%;
   }
+
+	.main-register {
+		width: 100%;
+	}
+
+	.form-register {
+		width: 100%;
+	}
 
   .hg-logo-mobile {
     display: block;
