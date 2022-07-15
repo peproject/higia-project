@@ -15,7 +15,7 @@ public class EmailSenderService {
 		
 		SimpleMailMessage message = new SimpleMailMessage();
 		
-		message.setFrom("higiaprojectstart@gmail.com");
+		message.setFrom("Higia <starthigiaproject@gmail.com>");
 		message.setTo(email);
 		message.setText(body);
 		message.setSubject(subject);

@@ -1,0 +1,47 @@
+package start.project.higia.models.exams;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+public class Blood {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	
+	@Column(nullable = false)
+	private Integer hemoglobin;
+	@Column(nullable = false)
+	private Integer neutrophils;
+	@Column(nullable = false)
+	private Integer eosinophils;
+	@Column(nullable = false)
+	private Integer basophiles;
+	@Column(nullable = false)
+	private Integer lymphocytes;
+	@Column(nullable = false)
+	private Integer monocytes;
+	@Column(nullable = false)
+	private Integer platelets;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date createdAt;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date updatedAt;
+	
+
+}
