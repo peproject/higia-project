@@ -18,3 +18,15 @@ spring.mail.username = higiaprojectstart@gmail.com
 spring.mail.password = kfbigotrurdlhbsn
 spring.mail.properties.smtp.aut=true
 spring.mail.properties.mail.smtp.starttls.enable=true
+
+//AWSS3 CLOUD ACCESS
+
+cloud.aws.credentials.access-key=AKIA4ZYCBFGPF6CR6747
+cloud.aws.credentials.secret-key=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
+cloud.aws.region.static=us-east-1
+cloud.aws.stack.auto=false
+application.bucket.name=higia-project-start/imagens
+spring.servlet.multipart.enabled=true
+spring.servlet.multipart.file-size-threshold=2MB
+spring.servlet.multipart.max-file-size=5MB
+spring.servlet.multipart.max-request-size=10MB
