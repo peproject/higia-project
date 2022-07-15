@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap');
 
 :root {
 	--hg-blue: #467be3;
@@ -319,11 +319,11 @@ input[type="date"], ::placeholder {
 
 .hg-logo {
 	-moz-user-select: none;
-	-webkit-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
-	font-family: 'Rubik Moonrocks', cursive;
+	font-family: 'Arial', sans-serif;
 	font-size: 20pt;
 }
 
