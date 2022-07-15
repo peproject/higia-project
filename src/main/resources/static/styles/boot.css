@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
 
 html,
 body {
@@ -14,13 +14,33 @@ body {
   background-color: #e5effc;
 }
 
+.login-home {
+	background-image: url("../images/home-designer.svg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+.login-patient {
+	background-image: url("../images/login-user.svg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+.login-doctor {
+	background-image: url("../images/login-doctor.svg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
 .hg-logo {
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
 
-  font-family: 'Rubik Moonrocks', cursive;
+  font-family: 'Roboto', sans-serif;
+	font-style: normal;
+	font-weight: bolder;
   font-size: 50pt;
 }
 
@@ -51,9 +71,27 @@ figure {
   -ms-border-radius: 20px;
 }
 
+.form-login {
+	max-width: 30em;
+}
+
+.form-login-patient {
+	width: 40em;
+}
+
+.hg-me-9 {
+	margin-right: 10em;
+}
+
+.hg-ms-9 {
+	margin-left: 2em;
+}
+
 .form-signin .form-floating:focus-within {
   z-index: 2;
 }
+
+
 
 .signin input[type="email"] {
   margin-bottom: -1px;
@@ -79,6 +117,10 @@ figure {
   margin-left: -26%;
 }
 
+.hg-col-mt-min {
+	margin-top: -16%;
+}
+
 .hg-logo-mobile {
   display: none;
 }
@@ -87,9 +129,14 @@ figure {
 	display: none;
 }
 
+.form-signin-width {
+	width: 100%;
+}
+
 @media screen and (max-width: 1024px) {
   .form-signin {
     max-width: 26em;
+
     margin-bottom: 5%;
   }
 
@@ -122,6 +169,10 @@ figure {
   .footer-mobile {
     margin-top: -100%;
   }
+
+	.hg-me-9 {
+		margin-right: auto;
+	}
 }
 
 a {
