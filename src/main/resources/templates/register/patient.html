@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Higia - Criar conta paciente</title>
+	<title>Higia - Criar conta como paciente</title>
 	<span th:replace="_fragments/imports_head :: imports_head"></span>
 	<link rel="stylesheet" href="/styles/boot.css">
 </head>
@@ -60,17 +60,8 @@
 				</div>
 
 				<button type="submit" class="btn btn-primary" onclick="verifyInput()">Registrar-se</button>
-				<button type="reset" class="btn btn-danger">
-					<i class="fa-solid fa-trash"></i>
-					limpar
-				</button>
 			</form>
 		</div>
-
-		<a href="/user/login" class="btn btn-outline-secondary">
-			<i class="fa-solid fa-arrow-left"></i>
-			Voltar
-		</a>
 	</main>
 
 	<script src="/scripts/verify_input.js"></script>
