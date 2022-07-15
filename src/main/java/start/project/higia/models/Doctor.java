@@ -27,7 +27,7 @@ public class Doctor {
 	private String name;
 
 	@Column(nullable = false)
-	private String lastName;
+	private String lastname;
 
 	@Column(nullable = false, unique = true)
 	private String email;
