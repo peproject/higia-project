@@ -10,27 +10,26 @@
 	<title>Higia - Entrar</title>
 </head>
 
-<body class="text-center">
+<body class="text-center login-doctor">
 	<div class="position-absolute top-0 end-0 mt-4 me-3">
 		<div th:class="${style}" th:text="${message}">
 			<i th:class="${icon}"></i>
 		</div>
 	</div>
 
-	<main class="form-signin w-100 m-auto">
+	<a class="navbar-brand hg-logo position-absolute top-0 start-0 hg-ms-9 mt-5" href="/">
+		<i class="fa-solid fa-stethoscope secret"></i>
+		Hig<span class="secret">i</span>a
+	</a>
+
+	<main class="form-signin form-login-patient hg-me-9">
 		<a class="navbar-brand hg-logo hg-logo-mobile" href="/">
 			<i class="fa-solid fa-stethoscope secret"></i>
-			HIG<span class="secret">i</span>A
+			Hig<span class="secret">i</span>a
 		</a>
 		<section class="row mx-5 my-5">
-			<section class="col-lg section-img">
-				<figure>
-					<img src="/images/medical-team.png" alt="" class="mb-3">
-					<a href="/doctor/registration">Crie uma conta</a>
-				</figure>
-			</section>
 			<section class="col-lg">
-				<div class="signin">
+				<div class="signin hg-col-mt-min">
 					<form action="/doctor/logon" method="post" class="px-5 py-5">
 						<h2 class="text-start mb-3">Entrar</h2>
 						<div class="input-group input-group-lg mb-3">
@@ -40,14 +39,16 @@
 							<input type="password" class="form-control" placeholder="Senha" name="senha" required>
 						</div>
 
-						<button type="submit" class="btn bt-md btn-primary">Entrar</button>
-						<a href="/" class="btn btn-md btn-outline-secondary">
-							<i class="fa-solid fa-arrow-left"></i>
-							Voltar
-						</a>
+						<button type="submit" class="btn btn-lg btn-primary" style="width: 8em;">Entrar</button>
+						<div class="container mt-3">
+							<a href="" class="text-center">Recuperar senha?</a>
+						</div>
 					</form>
 				</div>
-				<a href="/user/registration" class="mobile-show">Crie uma conta</a>
+				<div class="text-secondary mt-3">
+					<hr>
+				</div>
+				<a href="/doctor/registration" class="btn btn-lg btn-outline-success">Crie uma conta</a>
 			</section>
 		</section>
 		<footer class="mt-5 mb-3 text-muted ">HIGIA &copy; 2022 - Todos os direitos reservados</footer>
