@@ -26,6 +26,9 @@ public class Evolution {
 	@Column(length = 16000, nullable = false)
 	private String body;
 
+    @ManyToOne
+	private Historic historic;
+
 	@ManyToOne
 	@NotNull
 	private Chart chart;
