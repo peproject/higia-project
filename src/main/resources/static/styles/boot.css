@@ -211,6 +211,10 @@ a {
   color: #467be3;
 }
 
-.secret:hover {
+.secret-register {
+  color: #fff;
+}
+
+.secret:hover, .secret-register:hover {
   color: #2a5ec7;
 }
