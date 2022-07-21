@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="icon" type="image/png" href="/images/icon.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<span th:replace="_fragments/imports_head :: imports_head"></span>
+	<title>Higia - Início</title>
+</head>
+
+<body class="doctor-home">
+
+
+	<nav class="navbar bg-light" style="/*border: 1px solid red;*/">
+		<div class="container-fluid" style="margin: 0; padding: 0;">
+			<a class="navbar-brand hg-logo" href="/">
+				<i class="fa-solid fa-stethoscope secret"></i>
+				Hig<span class="secret">i</span>a
+			</a>
+			<div class=" container welcome-home">
+				<div class="welcome-text">
+					<h4>Seja bem-vindo, Gabriel!</h4>
+					<p>Acesse todos os nossos serviços abaixo.</p>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="position-absolute top-50 end-0 translate-middle-y hg-me-9" style="width: 30rem;">
+		<div class="card-body text-center">
+			<div class="row" style="width: 100%;">
+				<div class="col-sm" style="margin-right: -26%;">
+					<a class="card-link" href="/">
+						<div class="hg-card">
+							<img class="hg-card-icon" src="/images/doctorpatient-icon.svg" alt="">
+							<p class="p-card">Pacientes</p>
+						</div>
+					</a>
+				</div>
+				<div class="col-sm align-items-center">
+					<a class="card-link" href="/">
+						<div class="hg-card">
+							<img class="hg-card-icon" src="/images/doctorexam-icon.svg" alt="">
+							<p class="p-card">Exames</p>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="row" style="width: 100%;">
+				<div class="col-sm" style="margin-right: -26%;">
+					<a class="card-link" href="/">
+						<div class="hg-card">
+							<img class="hg-card-icon" src="/images/doctorchart-icon.svg" alt="">
+							<p class="p-card">Prontuários</p>
+						</div>
+					</a>
+				</div>
+				<div class="col-sm align-items-center">
+					<a class="card-link" href="/">
+						<div class="hg-card">
+							<img class="hg-card-icon" src="/images/doctorevolution-icon.svg" alt="">
+							<p class="p-card">Evoluções</p>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<span th:replace="_fragments/imports_body :: imports_body"></span>
+</body>
+
+</html>
