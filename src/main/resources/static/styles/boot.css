@@ -34,13 +34,13 @@ body {
 
 .doctor-register {
 	background-image: url("../images/doctor-registration.svg");
-	background-size: 100%;
+	background-size: 84%;
 	background-repeat: no-repeat;
 }
 
 .patient-register {
 	background-image: url("../images/user-registration.svg");
-	background-size: 100%;
+	background-size: 84%;
 	background-repeat: no-repeat;
 }
 
@@ -217,4 +217,16 @@ a {
 
 .secret:hover, .secret-register:hover {
   color: #2a5ec7;
+}
+
+.hg-card {
+	background-color: #f3f6fa;
+	border-radius: 16px;
+
+
+	box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  -o-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  -ms-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
 }
