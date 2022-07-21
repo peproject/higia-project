@@ -44,16 +44,16 @@ public class DoctorController {
 
 		try {
 			model.addAttribute("message", "Conta criada com sucesso.");
-			model.addAttribute("style", "p-3 mb-2 bg-success text-white");
+			model.addAttribute("style", "toast bg-success text-white align-items-center show");
 			model.addAttribute("icon", "fa-solid fa-check");
 
 			this.doctorService.create(doctor);
 			emailSender.sendEmail(doctor.getEmail(), "Higia - Create Account", "Account created successfully");
 			return "register/doctor";
 		} catch (DataIntegrityViolationException ex) {
-			model.addAttribute("message", "Não foi possivel criar conta! Email ou CRM já cadastrado.");
-			model.addAttribute("style", "p-3 mb-2 bg-danger text-white");
-			model.addAttribute("icon", "fa-solid fa-check");
+			model.addAttribute("message", "Email ou CRM já cadastrado.");
+			model.addAttribute("style", "toast bg-danger text-white align-items-center show");
+			model.addAttribute("icon", "fa-solid fa-triangle-exclamation");
 
 			return "register/doctor";
 		}

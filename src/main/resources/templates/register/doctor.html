@@ -16,8 +16,14 @@
 	<div th:replace="_fragments/modal :: modal"></div>
 
 	<div class="position-absolute top-0 end-0 mt-4 me-3">
-		<div th:class="${style}" th:text="${message}">
-			<i th:class="${icon}"></i>
+		<div th:classappend="${style}? ${style}:toast" role="alert" aria-live="assertive" aria-atomic="true">
+			<div class="d-flex">
+				<div class="toast-body">
+					<i th:class="${icon}"></i>
+					<span th:text="${message}"></span>
+				</div>
+				<button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
 		</div>
 	</div>
 
