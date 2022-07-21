@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" href="/images/icon.png">
 	<span th:replace="_fragments/imports_head :: imports_head"></span>
 	<link rel="stylesheet" href="/styles/boot.css">
 	<title>Higia - Seja bem-vindo</title>
@@ -19,18 +20,18 @@
 		<h1 class="h3 mb-3 fw-normal">Seja bem-vindo</h1>
 
 		<h5 class="fw-bold">Entrar como:</h5>
-		<div class="container text-center">
+		<div class="container">
 			<div class="row">
 				<div class="col-sm mt-5">
-					<a href="/user/login" class="btn btn-lg btn-outline-primary">
-						<i class="fa-solid fa-hospital-user"></i>
-						Paciente
+					<a href="/user/login" class="btn hg-card">
+						<img class="hg-card-icon" src="/images/doctorpatient-icon.svg" alt="">
+						<p>Paciente</p>
 					</a>
 				</div>
 				<div class="col-sm mt-5 hg-col-mg-min">
-					<a href="/doctor/login" class="btn btn-lg btn-outline-primary">
-						<i class="fa-solid fa-user-doctor"></i>
-						Médico
+					<a href="/doctor/login" class="btn hg-card">
+						<img class="hg-card-icon" src="/images/doctorexam-icon.svg" alt="">
+						<p>Médico</p>
 					</a>
 				</div>
 			</div>
