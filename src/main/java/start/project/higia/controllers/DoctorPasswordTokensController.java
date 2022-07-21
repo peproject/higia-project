@@ -4,20 +4,33 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import start.project.higia.models.Doctor;
 import start.project.higia.models.DoctorPasswordTokens;
 import start.project.higia.services.DoctorPasswordTokensServices;
+import start.project.higia.services.DoctorService;
 
 @Controller
 public class DoctorPasswordTokensController {
 
   	@Autowired
-  	DoctorPasswordTokensServices services;
+  	DoctorPasswordTokensServices doctorPasswordTokensServicesservices;
 	
+  	@Autowired
+  	DoctorService doctorService;
+  	
 	@PostMapping("/create/token")
-	public String create(@Valid DoctorPasswordTokens doctor) {
-  		this.services.create(doctor);
-		return "index";
+	public String create(@Valid DoctorPasswordTokens doctor, Doctor doc, Model model) {
+		doc = doctorService.findByEmail(doc.getEmail());
+		
+		if (doc != null) {
+			this.doctorPasswordTokensServicesservices.create(doctor);
+            return "index";
+		} else {
+			model.addAttribute("message", "E-mail não cadastrado.");
+			return "index";
+		}		
 	}
 }
