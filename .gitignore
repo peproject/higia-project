@@ -5,7 +5,9 @@ target/
 ### Java ###
 application.properties
 /src/main/resources/templates/tests
+src/main/java/start/project/higia/controllers/TestsController.java
 /bin
+
 
 ### STS ###
 .apt_generated
