@@ -9,7 +9,7 @@
 :root {
 	--hg-blue: #467be3;
 	--white: #fff;
-	--hg-bg: #f3f6fa;
+	--hg-bg: #f2faff;
 	--hg-danger: #ff6347;
 	--hg-danger-dark: #CC0000;
 	--hg-black-light: #353434;
@@ -369,6 +369,8 @@ input[type="date"], ::placeholder {
 .welcome-text {
 	margin-left: 5%;
 	margin-top: 3%;
+
+	width: 30%;
 }
 
 .hg-me-9 {
@@ -378,9 +380,17 @@ input[type="date"], ::placeholder {
 .hg-card {
 	background-color: #fff;
 	border-radius: 16px;
-	width: 50%;
+	width: 100%;
 	margin: 6% -5%;
+}
 
+.hg-card-home-login {
+	background-color: #f2faff;
+	border-radius: 16px;
+}
+
+
+.hg-card, .hg-card-home-login {
 	box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
   -webkit-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
@@ -393,16 +403,18 @@ input[type="date"], ::placeholder {
 	text-decoration: none;
 }
 
-.hg-card:hover {
+.hg-card:hover, .hg-card-home-login:hover  {
 	background-color: #467be3;
 	border-radius: 16px;
-	width: 50%;
-	margin: 6% -5%;
+}
+
+.hg-card-home-login:hover {
+	color: #fff;
 }
 
 .hg-card-icon {
-	width: 100px;
-	height: 100px;
+	width: 150px;
+	height: 150px;
 
 	padding: 8pt;
 
