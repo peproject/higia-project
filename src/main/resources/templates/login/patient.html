@@ -12,6 +12,9 @@
 </head>
 
 <body class="text-center login-patient">
+
+	<div th:replace="_fragments/modal_password :: modal_password"></div>
+
 	<div class="position-absolute top-0 end-0 mt-4 me-3">
 		<div th:class="${style}" th:text="${message}">
 			<i th:class="${icon}"></i>
@@ -41,7 +44,7 @@
 						<button type="submit" class="btn btn-lg btn-primary" style="width: 8em;">Entrar</button>
 
 						<div class="container mt-4">
-							<a href="" class="text-center">Recuperar senha?</a>
+							<a href="#" class="text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">Recuperar senha?</a>
 						</div>
 					</form>
 				</div>
