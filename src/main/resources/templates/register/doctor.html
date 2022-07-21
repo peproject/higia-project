@@ -6,6 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Higia - Criar conta como médico</title>
+	<link rel="icon" type="image/png" href="/images/icon.png">
 	<span th:replace="_fragments/imports_head :: imports_head"></span>
 	<link rel="stylesheet" href="/styles/boot.css">
 </head>
@@ -62,6 +63,11 @@
 				</div>
 				<div class="input-group mb-3">
 					<input type="password" class="form-control" placeholder="Repetir senha" name="rePassword" minlength="8" required>
+				</div>
+
+				<div class="mb-3">
+					<input type="checkbox" name="eula" id="eula">
+					<label for="eula">Clicando você concorda com os <a href="#">termos de condição</a> do site.</label>
 				</div>
 
 				<button type="submit" class="btn btn-lg btn-primary" onclick="verifyInput()">Registrar-se</button>
