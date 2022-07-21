@@ -24,14 +24,15 @@
 					<h4>Seja bem-vindo, Gabriel!</h4>
 					<p>Acesse todos os nossos serviços abaixo.</p>
 				</div>
+
 			</div>
 		</div>
 	</nav>
 
 	<div class="position-absolute top-50 end-0 translate-middle-y hg-me-9" style="width: 30rem;">
 		<div class="card-body text-center">
-			<div class="row" style="width: 100%;">
-				<div class="col-sm" style="margin-right: -26%;">
+			<div class="row  mt-5" style="width: 100%;">
+				<div class="col-sm mt-5">
 					<a class="card-link" href="/">
 						<div class="hg-card">
 							<img class="hg-card-icon" src="/images/doctorpatient-icon.svg" alt="">
@@ -39,7 +40,7 @@
 						</div>
 					</a>
 				</div>
-				<div class="col-sm align-items-center">
+				<div class="col-sm mt-5">
 					<a class="card-link" href="/">
 						<div class="hg-card">
 							<img class="hg-card-icon" src="/images/doctorexam-icon.svg" alt="">
@@ -49,7 +50,7 @@
 				</div>
 			</div>
 			<div class="row" style="width: 100%;">
-				<div class="col-sm" style="margin-right: -26%;">
+				<div class="col-sm">
 					<a class="card-link" href="/">
 						<div class="hg-card">
 							<img class="hg-card-icon" src="/images/doctorchart-icon.svg" alt="">
@@ -67,6 +68,29 @@
 				</div>
 			</div>
 		</div>
+	</div>
+
+	<div class="position-absolute top-0 end-0">
+		<ul class="navbar-nav mt-4 me-4 btn btn-lg btn-hg-blue">
+			<li class="nav-item dropdown dropstart">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+					aria-expanded="false">
+					<i class="fa-solid fa-user"></i>
+					<span></span>
+
+				</a>
+				<ul class="dropdown-menu me-2" aria-labelledby="navbarDropdown">
+					<li>
+						<a class="dropdown-item">
+							Editar dados
+						</a>
+					</li>
+					<li>
+						<hr class="dropdown-divider">
+					</li>
+					<li><a class="dropdown-item" href="/user/exit">Sair</a></li>
+				</ul>
+		</ul>
 	</div>
 
 	<span th:replace="_fragments/imports_body :: imports_body"></span>
