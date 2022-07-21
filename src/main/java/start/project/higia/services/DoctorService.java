@@ -41,5 +41,9 @@ public class DoctorService {
 	public Doctor findByEmailAndPassword(String email, String password) {
 		return doctorRepository.findByEmailAndPassword(email, password);
 	}
+	
+	public Doctor findByEmail(String email) {
+		return doctorRepository.findByEmail(email);
+	}
 
 }
