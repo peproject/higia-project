@@ -11,7 +11,7 @@ body {
   align-items: center;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #e5effc;
+  background-color: #f2faff;
 }
 
 .login-home {
@@ -28,7 +28,7 @@ body {
 
 .login-doctor {
 	background-image: url("../images/login-doctor.svg");
-	background-size: 100%;
+	background-size: 86%;
 	background-repeat: no-repeat;
 }
 
