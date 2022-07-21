@@ -12,6 +12,9 @@
 </head>
 
 <body class="text-center patient-register">
+
+	<div th:replace="_fragments/modal :: modal"></div>
+
 	<div class="position-absolute top-0 end-0 mt-4 me-3">
 		<div th:class="${style}" th:text="${message}">
 			<i th:class="${icon}"></i>
@@ -66,15 +69,17 @@
 				</div>
 
 				<div class="mb-3">
-					<input type="checkbox" name="eula" id="eula">
-					<label for="eula">Clicando você concorda com os <a href="#">termos de condição</a> do site.</label>
+					<input type="checkbox" name="eula" id="eula" onclick="verifyEula()">
+					<label for="eula">Clicando você concorda com os <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">termos de condição</a> do site.</label>
 				</div>
 
-				<button type="submit" class="btn btn-lg btn-primary" onclick="verifyInput()">Registrar-se</button>
+				<button type="submit" class="btn btn-lg btn-primary" onclick="verifyInput()"
+					id="btn-register" disabled>Registrar-se</button>
 			</form>
 		</div>
 	</main>
 
+	<script src="/scripts/verify_eula.js"></script>
 	<script src="/scripts/verify_input.js"></script>
 	<span th:replace="_fragments/imports_body :: imports_body"></span>
 </body>
