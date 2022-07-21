@@ -1,5 +1,10 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+}
 
 :root {
 	--hg-blue: #467be3;
@@ -15,6 +20,12 @@
 body {
 	background-color: var(--hg-bg);
 	color: #121212;
+}
+
+.doctor-home {
+	background-image: url("../images/doctorhome-background.svg");
+	background-size: 84%;
+	background-repeat: no-repeat;
 }
 
 .hg-black-light {
@@ -318,17 +329,94 @@ input[type="date"], ::placeholder {
 }
 
 .hg-logo {
+	margin-left: 4%;
 	-moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
 
-	font-family: 'Arial', sans-serif;
-	font-size: 20pt;
+	font-family: 'Roboto', sans-serif;
+	font-style: normal;
+	font-weight: bolder;
+	font-size: 40pt;
+}
+
+.secret {
+  color: #467be3;
+}
+
+.secret:hover {
+  color: #2a5ec7;
 }
 
 .hg-link-m-blue {
-	color: #83B5F9;
+	color: #83b5f9;
 }
 
+.welcome-home {
+	background-color: #467be3;
+	color: #fff;
 
+	margin-right: 0;
+	margin-top: -1%;
+
+	width: 76%;
+	padding: 10pt;
+
+	border-bottom-left-radius: 46px;
+}
+
+.welcome-text {
+	margin-left: 5%;
+	margin-top: 3%;
+}
+
+.hg-me-9 {
+	margin-right: 10em;
+}
+
+.hg-card {
+	background-color: #fff;
+	border-radius: 16px;
+	width: 50%;
+	margin: 6% -5%;
+
+	box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  -o-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+  -ms-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+}
+
+.card-link {
+	color: #000;
+	text-decoration: none;
+}
+
+.hg-card:hover {
+	background-color: #467be3;
+	border-radius: 16px;
+	width: 50%;
+	margin: 6% -5%;
+}
+
+.hg-card-icon {
+	width: 100px;
+	height: 100px;
+
+	padding: 8pt;
+
+	object-fit: contain;
+}
+
+.p-card {
+	border-bottom-left-radius: 16px;
+	border-bottom-right-radius: 16px;
+
+	padding-bottom: 6%;
+}
+
+.p-card:hover, .hg-card:hover {
+	color: #fff;
+	cursor: pointer;
+}
