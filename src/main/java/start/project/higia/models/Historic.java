@@ -24,7 +24,7 @@ public class Historic {
 	@ManyToOne
 	private Doctor doctor;
 	
-	@ManyToOne
+	@OneToOne
 	private User user;
 	
 	@Temporal(TemporalType.TIMESTAMP)
