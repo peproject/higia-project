@@ -28,6 +28,18 @@ body {
 	background-repeat: no-repeat;
 }
 
+.doctor-home {
+	background-image: url("../images/patienthome-background.svg");
+	background-size: 84%;
+	background-repeat: no-repeat;
+}
+
+.list {
+	background-image: url("../images/doctorpatient-card-background.svg");
+	background-size: 84%;
+	background-repeat: no-repeat;
+}
+
 .hg-black-light {
 	color: var(--hg-black-light);
 }
