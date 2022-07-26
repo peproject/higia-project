@@ -12,6 +12,7 @@
 </head>
 
 <body class="text-center login-home">
+	<div th:replace="_fragments/cookie_modal :: cookie_modal"></div>
 	<main class="form-signin form-login w-100 m-auto">
 		<a class="navbar-brand hg-logo" href="/">
 			<i class="fa-solid fa-stethoscope secret mb-3"></i>
@@ -40,6 +41,10 @@
 	</main>
 
 	<span th:replace="_fragments/imports_body :: imports_body"></span>
+	<script>
+		var myModal = new bootstrap.Modal(document.getElementById('myModal'), {})
+		myModal.toggle()
+	</script>
 </body>
 
 </html>

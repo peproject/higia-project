@@ -1,0 +1,27 @@
+<div th:fragment="cookie_modal">
+	<div th:if="${session.size() < 1}">
+		<div class="modal mt-5" tabindex="-1" id="myModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-body">
+						<div class="container my-3">
+							<img src="/images/cookie.png" alt="">
+						</div>
+						<p>
+							Nós armazenamos dados temporariamente para melhorar a sua experiência
+							de navegação. Ao utilizar nossos serviços, você concorda com o uso de cookies.
+						</p>
+					</div>
+					<div class="modal-footer">
+						<form action="/not-accept" method="post">
+							<button type="submit" class="btn btn-outline-secondary" data-bs-dismiss="modal">Discordo</button>
+						</form>
+						<form action="/cookies" method="post">
+							<button type="submit" class="btn btn-dark">Concordo</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
