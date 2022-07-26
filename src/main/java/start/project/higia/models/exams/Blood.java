@@ -7,15 +7,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
+import start.project.higia.models.User;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class Blood {
 	
 	@Id
@@ -37,10 +42,16 @@ public class Blood {
 	@Column(nullable = false)
 	private Integer platelets;
 	
-	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
+	@ManyToOne
+	private User user;
+	
+	@Column(nullable = false, updatable = false)
+	@CreationTimestamp
 	private Date createdAt;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	@Column(nullable = false, updatable = false)
+	@CreationTimestamp
 	private Date updatedAt;
 	
 
