@@ -22,7 +22,7 @@ import start.project.higia.models.User;
 @NoArgsConstructor
 @Data
 public class Blood {
-	
+	//Blood-test
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;

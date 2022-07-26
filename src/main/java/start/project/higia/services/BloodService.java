@@ -1,7 +1,6 @@
 package start.project.higia.services;
 
-import java.util.Collection;
-
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -23,7 +22,7 @@ public class BloodService {
 	}
 	
 	
-	public Collection<Blood> mostrarExames(Long id){
+	public List<Blood> index(Long id){
 		return repository.findByUserId(id);
 	}
 

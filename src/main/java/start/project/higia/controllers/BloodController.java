@@ -25,7 +25,7 @@ public class BloodController {
 	
 	@GetMapping("/bloods/{id}")
 	public String mostrar(@PathVariable Long id, Model model) {
-		model.addAttribute("blods", service.mostrarExames(id));
+		model.addAttribute("blods", service.index(id));
 		return "zap";
 }
 
