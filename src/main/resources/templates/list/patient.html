@@ -54,7 +54,7 @@
 					<tbody class="table-bordered table-striped">
 						<tr th:each="patient : ${patients}">
 							<th scope="row" th:text="${patient.id}"></th>
-							<td th:text="${patient.name + patient.lastname}"></td>
+							<td th:text="${patient.name + ' ' + patient.lastname}"></td>
 							<td class="text-end">
 								<a href="#" class="me-3 text-secondary">
 									<i class="fa-solid fa-eye"></i>
