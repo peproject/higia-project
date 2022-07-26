@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import start.project.higia.models.Doctor;
+import start.project.higia.models.User;
 import start.project.higia.services.DoctorService;
+import start.project.higia.services.UserService;
 import start.project.higia.utils.EmailSenderService;
 
 @Controller
@@ -25,6 +27,9 @@ public class DoctorController {
 
 	@Autowired
 	private EmailSenderService emailSender;
+	
+	@Autowired
+	private UserService userService;
 
 	@GetMapping("/doc")
 	public String index(Doctor doctor, Model model) {
@@ -72,5 +77,11 @@ public class DoctorController {
 	public String delete(@PathVariable Long id) {
 		doctorService.deleteById(id);
 		return "redirect:/doctor";
+	}
+	
+	@GetMapping("/doc/list/patient")
+	public String indexPatient(User user, Model model) {
+		model.addAttribute("users", userService.index(user));
+		return "";
 	}
 }
