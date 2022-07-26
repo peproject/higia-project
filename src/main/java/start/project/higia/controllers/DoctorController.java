@@ -27,14 +27,14 @@ public class DoctorController {
 
 	@Autowired
 	private EmailSenderService emailSender;
-	
+
 	@Autowired
 	private UserService userService;
 
 	@GetMapping("/doc")
 	public String index(Doctor doctor, Model model) {
 		model.addAttribute("doctor", this.doctorService.index(doctor));
-		return "login/doctor";
+		return "home/doctor";
 	}
 
 	// Rota para tela de cadastro
@@ -78,10 +78,10 @@ public class DoctorController {
 		doctorService.deleteById(id);
 		return "redirect:/doctor";
 	}
-	
-	@GetMapping("/doc/list/patient")
+
+	@GetMapping("/doc/list/patients")
 	public String indexPatient(User user, Model model) {
-		model.addAttribute("users", userService.index(user));
-		return "";
+		model.addAttribute("patients", userService.index(user));
+		return "list/patient";
 	}
 }
