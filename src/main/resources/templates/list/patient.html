@@ -12,8 +12,6 @@
 </head>
 
 <body class="list">
-
-
 	<nav class="navbar" style="/*border: 1px solid red;*/">
 		<div class="container-fluid" style="margin: 0; padding: 0;">
 			<a class="navbar-brand hg-logo" href="/doc">
@@ -22,6 +20,10 @@
 			</a>
 		</div>
 	</nav>
+
+	<div th:each="patient : ${patients}">
+		<div th:replace="_fragments/modal_view_patient :: modal_view_patient(id=${patient.id}, patient=${patient})"></div>
+	</div>
 
 	<div class="position-absolute top-50 end-0 translate-middle-y hg-me-9 mt-5" style="width: 56rem; margin-top: 14%;">
 		<h4 class="text-center mb-3">Pesquisar pacientes</h4>
@@ -56,9 +58,11 @@
 							<th scope="row" th:text="${patient.id}"></th>
 							<td th:text="${patient.name + ' ' + patient.lastname}"></td>
 							<td class="text-end">
-								<a href="#" class="me-3 text-secondary">
+								<a href="#" class="me-3 text-secondary" th:id="'modal' + ${patient.id}" data-bs-toggle="modal" th:attr="data-bs-target='#modal'+${patient.id}">
 									<i class="fa-solid fa-eye"></i>
 								</a>
+
+
 							</td>
 						</tr>
 					</tbody>
