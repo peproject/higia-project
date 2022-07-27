@@ -27,7 +27,7 @@
 		</div>
 	</div>
 
-	<a class="navbar-brand hg-logo position-absolute top-0 start-0 hg-ms-9 mt-5" href="/">
+	<a class="navbar-brand hg-logo position-absolute top-0 start-0 hg-ms-9 mt-5" href="/user/login">
 		<i class="fa-solid fa-stethoscope secret-register"></i>
 		Hig<span class="secret-register">i</span>a
 	</a>
@@ -60,7 +60,9 @@
 					</div>
 					<div class="col-sm">
 						<div class="input-group mb-3">
-							<input type="tel" class="form-control" placeholder="DDD90000-0000" name="number" required>
+							<input type="tel" class="form-control"
+								placeholder="(00) 0000-0000" name="number"
+									pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4}" required>
 						</div>
 					</div>
 				</div>

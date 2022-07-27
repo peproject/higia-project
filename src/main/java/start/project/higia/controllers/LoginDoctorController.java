@@ -33,7 +33,7 @@ public class LoginDoctorController {
 			session.setAttribute("logged", doctor);
 			session.setAttribute("doctor", 0);
 
-			return "redirect:/";
+			return "redirect:/doc";
 		} else {
 			model.addAttribute("message", "E-mail não cadastrado ou senha inválida.");
 			model.addAttribute("style", "p-3 mb-2 bg-danger text-white");

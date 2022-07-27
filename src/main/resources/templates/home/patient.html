@@ -10,18 +10,20 @@
 	<title>Higia - Início</title>
 </head>
 
-<body class="doctor-home">
+<body class="patient-home">
 
 
 	<nav class="navbar" style="/*border: 1px solid red;*/">
 		<div class="container-fluid" style="margin: 0; padding: 0;">
-			<a class="navbar-brand hg-logo" href="/">
+			<a class="navbar-brand hg-logo" href="/use">
 				<i class="fa-solid fa-stethoscope secret"></i>
 				Hig<span class="secret">i</span>a
 			</a>
 			<div class=" container welcome-home">
 				<div class="welcome-text">
-					<h4>Seja bem-vindo<spam style="font-size: 14pt;">(a)</spam>, Gabriel!</h4>
+					<h4>Seja bem-vindo<span style="font-size: 14pt;">(a)</span>,
+						<span th:text="${session.logged.name}"></span>
+					</h4>
 					<p>Acesse todos os nossos serviços abaixo.</p>
 				</div>
 

@@ -15,13 +15,14 @@
 
 	<nav class="navbar" style="/*border: 1px solid red;*/">
 		<div class="container-fluid" style="margin: 0; padding: 0;">
-			<a class="navbar-brand hg-logo" href="/">
+			<a class="navbar-brand hg-logo" href="/doc">
 				<i class="fa-solid fa-stethoscope secret"></i>
 				Hig<span class="secret">i</span>a
 			</a>
 			<div class=" container welcome-home">
 				<div class="welcome-text">
-					<h4>Seja bem-vindo, Gabriel!</h4>
+					<h4>Seja bem-vindo<span style="font-size: 14pt;">(a)</span>, <span th:text="${session.logged.name}"></span>!
+					</h4>
 					<p>Acesse todos os nossos serviços abaixo.</p>
 				</div>
 
@@ -33,7 +34,7 @@
 		<div class="card-body text-center">
 			<div class="row  mt-5" style="width: 100%;">
 				<div class="col-sm mt-5">
-					<a class="card-link" href="/">
+					<a class="card-link" href="/doc/list/patients">
 						<div class="hg-card">
 							<img class="hg-card-icon" src="/images/doctorpatient-icon.svg" alt="">
 							<p class="p-card">Pacientes</p>

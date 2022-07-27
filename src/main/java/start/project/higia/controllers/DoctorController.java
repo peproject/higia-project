@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import start.project.higia.models.Doctor;
+import start.project.higia.models.User;
 import start.project.higia.services.DoctorService;
+import start.project.higia.services.UserService;
 import start.project.higia.utils.EmailSenderService;
 
 @Controller
@@ -26,10 +28,13 @@ public class DoctorController {
 	@Autowired
 	private EmailSenderService emailSender;
 
+	@Autowired
+	private UserService userService;
+
 	@GetMapping("/doc")
 	public String index(Doctor doctor, Model model) {
 		model.addAttribute("doctor", this.doctorService.index(doctor));
-		return "login/doctor";
+		return "home/doctor";
 	}
 
 	// Rota para tela de cadastro
@@ -72,5 +77,11 @@ public class DoctorController {
 	public String delete(@PathVariable Long id) {
 		doctorService.deleteById(id);
 		return "redirect:/doctor";
+	}
+
+	@GetMapping("/doc/list/patients")
+	public String indexPatient(User user, Model model) {
+		model.addAttribute("patients", userService.index(user));
+		return "list/patient";
 	}
 }

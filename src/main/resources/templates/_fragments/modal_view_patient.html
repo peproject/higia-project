@@ -1,0 +1,24 @@
+<div th:fragment="modal_view_patient">
+<div class="modal fade" th:id="'modal' + ${id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title-center" id="exampleModalLabel" th:text="${patient.name + ' ' + patient.lastname}"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label fw-bold">Email:</label>
+            <p th:text="${patient.email}"></p>
+          </div>
+					<div class="mb-3">
+            <label for="message-text" class="col-form-label fw-bold">Telefone:</label>
+            <p th:text="${patient.number}"></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

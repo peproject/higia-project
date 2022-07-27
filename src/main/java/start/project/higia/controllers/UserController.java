@@ -26,6 +26,11 @@ public class UserController {
 	@Autowired
 	private EmailSenderService emailSender;
 
+	@GetMapping("/use")
+	public String login() {
+		return "/home/patient";
+	}
+
 	// Rota para tela de Cadastro de usuarios
 	@GetMapping("/user/registration")
 	public String registration() {

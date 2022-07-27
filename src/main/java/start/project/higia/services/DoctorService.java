@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import start.project.higia.models.Doctor;
 import start.project.higia.models.Roles;
+import start.project.higia.models.User;
 import start.project.higia.repositories.DoctorRepository;
 
 @Component
@@ -45,5 +46,6 @@ public class DoctorService {
 	public Doctor findByEmail(String email) {
 		return doctorRepository.findByEmail(email);
 	}
+	
 
 }
