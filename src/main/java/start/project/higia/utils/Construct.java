@@ -21,6 +21,13 @@ public class Construct {
 		return constructEmail("Reset Password", message + " \r\n" + url, doctor);
 	}
 
-	
+	private SimpleMailMessage constructEmail(String subject, String body, Doctor doctor) {
+		SimpleMailMessage email = new SimpleMailMessage();
+		email.setSubject(subject);
+		email.setText(body);
+		email.setTo(doctor.getEmail());
+		email.setFrom("Higia <starthigiaproject@gmail.com>");
+		return email;
+	}
 	
 }
