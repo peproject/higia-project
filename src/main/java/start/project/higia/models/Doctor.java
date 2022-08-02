@@ -1,14 +1,22 @@
 package start.project.higia.models;
 
-import javax.persistence.*;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
-import start.project.higia.utils.Util;
-
-import java.util.Date;
 
 @Entity
 @Data
@@ -47,13 +55,5 @@ public class Doctor {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updatedAt;
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = Util.md5(password);
-	}
 
 }
