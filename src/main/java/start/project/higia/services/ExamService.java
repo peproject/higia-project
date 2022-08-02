@@ -18,12 +18,12 @@ public class ExamService {
 		return examRepository.save(exam);
 	}
 
-	public List<Exam> index(Exam exam) {
+	public List<Exam> findAllExams(Exam exam) {
 		return examRepository.findAll();
 	}
 
-	public Optional<Exam> getById(Long id) {
-		return examRepository.findById(id);
+	public List<Exam> getById(Long id) {
+		return examRepository.findByUserId(id);
 	}
 
 	public String deleteById(Long id) {
