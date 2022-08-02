@@ -1,11 +1,15 @@
 package start.project.higia.services;
 
+import java.util.Optional;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
+import org.springframework.security.crypto.password.PasswordEncoder;
+import start.project.higia.models.Doctor;
 import start.project.higia.models.DoctorPasswordTokens;
 import start.project.higia.repositories.DoctorPasswordTokensRepository;
-import start.project.higia.utils.Salt;
+import start.project.higia.repositories.DoctorRepository;
 
 @Component
 public class DoctorPasswordTokensServices {
@@ -13,11 +17,16 @@ public class DoctorPasswordTokensServices {
 	@Autowired
 	DoctorPasswordTokensRepository doctorPasswordTokensRepository;
 	
-	public DoctorPasswordTokens create(DoctorPasswordTokens doctor) {		
-		doctor.setTokens(Salt.generateType1UUID().toString());
-		doctor.setUsed(0);
-		return doctorPasswordTokensRepository.save(doctor);
-	}
+	@Autowired
+	DoctorRepository doctorRepositoy;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+	
+	public void create(final Doctor doctor, final String token) {
+        final DoctorPasswordTokens myToken = new DoctorPasswordTokens(token, doctor);
+        doctorPasswordTokensRepository.save(myToken);
+    }
 	
 }
  
