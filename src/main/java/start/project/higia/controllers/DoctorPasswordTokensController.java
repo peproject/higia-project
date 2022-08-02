@@ -72,6 +72,23 @@ public class DoctorPasswordTokensController {
 		}
 	}
 
+	@PostMapping("/user/savePassword")
+	public GenericResponse savePassword(final Locale locale, @Valid PasswordDto passwordDto) {
 
+		String result = securityService.validatePasswordResetToken(passwordDto.getToken());
+
+		if (result != null) {
+			return new GenericResponse(messages.getMessage("auth.message." + result, null, locale));
+		}
+
+		Optional<Doctor> doctor = doctorPasswordTokensServicesservices
+				.getDoctorByPasswordResetToken(passwordDto.getToken());
+		if (doctor.isPresent()) {
+			doctorPasswordTokensServicesservices.changePassword(doctor.get(), passwordDto.getNewPassword());
+			return new GenericResponse(messages.getMessage("message.resetPasswordSuc", null, locale));
+		} else {
+			return new GenericResponse(messages.getMessage("auth.message.invalid", null, locale));
+		}
+	}
 
 }
