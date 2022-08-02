@@ -1,5 +1,7 @@
 package start.project.higia.models;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -13,9 +15,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import start.project.higia.utils.Util;
-
-import java.util.Date;
 
 @Entity
 @Data
@@ -51,13 +50,5 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     private Roles role;
-
-    public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = Util.md5(password);
-	}
 
 }
