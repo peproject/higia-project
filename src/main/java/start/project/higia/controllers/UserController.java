@@ -45,7 +45,7 @@ public class UserController {
 			model.addAttribute("message", "Conta criada com sucesso.");
 			model.addAttribute("style", "toast bg-success text-white align-items-center show");
 			model.addAttribute("icon", "fa-solid fa-check");
-
+            user.setPassword(userService.encryptPassword(user));
 			userService.create(user);
 			emailSender.sendEmail(user.getEmail(), "Higia - Create Account", "Account created successfully");
 			return "register/patient";
