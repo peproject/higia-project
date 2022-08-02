@@ -4,23 +4,29 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Component;
 
 import start.project.higia.models.Doctor;
 import start.project.higia.models.Roles;
-import start.project.higia.models.User;
 import start.project.higia.repositories.DoctorRepository;
 
 @Component
 public class DoctorService {
-
+	
 	@Autowired
 	private DoctorRepository doctorRepository;
-
+	
+	private static final int passwordComplexity = 10;
+	
 	// Serviço para salvar o doutor no banco de dados
 	public Doctor create(Doctor doctor) {
 		doctor.setRole(Roles.DOCTOR);
 		return doctorRepository.save(doctor);
+	}
+	
+	public String encryptPassword(Doctor doctor) {
+		return BCrypt.hashpw(doctor.getPassword(), BCrypt.gensalt(passwordComplexity));
 	}
 
 	// Serviço para listar o doutor
@@ -47,5 +53,4 @@ public class DoctorService {
 		return doctorRepository.findByEmail(email);
 	}
 	
-
 }
