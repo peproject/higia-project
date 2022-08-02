@@ -60,6 +60,18 @@ public class DoctorPasswordTokensController {
 		return new GenericResponse(messages.getMessage("message.resetPasswordEmail", null, request.getLocale()));
 	}
 
+	@GetMapping("/doctor/change/password")
+	public String showChangePasswordPage(Locale locale, Model model, @RequestParam("token") String token) {
+		String result = securityService.validatePasswordResetToken(token);
+		if (result != null) {
+			String message = messages.getMessage("auth.message." + result, null, locale);
+			return "redirect:/login.html?lang=" + locale.getLanguage() + "&message=" + message;
+		} else {
+			model.addAttribute("token", token);
+			return "redirect:/updatePassword.html?lang=" + locale.getLanguage();
+		}
+	}
+
 
 
 }
