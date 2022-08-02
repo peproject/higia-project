@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotBlank;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,14 +28,21 @@ public class Exam {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+
 	@Column(nullable = false, length = 400)
 	private String name;
+
 	@Enumerated(EnumType.STRING)
 	private ExamType type;
+
 	@ManyToOne
+	@NotBlank
 	private Doctor doctor;
+
 	@ManyToOne
+	@NotBlank
 	private User user;
+
 	@Column
 	private Date date;
 
