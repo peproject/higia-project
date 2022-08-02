@@ -11,22 +11,22 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
-@Getter
-@Setter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Evolution {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@Column(length = 16000, nullable = false)
+	@Column(columnDefinition = "text", nullable = false)
 	private String body;
 
-    @ManyToOne
+	@ManyToOne
 	private Historic historic;
 
 	@ManyToOne
