@@ -51,7 +51,7 @@ public class DoctorController {
 			model.addAttribute("message", "Conta criada com sucesso.");
 			model.addAttribute("style", "toast bg-success text-white align-items-center show");
 			model.addAttribute("icon", "fa-solid fa-check");
-
+            doctor.setPassword(doctorService.encryptPassword(doctor));
 			this.doctorService.create(doctor);
 			emailSender.sendEmail(doctor.getEmail(), "Higia - Create Account", "Account created successfully");
 			return "register/doctor";
