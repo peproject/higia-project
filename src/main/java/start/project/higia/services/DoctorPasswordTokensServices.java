@@ -32,6 +32,9 @@ public class DoctorPasswordTokensServices {
         return Optional.ofNullable(doctorPasswordTokensRepository.findByToken(token) .getDoctor());
     }
     
-
+    public void changePassword(Doctor doctor, String password) {
+        doctor.setPassword(passwordEncoder.encode(password));
+        doctorRepositoy.save(doctor); 
+    }
 }
  
