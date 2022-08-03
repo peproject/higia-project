@@ -13,18 +13,18 @@ import start.project.higia.repositories.DoctorRepository;
 
 @Component
 public class DoctorService {
-	
+
 	@Autowired
 	private DoctorRepository doctorRepository;
-	
+
 	private static final int passwordComplexity = 10;
-	
+
 	// Serviço para salvar o doutor no banco de dados
 	public Doctor create(Doctor doctor) {
 		doctor.setRole(Roles.DOCTOR);
 		return doctorRepository.save(doctor);
 	}
-	
+
 	public String encryptPassword(Doctor doctor) {
 		return BCrypt.hashpw(doctor.getPassword(), BCrypt.gensalt(passwordComplexity));
 	}
@@ -46,11 +46,20 @@ public class DoctorService {
 	}
 
 	public Doctor findByEmailAndPassword(String email, String password) {
-		return doctorRepository.findByEmailAndPassword(email, password);
+		Optional<Doctor> doctor = doctorRepository.findByEmail(email);
+		if (doctor.isPresent()) {
+			if (BCrypt.checkpw(password, doctor.get().getPassword())) {
+				return doctor.get();
+			} else {
+				return null;
+			}
+		} else {
+			return null;
+		}
 	}
-	
+
 	public Doctor findByEmail(String email) {
-		return doctorRepository.findByEmail(email);
+		return doctorRepository.findEmail(email);
 	}
-	
+
 }
