@@ -80,8 +80,13 @@ public class DoctorController {
 	}
 
 	@GetMapping("/doc/list/patients")
-	public String indexPatient(User user, Model model) {
+	public String patientList(User user, Model model) {
 		model.addAttribute("patients", userService.index(user));
 		return "list/patient";
+	}
+
+	@GetMapping("/doc/list/evolutions")
+	public String evolutionList() {
+		return "list/evolutions";
 	}
 }
