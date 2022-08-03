@@ -40,6 +40,12 @@ body {
 	background-repeat: no-repeat;
 }
 
+.evolution-list {
+	background-image: url("../images/evolution-background.svg");
+	background-size: 84%;
+	background-repeat: no-repeat;
+}
+
 .hg-black-light {
 	color: var(--hg-black-light);
 }
