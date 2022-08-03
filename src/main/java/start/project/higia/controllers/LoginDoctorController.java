@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import start.project.higia.models.Doctor;
 import start.project.higia.services.DoctorService;
@@ -24,9 +25,9 @@ public class LoginDoctorController {
 	}
 
 	@PostMapping("/doctor/logon")
-	public String logon(Doctor doctor, HttpSession session, Model model) {
+	public String logon(Doctor doctor, HttpSession session, Model model, @RequestParam String email, @RequestParam String password) {
 
-		doctor = doctorService.findByEmailAndPassword(doctor.getEmail(), doctor.getPassword());
+		 doctor = doctorService.findByEmailAndPassword(email, password);
 
 		if (doctor != null) {
 
