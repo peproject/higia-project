@@ -45,6 +45,15 @@ public class UserService {
 
 	//Rota para encontrar o user
 	public User findByEmailAndPassword(String email, String password) {
-		return userRepository.findByEmailAndPassword(email, password);
+		Optional<User> user = userRepository.findByEmail(email);
+		if (user.isPresent()) {
+			if (BCrypt.checkpw(password, user.get().getPassword())) {
+				return user.get();
+			} else {
+				return null;
+			}
+		} else {
+			return null;
+		}
 	}
 }
