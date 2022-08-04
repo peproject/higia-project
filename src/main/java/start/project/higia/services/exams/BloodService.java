@@ -1,4 +1,4 @@
-package start.project.higia.services;
+package start.project.higia.services.exams;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import start.project.higia.models.exams.Blood;
-import start.project.higia.repositories.BloodRepository;
+import start.project.higia.repositories.exams.BloodRepository;
 
 
 

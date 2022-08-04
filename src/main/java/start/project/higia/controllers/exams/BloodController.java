@@ -1,5 +1,4 @@
-package start.project.higia.controllers;
-
+package start.project.higia.controllers.exams;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,24 +8,30 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import start.project.higia.models.exams.Blood;
-import start.project.higia.services.BloodService;
+import start.project.higia.services.exams.BloodService;
 
 @Controller
 public class BloodController {
-	
+
 	@Autowired
 	private BloodService service;
-	
-	@PostMapping("/createBlood")
-	public String create(Blood blood) {
-		service.create(blood);
-		return "tests/teste";
+
+	@GetMapping("/blood/create")
+	public String create() {
+
+		return "";
 	}
-	
-	@GetMapping("/bloods/{id}")
+
+	@PostMapping("/blood/save")
+	public String save(Blood blood) {
+		service.create(blood);
+		return "";
+	}
+
+	@GetMapping("/blood/index/{id}")
 	public String mostrar(@PathVariable Long id, Model model) {
 		model.addAttribute("blods", service.index(id));
-		return "zap";
-}
+		return "tests/zap";
+	}
 
 }
