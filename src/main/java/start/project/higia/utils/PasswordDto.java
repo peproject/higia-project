@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PasswordDto {
 
-	private String oldPassword;
+	private String repeatPassword;
 
 	private String token;
 
