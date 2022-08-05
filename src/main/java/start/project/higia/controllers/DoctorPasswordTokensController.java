@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import start.project.higia.models.Doctor;
 import start.project.higia.models.DoctorPasswordTokens;
@@ -23,7 +24,7 @@ import start.project.higia.services.DoctorPasswordTokensServices;
 import start.project.higia.services.DoctorService;
 import start.project.higia.utils.Construct;
 import start.project.higia.utils.GenericResponse;
-import start.project.higia.utils.OnRegistrationCompleteEvent;
+
 import start.project.higia.utils.PasswordDto;
 
 @Controller
@@ -47,20 +48,30 @@ public class DoctorPasswordTokensController {
 	@Autowired
 	private Construct construct;
 
-	@PostMapping("/doctor/reset/password")
-	public GenericResponse create(HttpServletRequest request, @RequestParam("email") String email,
-			DoctorPasswordTokens doc, Model model, OnRegistrationCompleteEvent obj) {
+	@PostMapping("/doctor/restore")
+	public String create(HttpServletRequest request, @RequestParam("email") String email,
+			DoctorPasswordTokens doc, RedirectAttributes redirect) {
 		Doctor doctor = doctorService.findByEmail(email);
 		if (doctor == null) {
-			model.addAttribute("message", "E-mail não cadastrado.");
+
+			redirect.addFlashAttribute("message", "E-mail não cadastrado.");
+			redirect.addFlashAttribute("style", "p-3 mb-2 bg-danger text-white rounded");
+			redirect.addFlashAttribute("icon", "fa-solid fa-check");
+
+			return "redirect:/doctor/login";
 		}
 		String token = UUID.randomUUID().toString();
 		doctorPasswordTokensServicesservices.create(doctor, token);
-		mailSender.send(this.construct.constructResetTokenEmail(obj.getAppUrl(), request.getLocale(), token, doctor));
-		return new GenericResponse(messages.getMessage("message.resetPasswordEmail", null, request.getLocale()));
+		mailSender.send(this.construct.constructResetTokenEmail("localhost:8080", request.getLocale(), token, doctor));
+
+		redirect.addFlashAttribute("message", "Por favor, verifique seu e-mail para uma mensagem com seu código!");
+		redirect.addFlashAttribute("style", "p-3 mb-2 bg-primary text-white rounded");
+		redirect.addFlashAttribute("icon", "fa-solid fa-circle-info");
+
+		return "redirect:/doctor/login";
 	}
 
-	@GetMapping("/doctor/change/password")
+	@GetMapping("/doctor/change")
 	public String showChangePasswordPage(Locale locale, Model model, @RequestParam("token") String token) {
 		String result = securityService.validatePasswordResetToken(token);
 		if (result != null) {
@@ -68,11 +79,11 @@ public class DoctorPasswordTokensController {
 			return "redirect:/login.html?lang=" + locale.getLanguage() + "&message=" + message;
 		} else {
 			model.addAttribute("token", token);
-			return "redirect:/updatePassword.html?lang=" + locale.getLanguage();
+			return "forget/doctor";
 		}
 	}
 
-	@PostMapping("/user/savePassword")
+	@PostMapping("/doctor/recover")
 	public GenericResponse savePassword(final Locale locale, @Valid PasswordDto passwordDto) {
 
 		String result = securityService.validatePasswordResetToken(passwordDto.getToken());
