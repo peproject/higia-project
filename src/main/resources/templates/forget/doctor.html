@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" href="/images/icon.png">
+	<span th:replace="_fragments/imports_head :: imports_head"></span>
+	<link rel="stylesheet" href="/styles/boot.css">
+	<title>Higia - Recuperar senha</title>
+</head>
+
+<body class="text-center forget-password">
+	<a class="navbar-brand hg-logo position-absolute top-0 start-0 hg-ms-9 mt-5" href="/">
+		<i class="fa-solid fa-stethoscope secret"></i>
+		Hig<span class="secret">i</span>a
+	</a>
+
+	<main class="form-signin form-login-patient hg-me-9">
+		<a class="navbar-brand hg-logo hg-logo-mobile" href="/">
+			<i class="fa-solid fa-stethoscope secret"></i>
+			Hig<span class="secret">i</span>a
+		</a>
+		<section class="row mx-5 my-5">
+			<section class="col-lg">
+				<div class=" hg-col-mt-min">
+					<form action="/doctor/recover" method="post" class="px-5 py-5"
+					oninput="rePassword.setCustomValidity(password.value != rePassword.value ? 'Senhas diferentes!' : '')">
+						<h3 class="text-start mb-3">Recuperar conta</h3>
+						<div class="input-group input-group-lg mb-3">
+							<input type="text" class="form-control" placeholder="Token" th:value="${token}"
+								name="token" required>
+						</div>
+						<div class="input-group input-group-lg mb-3">
+							<input type="password" class="form-control" placeholder="Senha"
+								name="password" minlength="8" required>
+						</div>
+						<div class="input-group input-group-lg mb-3">
+							<input type="password" class="form-control" placeholder="Repetir senha"
+							 name="rePassword" minlength="8" required>
+						</div>
+
+						<button type="submit" class="btn btn-lg btn-primary" style="width: 8em;">Alterar</button>
+					</form>
+				</div>
+			</section>
+		</section>
+		<footer class="mt-5 mb-3 text-muted ">HIGIA &copy; 2022 - Todos os direitos reservados</footer>
+	</main>
+
+	<span th:replace="_fragments/imports_body :: imports_body"></span>
+</body>
+
+</html>
