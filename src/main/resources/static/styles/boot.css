@@ -44,6 +44,12 @@ body {
 	background-repeat: no-repeat;
 }
 
+.forget-password {
+	background-image: url("../images/resetpassword-background.svg");
+	background-size: 84%;
+	background-repeat: no-repeat;
+}
+
 .hg-logo {
   -moz-user-select: none;
   -webkit-user-select: none;
