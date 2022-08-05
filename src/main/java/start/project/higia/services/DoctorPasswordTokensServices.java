@@ -3,6 +3,7 @@ package start.project.higia.services;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Component;
 
 import start.project.higia.models.Doctor;
@@ -19,8 +20,7 @@ public class DoctorPasswordTokensServices {
 	@Autowired
 	DoctorRepository doctorRepositoy;
 	
-	@Autowired
-	private DoctorService doctorService;
+	private static final int passwordComplexity = 10;
 	
 	public void create(final Doctor doctor, final String token) {
         final DoctorPasswordTokens myToken = new DoctorPasswordTokens(token, doctor);
@@ -31,8 +31,8 @@ public class DoctorPasswordTokensServices {
         return Optional.ofNullable(doctorPasswordTokensRepository.findByToken(token) .getDoctor());
     }
     
-    public void changePassword(Doctor doctor) {
-        doctor.setPassword(doctorService.encryptPassword(doctor));
+    public void changePassword(Doctor doctor, String password) {
+        doctor.setPassword(BCrypt.hashpw(password, BCrypt.gensalt(passwordComplexity)));
         doctorRepositoy.save(doctor); 
     }
 }
