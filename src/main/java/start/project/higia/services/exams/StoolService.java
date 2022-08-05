@@ -22,5 +22,9 @@ public class StoolService {
 	public List<Stool> index(Long id) {
 		return repository.findByUserId(id);
 	}
+	
+	public List<Stool> indexAll(Stool stool) {
+		return repository.findAll();
+	}
 
 }

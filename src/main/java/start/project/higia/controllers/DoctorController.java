@@ -13,9 +13,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import start.project.higia.models.Doctor;
+import start.project.higia.models.Evolution;
 import start.project.higia.models.User;
+import start.project.higia.models.exams.Blood;
+import start.project.higia.models.exams.Stool;
+import start.project.higia.models.exams.Urine;
 import start.project.higia.services.DoctorService;
+import start.project.higia.services.EvolutionService;
 import start.project.higia.services.UserService;
+import start.project.higia.services.exams.BloodService;
+import start.project.higia.services.exams.StoolService;
+import start.project.higia.services.exams.UrineService;
 import start.project.higia.utils.EmailSenderService;
 
 @Controller
@@ -30,6 +38,18 @@ public class DoctorController {
 
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private EvolutionService evoService;
+
+	@Autowired
+	private BloodService bloodservice;
+	
+	@Autowired
+	private StoolService stoolservice;
+	
+	@Autowired
+	private UrineService urineservice;
 
 	@GetMapping("/doc")
 	public String index(Doctor doctor, Model model) {
@@ -51,9 +71,9 @@ public class DoctorController {
 			model.addAttribute("message", "Conta criada com sucesso.");
 			model.addAttribute("style", "toast bg-success text-white align-items-center show");
 			model.addAttribute("icon", "fa-solid fa-check");
-            doctor.setPassword(doctorService.encryptPassword(doctor));
+			doctor.setPassword(doctorService.encryptPassword(doctor));
 			this.doctorService.create(doctor);
-			emailSender.sendEmail(doctor.getEmail(), "Higia - Create Account", "Account created successfully");
+			emailSender.sendEmail(doctor.getEmail(), "Higia - Criação de Conta", "Conta criada com sucesso !!!");
 			return "register/doctor";
 		} catch (DataIntegrityViolationException ex) {
 			model.addAttribute("message", "Email ou CRM já cadastrado.");
@@ -86,7 +106,31 @@ public class DoctorController {
 	}
 
 	@GetMapping("/doc/list/evolutions")
-	public String evolutionList() {
+	public String evolutionList(Evolution evolution, Model model) {
+		model.addAttribute("evolutions", evoService.index(evolution));
 		return "list/evolutions";
 	}
+
+	@GetMapping("/doc/list/bloods")
+	public String bloodList(Blood blood, Model model) {
+		model.addAttribute("bloods", bloodservice.indexAll(blood));
+		System.out.println(bloodservice.indexAll(blood));
+		return "";
+	}
+	
+	@GetMapping("/doc/list/stools")
+	public String stoolList(Stool stool, Model model) {
+		model.addAttribute("stools", stoolservice.indexAll(stool));
+		System.out.println(stoolservice.indexAll(stool));
+		return "";
+	}
+	
+
+	@GetMapping("/doc/list/urines")
+	public String urineList(Urine urine, Model model) {
+		model.addAttribute("urines", urineservice.indexAll(urine));
+		System.out.println(urineservice.indexAll(urine));
+		return "tests/zap";
+	}
+	
 }

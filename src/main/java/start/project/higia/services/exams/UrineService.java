@@ -23,5 +23,8 @@ public class UrineService {
 		return repository.findByUserId(id);
 	}
 	
+	public List<Urine> indexAll(Urine urine) {
+		return repository.findAll();
+	}
 
 }

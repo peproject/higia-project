@@ -25,5 +25,9 @@ public class BloodService {
 	public List<Blood> index(Long id){
 		return repository.findByUserId(id);
 	}
+	
+	public List<Blood> indexAll(Blood blood) {
+		return repository.findAll();
+	}
 
 }
