@@ -10,15 +10,29 @@
         <form>
           <div class="mb-3">
             <label for="message-text" class="col-form-label fw-bold">Email:</label>
-            <p th:text="${patient.email}"></p>
+            <div class="input-group form-control">
+							<input type="text" th:value="${patient.email}" th:id="'email' + ${id}"
+								class="form-control" style="border: none;">
+								<button type="button" class="btn btn-link link-secondary" th:onclick="|copy('email' + ${id})|">
+									<i class="fa-solid fa-copy"></i>
+								</button>
+						</div>
           </div>
 					<div class="mb-3">
             <label for="message-text" class="col-form-label fw-bold">Telefone:</label>
-            <p th:text="${patient.number}"></p>
+						<div class="input-group form-control">
+							<input type="tel" th:value="${patient.number}" th:id="'phone' + ${id}"
+								class="form-control" style="border: none;">
+								<button type="button" class="btn btn-link link-secondary" th:onclick="|copy('phone' + ${id})|">
+									<i class="fa-solid fa-copy"></i>
+								</button>
+						</div>
           </div>
         </form>
       </div>
     </div>
   </div>
 </div>
+
+<script src="/scripts/copy_text.js"></script>
 </div>
