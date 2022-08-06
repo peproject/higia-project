@@ -26,7 +26,7 @@
 			<section class="col-lg">
 				<div class=" hg-col-mt-min">
 					<form action="/doctor/recover" method="post" class="px-5 py-5"
-					oninput="rePassword.setCustomValidity(password.value != rePassword.value ? 'Senhas diferentes!' : '')">
+					oninput="repeatPassword.setCustomValidity(newPassword.value != repeatPassword.value ? 'Senhas diferentes!' : '')">
 						<h3 class="text-start mb-3">Recuperar conta</h3>
 						<div class="input-group input-group-lg mb-3">
 							<input type="text" class="form-control" placeholder="Token" th:value="${token}"
@@ -34,11 +34,11 @@
 						</div>
 						<div class="input-group input-group-lg mb-3">
 							<input type="password" class="form-control" placeholder="Senha"
-								name="password" minlength="8" required>
+								name="newPassword" minlength="8" required>
 						</div>
 						<div class="input-group input-group-lg mb-3">
 							<input type="password" class="form-control" placeholder="Repetir senha"
-							 name="rePassword" minlength="8" required>
+							 name="repeatPassword" minlength="8" required>
 						</div>
 
 						<button type="submit" class="btn btn-lg btn-primary" style="width: 8em;">Alterar</button>
