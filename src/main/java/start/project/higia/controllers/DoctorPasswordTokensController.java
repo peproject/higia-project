@@ -84,21 +84,35 @@ public class DoctorPasswordTokensController {
 	}
 
 	@PostMapping("/doctor/recover")
-	public GenericResponse savePassword(final Locale locale, @Valid PasswordDto passwordDto) {
+	public String savePassword(final Locale locale, @Valid PasswordDto passwordDto,
+		RedirectAttributes redirect) {
 
 		String result = securityService.validatePasswordResetToken(passwordDto.getToken());
 
 		if (result != null) {
-			return new GenericResponse(messages.getMessage("auth.message." + result, null, locale));
+			redirect.addFlashAttribute("message", "Token inválido!");
+			redirect.addFlashAttribute("style", "p-3 mb-2 bg-danger text-white rounded");
+			redirect.addFlashAttribute("icon", "fa-solid fa-check");
+
+			return "redirect:/doctor/login";
 		}
 
 		Optional<Doctor> doctor = doctorPasswordTokensServicesservices
 				.getDoctorByPasswordResetToken(passwordDto.getToken());
 		if (doctor.isPresent()) {
 			doctorPasswordTokensServicesservices.changePassword(doctor.get(), passwordDto.getNewPassword());
-			return new GenericResponse(messages.getMessage("message.resetPasswordSuc", null, locale));
+
+			redirect.addFlashAttribute("message", "Senha alterada com sucesso!");
+			redirect.addFlashAttribute("style", "p-3 mb-2 bg-success text-white rounded");
+			redirect.addFlashAttribute("icon", "fa-solid fa-circle-info");
+
+			return "redirect:/doctor/login";
 		} else {
-			return new GenericResponse(messages.getMessage("auth.message.invalid", null, locale));
+			redirect.addFlashAttribute("message", "Não foi possivel mudar a senha!");
+			redirect.addFlashAttribute("style", "p-3 mb-2 bg-danger text-white rounded");
+			redirect.addFlashAttribute("icon", "fa-solid fa-check");
+
+			return "redirect:/doctor/login";
 		}
 	}
 
