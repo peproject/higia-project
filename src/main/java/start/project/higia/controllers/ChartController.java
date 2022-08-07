@@ -20,12 +20,12 @@ public class ChartController {
 
 
 	@GetMapping("/chart")
-	public String index(Chart chart) {
+	public String index() {
 		return "index";
 	}
 
 	@GetMapping("/chart/registration")
-	public String registration(Chart chart) {
+	public String registration() {
 		return "register/chart";
 	}
 
@@ -43,9 +43,8 @@ public class ChartController {
 		return "edit/chart";
 	}
 
-	//rota para exclusão do chart
 	@GetMapping("/chart/delete/{id}")
-	public String delete(Long id) {
+	public String delete(@PathVariable Long id) {
 		chartService.deleteById(id);
 		return "redirect:/chart";
 	}

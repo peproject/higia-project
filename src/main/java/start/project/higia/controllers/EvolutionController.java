@@ -47,8 +47,8 @@ public class EvolutionController {
 	}
 
 	//Rota para exclusão da evolution
-	@GetMapping("/delete/evolution")
-	public String delete(Long id) {
+	@GetMapping("/evolution/delete/{id}")
+	public String delete(@PathVariable Long id) {
 		evolutionService.deleteById(id);
 		return "redirect:/evolution";
 	}

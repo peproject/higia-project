@@ -18,9 +18,4 @@ public class S3Controller {
 	public ResponseEntity<String> upload(@RequestParam(value = "file") MultipartFile file) {
 		return new ResponseEntity<>(s3Service.uploadFile(file), HttpStatus.OK);
 	}
-
-	@GetMapping("/photo")
-	public String uploadPhoto() {
-		return "photo";
-	}
 }
