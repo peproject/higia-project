@@ -17,7 +17,7 @@ public class ImageExamController {
 	@Autowired
 	private ImageExamService imageExamService;
 
-	@GetMapping("/upload/imageExam")
+	@GetMapping("/imageExam")
 	public String uploadPhoto() {
 		return "imageExam";
 	}
