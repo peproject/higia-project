@@ -50,6 +50,12 @@ body {
 	background-repeat: no-repeat;
 }
 
+.about {
+	background-image: url("../images/about-background.svg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
 .hg-logo {
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -235,4 +241,19 @@ a {
   -webkit-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
   -o-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
   -ms-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+}
+
+.about-img {
+	width: 150px;
+	height: 100px;
+
+	object-fit: cover;
+
+	border-radius: 60%;
+}
+
+
+.hg-link {
+	font-size: 40pt;
+	text-decoration: none;
 }
