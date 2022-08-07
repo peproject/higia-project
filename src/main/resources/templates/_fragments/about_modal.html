@@ -1,0 +1,35 @@
+<div th:fragment="about_modal">
+	<div class="modal fade" th:id="${id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title-center" id="exampleModalLabel" th:text="${name}"></h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="mb-3">
+						<label for="message-text" class="col-form-label fw-bold">Sobre:</label>
+            <div class="container">
+							<p th:text="${about}"></p>
+						</div>
+
+            <label for="message-text" class="col-form-label fw-bold">Função:</label>
+            <div class="container">
+							<p th:text="${job}"></p>
+						</div>
+
+						<label for="message-text" class="col-form-label fw-bold">Links:</label>
+            <div class="container">
+							<a th:href="${github}" class="hg-link link-secondary me-3" target="_blank">
+								<i class="fa-brands fa-github-alt"></i>
+							</a>
+							<a th:href="${linkedin}" class="hg-link link-secondary" target="_blank">
+								<i class="fa-brands fa-linkedin-in"></i>
+							</a>
+						</div>
+          </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
