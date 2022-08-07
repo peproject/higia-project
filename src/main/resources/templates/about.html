@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="icon" type="image/png" href="/images/icon.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<span th:replace="_fragments/imports_head :: imports_head"></span>
+	<link rel="stylesheet" href="styles/boot.css">
+	<title>Higia - Sobre</title>
+</head>
+
+<body class="about">
+
+	<div th:replace="_fragments/about_modal :: about_modal(
+		id='gabriel',
+		name='Gabriel Mariz',
+		about='...',
+		job='Desenvolvedor fullstack',
+		github='https://github.com/gabimariz',
+		linkedin='https:/linkedin.com/in/mariz5g'
+		)"></div>
+
+		<div th:replace="_fragments/about_modal :: about_modal(
+		id='alan',
+		name='Alan Guilherme',
+		about='...',
+		job='Desenvolvedor back-end',
+		github='https://github.com/Guilherme81',
+		linkedin='https://www.linkedin.com/in/alan-dem%C3%A9trio/'
+		)"></div>
+
+		<div th:replace="_fragments/about_modal :: about_modal(
+		id='joao',
+		name='João Matheus',
+		about='...',
+		job='Desenvolvedor back-end',
+		github='https://github.com/apenasjoaomatheus',
+		linkedin='http://www.linkedin.com/in/joaomatheusgs7'
+		)"></div>
+
+		<div th:replace="_fragments/about_modal :: about_modal(
+		id='nick',
+		name='Nickolas Flamel',
+		about='...',
+		job='Desenvolvedor back-end',
+		github='https://github.com/nickolasflamel1',
+		linkedin='https://www.linkedin.com/in/nickolas-flamel/'
+		)"></div>
+
+		<div th:replace="_fragments/about_modal :: about_modal(
+		id='caua',
+		name='Cauã Ricardo',
+		about='...',
+		job='Desenvolvedor back-end',
+		github='https://github.com/abakaxato',
+		linkedin='https://www.linkedin.com/in/cau%C3%A3-ricardo-430a772387'
+		)"></div>
+
+	<div class="position-absolute top-0 end-0 mt-5 me-5 text-center">
+		<div class="container">
+			<nav class="navbar">
+				<div class="container-fluid" style="margin: 0; padding: 0;">
+					<a class="navbar-brand hg-logo" href="/">
+						<i class="fa-solid fa-stethoscope secret"></i>
+						Hig<span class="secret">i</span>a
+					</a>
+				</div>
+				<div class="container">
+					<p class="fw-bolder">Uma maneira criativa de conectar você a sua saúde.</p>
+				</div>
+			</nav>
+		</div>
+	</div>
+
+	<div class="position-absolute bottom-0 start-50 translate-middle-x hg-me-9" style="width: 40rem;">
+		<div class="card-body text-center">
+			<div class="row  mt-5 mb-5" >
+				<div class="col-sm">
+					<a class="card-link" href="#" data-bs-toggle="modal" data-bs-target="#gabriel">
+						<div class="">
+							<figure>
+								<img class="about-img" src="/images/gabriel.jpg" alt="">
+								<figcaption>
+									<p class="fw-bold mb-0">Gabriel Mariz</p>
+								</figcaption>
+							</figure>
+						</div>
+					</a>
+				</div>
+
+				<div class="col-sm">
+					<a class="card-link" href="#" data-bs-toggle="modal" data-bs-target="#alan">
+						<div class="">
+							<figure>
+								<img class="about-img" src="/images/alan.jpg" alt="">
+								<figcaption>
+									<p class="fw-bold mb-0">Alan Guilherme</p>
+								</figcaption>
+							</figure>
+						</div>
+					</a>
+				</div>
+				<div class="col-sm">
+					<a class="card-link" href="#" data-bs-toggle="modal" data-bs-target="#joao">
+						<div class="">
+							<figure>
+								<img class="about-img" src="/images/joao.jpg" alt="">
+								<figcaption>
+									<p class="fw-bold mb-0">João Matheus</p>
+								</figcaption>
+							</figure>
+						</div>
+					</a>
+				</div>
+
+				<div class="col-sm">
+					<a class="card-link" href="#" data-bs-toggle="modal" data-bs-target="#nick">
+						<div class="">
+							<figure>
+								<img class="about-img" src="/images/nickolas.jpg" alt="">
+								<figcaption>
+									<p class="fw-bold mb-0">Nickolas Flamel</p>
+								</figcaption>
+							</figure>
+						</div>
+					</a>
+				</div>
+
+				<div class="col-sm">
+					<a class="card-link" href="#" data-bs-toggle="modal" data-bs-target="#caua">
+						<div class="">
+							<figure>
+								<img class="about-img" src="/images/caua.jpg" alt="">
+								<figcaption>
+									<p class="fw-bold mb-0">Cauã Ricardo</p>
+								</figcaption>
+							</figure>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+
+	<span th:replace="_fragments/imports_body :: imports_body"></span>
+</body>
+
+</html>
