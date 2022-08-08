@@ -64,6 +64,20 @@ public class UserPasswordTokensController {
 		return "redirect:/user/login";
 	}
 
+	@GetMapping("/user/change")
+	public String showChangePasswordPage(Locale locale, Model model, @RequestParam("token") String token,
+			RedirectAttributes redirect) {
+		String result = securityService.validatePasswordResetToken(token);
+		if (result != null) {
+			redirect.addFlashAttribute("message", "A token esta expirada");
+			redirect.addFlashAttribute("style", "p-3 mb-2 bg-primary text-white rounded");
+			redirect.addFlashAttribute("icon", "fa-solid fa-circle-info");
+			return "redirect:/user/login";
+		} else {
+			model.addAttribute("token", token);
+			return "forget/user";
+		}
+	}
 
 
 }
