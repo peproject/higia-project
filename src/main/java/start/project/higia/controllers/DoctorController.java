@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import start.project.higia.models.Doctor;
 import start.project.higia.models.Evolution;
@@ -65,22 +66,26 @@ public class DoctorController {
 
 	// Rota para salvar o doutor no banco de dados
 	@PostMapping("/doctor")
-	public String create(@Valid Doctor doctor, Model model) {
+	public String create(@Valid Doctor doctor, RedirectAttributes redirect) {
 
 		try {
-			model.addAttribute("message", "Conta criada com sucesso.");
-			model.addAttribute("style", "toast bg-success text-white align-items-center show");
-			model.addAttribute("icon", "fa-solid fa-check");
+			redirect.addFlashAttribute("message", "Conta criada com sucesso.");
+			redirect.addFlashAttribute("style", "p-3 mb-2 bg-success text-white rounded");
+			redirect.addFlashAttribute("icon", "fa-solid fa-check");
+
 			doctor.setPassword(doctorService.encryptPassword(doctor));
+
 			this.doctorService.create(doctor);
 			emailSender.sendEmail(doctor.getEmail(), "Higia - Criação de Conta", "Conta criada com sucesso !!!");
-			return "register/doctor";
-		} catch (DataIntegrityViolationException ex) {
-			model.addAttribute("message", "Email ou CRM já cadastrado.");
-			model.addAttribute("style", "toast bg-danger text-white align-items-center show");
-			model.addAttribute("icon", "fa-solid fa-triangle-exclamation");
 
-			return "register/doctor";
+			return "redirect:/doctor/login";
+		} catch (DataIntegrityViolationException ex) {
+
+			redirect.addFlashAttribute("message", "Email ou CRM já cadastrado.");
+			redirect.addFlashAttribute("style", "p-3 mb-2 bg-danger text-white rounded");
+			redirect.addFlashAttribute("icon", "fa-solid fa-triangle-exclamation");
+
+			return "redirect:/doctor/registration";
 		}
 	}
 

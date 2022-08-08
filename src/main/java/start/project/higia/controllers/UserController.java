@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import start.project.higia.models.User;
 import start.project.higia.services.UserService;
@@ -39,22 +40,26 @@ public class UserController {
 
 	// Rota post para salvar os usuarios
 	@PostMapping("/user")
-	public String create(@Valid User user, Model model) {
+	public String create(@Valid User user, RedirectAttributes redirect) {
 
 		try {
-			model.addAttribute("message", "Conta criada com sucesso.");
-			model.addAttribute("style", "toast bg-success text-white align-items-center show");
-			model.addAttribute("icon", "fa-solid fa-check");
-            user.setPassword(userService.encryptPassword(user));
+			redirect.addFlashAttribute("message", "Conta criada com sucesso.");
+			redirect.addFlashAttribute("style", "p-3 mb-2 bg-success text-white rounded");
+			redirect.addFlashAttribute("icon", "fa-solid fa-check");
+
+      user.setPassword(userService.encryptPassword(user));
+
 			userService.create(user);
 			emailSender.sendEmail(user.getEmail(), "Higia - Create Account", "Account created successfully");
-			return "register/patient";
-		} catch (DataIntegrityViolationException ex) {
-			model.addAttribute("message", "Email ou CPF já cadastrado!");
-			model.addAttribute("style", "toast bg-danger text-white align-items-center show");
-			model.addAttribute("icon", "fa-solid fa-triangle-exclamation");
 
-			return "register/patient";
+			return "redirect:/user/login";
+		} catch (DataIntegrityViolationException ex) {
+
+			redirect.addFlashAttribute("message", "Email ou CPF já cadastrado!");
+			redirect.addFlashAttribute("style", "p-3 mb-2 bg-danger text-white rounded");
+			redirect.addFlashAttribute("icon", "fa-solid fa-triangle-exclamation");
+
+			return "redirect:/user/registration";
 		}
 	}
 
