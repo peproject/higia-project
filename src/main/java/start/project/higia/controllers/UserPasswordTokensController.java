@@ -79,5 +79,36 @@ public class UserPasswordTokensController {
 		}
 	}
 
+	@PostMapping("/user/recover")
+	public String savePassword(final Locale locale, @Valid PasswordDto passwordDto, RedirectAttributes redirect) {
+
+		String result = securityService.validatePasswordResetToken(passwordDto.getToken());
+
+		if (result != null) {
+			redirect.addFlashAttribute("message", "Token inválido!");
+			redirect.addFlashAttribute("style", "p-3 mb-2 bg-danger text-white rounded");
+			redirect.addFlashAttribute("icon", "fa-solid fa-check");
+
+			return "redirect:/user/login";
+		}
+
+		Optional<User> user = userPasswordTokensServicesservices
+				.getDoctorByPasswordResetToken(passwordDto.getToken());
+		if (user.isPresent()) {
+			userPasswordTokensServicesservices.changePassword(user.get(), passwordDto.getNewPassword());
+
+			redirect.addFlashAttribute("message", "Senha alterada com sucesso!");
+			redirect.addFlashAttribute("style", "p-3 mb-2 bg-success text-white rounded");
+			redirect.addFlashAttribute("icon", "fa-solid fa-circle-info");
+
+			return "redirect:/user/login";
+		} else {
+			redirect.addFlashAttribute("message", "Não foi possivel mudar a senha!");
+			redirect.addFlashAttribute("style", "p-3 mb-2 bg-danger text-white rounded");
+			redirect.addFlashAttribute("icon", "fa-solid fa-check");
+
+			return "redirect:/user/login";
+		}
+	}
 
 }
