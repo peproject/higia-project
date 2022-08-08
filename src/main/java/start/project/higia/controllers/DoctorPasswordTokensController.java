@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,8 +22,6 @@ import start.project.higia.security.ISecurityService;
 import start.project.higia.services.DoctorPasswordTokensServices;
 import start.project.higia.services.DoctorService;
 import start.project.higia.utils.Construct;
-import start.project.higia.utils.GenericResponse;
-
 import start.project.higia.utils.PasswordDto;
 
 @Controller
@@ -35,9 +32,6 @@ public class DoctorPasswordTokensController {
 
 	@Autowired
 	DoctorService doctorService;
-
-	@Autowired
-	private MessageSource messages;
 
 	@Autowired
 	private JavaMailSender mailSender;
@@ -72,11 +66,13 @@ public class DoctorPasswordTokensController {
 	}
 
 	@GetMapping("/doctor/change")
-	public String showChangePasswordPage(Locale locale, Model model, @RequestParam("token") String token) {
+	public String showChangePasswordPage(Locale locale, Model model, @RequestParam("token") String token, RedirectAttributes redirect) {
 		String result = securityService.validatePasswordResetToken(token);
 		if (result != null) {
-			String message = messages.getMessage("auth.message." + result, null, locale);
-			return "redirect:/login.html?lang=" + locale.getLanguage() + "&message=" + message;
+			redirect.addFlashAttribute("message", "A token esta expirada");
+		    redirect.addFlashAttribute("style", "p-3 mb-2 bg-primary text-white rounded");
+		    redirect.addFlashAttribute("icon", "fa-solid fa-circle-info");
+			return "redirect:/doctor/login";
 		} else {
 			model.addAttribute("token", token);
 			return "forget/doctor";
