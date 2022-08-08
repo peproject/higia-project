@@ -30,6 +30,9 @@ public class UserPasswordTokensServices {
         return Optional.ofNullable(userPasswordTokensRepository.findByToken(token).getUser());
     }
     
- 
+    public void changePassword(User user, String password) {
+        user.setPassword(BCrypt.hashpw(password, BCrypt.gensalt(passwordComplexity)));
+        userRepositoy.save(user); 
+    }
 	
 }
