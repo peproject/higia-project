@@ -12,7 +12,8 @@ import start.project.higia.repositories.UserPasswordTokensRepository;
 
 @Service
 @Transactional
-public class UserSecurityService implements IUserSecurity {
+public class UserSecurityService implements IUserSecurity  {
+
 
 	@Autowired
 	private UserPasswordTokensRepository userPasswordTokensRepository;

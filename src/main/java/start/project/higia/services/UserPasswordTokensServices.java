@@ -4,14 +4,15 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.stereotype.Component;
 
 import start.project.higia.models.User;
 import start.project.higia.models.UserPasswordTokens;
 import start.project.higia.repositories.UserPasswordTokensRepository;
 import start.project.higia.repositories.UserRepository;
 
+@Component
 public class UserPasswordTokensServices {
-
 
 	@Autowired
 	UserPasswordTokensRepository userPasswordTokensRepository;

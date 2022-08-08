@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import start.project.higia.models.DoctorPasswordTokens;
 import start.project.higia.models.User;
 import start.project.higia.security.IUserSecurity;
 import start.project.higia.services.UserPasswordTokensServices;
@@ -26,6 +25,7 @@ import start.project.higia.utils.PasswordDto;
 
 @Controller
 public class UserPasswordTokensController {
+
 
 	@Autowired
 	UserPasswordTokensServices userPasswordTokensServicesservices;
@@ -43,7 +43,7 @@ public class UserPasswordTokensController {
 	private Construct construct;
 
 	@PostMapping("/user/restore")
-	public String create(HttpServletRequest request, @RequestParam("email") String email, DoctorPasswordTokens doc,
+	public String create(HttpServletRequest request, @RequestParam("email") String email, 
 			RedirectAttributes redirect) {
 		User user = userService.findByEmail(email);
 		if (user == null) {
@@ -111,4 +111,5 @@ public class UserPasswordTokensController {
 		}
 	}
 
+	
 }

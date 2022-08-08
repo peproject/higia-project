@@ -16,10 +16,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 public class UserPasswordTokens {
+
 
 
 	private static final int EXPIRATION = (int) (0.21 * 24);
@@ -30,7 +31,7 @@ public class UserPasswordTokens {
 
 	private String token;
 
-	@OneToOne(targetEntity = Doctor.class, fetch = FetchType.EAGER)
+	@OneToOne(targetEntity = User.class, fetch = FetchType.EAGER)
 	@JoinColumn(nullable = false, name = "user_id")
 	private User user;
 
@@ -63,8 +64,6 @@ public class UserPasswordTokens {
         this.expiryDate = calculateExpiryDate(EXPIRATION);
     }
 
-    //
-
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -86,7 +85,7 @@ public class UserPasswordTokens {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final DoctorPasswordTokens other = (DoctorPasswordTokens) obj;
+        final UserPasswordTokens other = (UserPasswordTokens) obj;
         if (getExpiryDate() == null) {
             if (other.getExpiryDate() != null) {
                 return false;
@@ -102,10 +101,10 @@ public class UserPasswordTokens {
             return false;
         }
         if (getUser() == null) {
-            if (other.getDoctor() != null) {
+            if (other.getUser() != null) {
                 return false;
             }
-        } else if (!getUser().equals(other.getDoctor())) {
+        } else if (!getUser().equals(other.getUser())) {
             return false;
         }
         return true;
