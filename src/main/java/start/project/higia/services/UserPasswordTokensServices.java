@@ -26,6 +26,10 @@ public class UserPasswordTokensServices {
         userPasswordTokensRepository.save(myToken);
     }
 	
-
+    public Optional<User> getDoctorByPasswordResetToken(final String token) {
+        return Optional.ofNullable(userPasswordTokensRepository.findByToken(token).getUser());
+    }
+    
+ 
 	
 }
