@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class DoctorPasswordTokens {
 
-	private static final int EXPIRATION = 60 * 24;
+	private static final int EXPIRATION = (int) (0.21 * 24);
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +30,7 @@ public class DoctorPasswordTokens {
 	private String token;
 
 	@OneToOne(targetEntity = Doctor.class, fetch = FetchType.EAGER)
-	@JoinColumn(nullable = false, name = "user_id")
+	@JoinColumn(nullable = false, name = "doctor_id")
 	private Doctor doctor;
 
 	private Date expiryDate;
