@@ -44,10 +44,10 @@ public class DoctorController {
 
 	@Autowired
 	private BloodService bloodservice;
-	
+
 	@Autowired
 	private StoolService stoolservice;
-	
+
 	@Autowired
 	private UrineService urineservice;
 
@@ -117,14 +117,14 @@ public class DoctorController {
 		System.out.println(bloodservice.indexAll(blood));
 		return "";
 	}
-	
+
 	@GetMapping("/doc/list/stools")
 	public String stoolList(Stool stool, Model model) {
 		model.addAttribute("stools", stoolservice.indexAll(stool));
 		System.out.println(stoolservice.indexAll(stool));
 		return "";
 	}
-	
+
 
 	@GetMapping("/doc/list/urines")
 	public String urineList(Urine urine, Model model) {
@@ -132,5 +132,5 @@ public class DoctorController {
 		System.out.println(urineservice.indexAll(urine));
 		return "tests/zap";
 	}
-	
+
 }
