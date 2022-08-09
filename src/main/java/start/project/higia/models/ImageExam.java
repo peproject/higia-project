@@ -16,16 +16,16 @@ public class ImageExam {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long imageExamId;
+	private long id;
 
 	@ManyToOne
-	private Exam exam;
+	private User user;
 
 	@Column(nullable = false)
 	private ImageExamType imageExamType;
 
 	@Column(nullable = false)
-	private String imageExamName;
+	private String name;
 
 	@Column(nullable = false, updatable = false)
 	@CreationTimestamp
