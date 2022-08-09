@@ -49,7 +49,8 @@ public class LoginUserController {
 	@GetMapping("/user/exit")
 	public String exit(HttpSession session) {
 		session.invalidate();
-		return "redirect:/";
+
+		return "redirect:/cookies";
 	}
 
 }
