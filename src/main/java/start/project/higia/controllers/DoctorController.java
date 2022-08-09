@@ -113,7 +113,7 @@ public class DoctorController {
 	@GetMapping("/doc/list/evolutions")
 	public String evolutionList(Evolution evolution, Model model) {
 		model.addAttribute("evolutions", evoService.index(evolution));
-		return "list/evolutions";
+		return "list/evolution";
 	}
 
 	@GetMapping("/doc/list/bloods")
