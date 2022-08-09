@@ -19,12 +19,12 @@ public class Construct {
 	}
 
 	public SimpleMailMessage ResetTokenEmail(String contextPath, Locale locale, String token, User user) {
-		String url = contextPath + "/doctor/change?token=" + user;
+		String url = contextPath + token;
 		return constructEmail(
 			"Recuperar senha",
 			"clique <a href=\"" + url + "\" targe=\"_blank\">aqui</a> para alterar sua senha!", user.getEmail());
 	}
-	
+
 	private SimpleMailMessage constructEmail(String subject, String body, String email) {
 		SimpleMailMessage mail = new SimpleMailMessage();
 		mail.setSubject(subject);
@@ -33,7 +33,7 @@ public class Construct {
 		mail.setFrom("Higia <starthigiaproject@gmail.com>");
 		return mail;
 	}
-	
-	
+
+
 
 }
