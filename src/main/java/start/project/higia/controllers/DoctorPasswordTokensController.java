@@ -56,7 +56,7 @@ public class DoctorPasswordTokensController {
 		}
 		String token = UUID.randomUUID().toString();
 		doctorPasswordTokensServicesservices.create(doctor, token);
-		mailSender.send(this.construct.constructResetTokenEmail("localhost:8080", request.getLocale(), token, doctor));
+		mailSender.send(this.construct.constructResetTokenEmail("localhost:8080/doctor/change?token=", request.getLocale(), token, doctor));
 
 		redirect.addFlashAttribute("message", "Por favor, verifique seu e-mail para uma mensagem com seu código!");
 		redirect.addFlashAttribute("style", "p-3 mb-2 bg-primary text-white rounded");
@@ -68,13 +68,17 @@ public class DoctorPasswordTokensController {
 	@GetMapping("/doctor/change")
 	public String showChangePasswordPage(Locale locale, Model model, @RequestParam("token") String token, RedirectAttributes redirect) {
 		String result = securityService.validatePasswordResetToken(token);
+
 		if (result != null) {
 			redirect.addFlashAttribute("message", "A token esta expirada");
 		    redirect.addFlashAttribute("style", "p-3 mb-2 bg-primary text-white rounded");
 		    redirect.addFlashAttribute("icon", "fa-solid fa-circle-info");
-			return "redirect:/doctor/login";
+
+				return "redirect:/doctor/login";
 		} else {
+
 			model.addAttribute("token", token);
+
 			return "forget/doctor";
 		}
 	}
@@ -86,6 +90,7 @@ public class DoctorPasswordTokensController {
 		String result = securityService.validatePasswordResetToken(passwordDto.getToken());
 
 		if (result != null) {
+
 			redirect.addFlashAttribute("message", "Token inválido!");
 			redirect.addFlashAttribute("style", "p-3 mb-2 bg-danger text-white rounded");
 			redirect.addFlashAttribute("icon", "fa-solid fa-check");
