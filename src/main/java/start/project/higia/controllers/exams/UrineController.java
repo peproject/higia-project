@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import start.project.higia.models.exams.Urine;
+import start.project.higia.services.UserService;
 import start.project.higia.services.exams.UrineService;
 
 @Controller
@@ -15,6 +16,9 @@ public class UrineController {
 	
 	@Autowired
 	private UrineService service;
+	
+	@Autowired
+	private UserService userService;
 	
 	@GetMapping("/urine/create")
 	public String create(Urine urine) {
@@ -29,9 +33,16 @@ public class UrineController {
 	}
 	
 	@GetMapping("/urine/index/{id}")
-	public String mostrar(@PathVariable Long id, Model model) {
+	public String indexById(@PathVariable Long id, Model model) {
 		model.addAttribute("urines", service.index(id));
 		return "tests/zap";
 	}
-
+	
+	@GetMapping("/doc/list/urines")
+	public String urineList(Urine urine, Model model) {
+		model.addAttribute("urines", service.indexAll(urine));
+		System.out.println(service.indexAll(urine));
+		return "tests/zap";
+	
+	}
 }

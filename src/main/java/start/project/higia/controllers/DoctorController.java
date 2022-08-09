@@ -16,9 +16,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import start.project.higia.models.Doctor;
 import start.project.higia.models.Evolution;
 import start.project.higia.models.User;
-import start.project.higia.models.exams.Blood;
-import start.project.higia.models.exams.Stool;
-import start.project.higia.models.exams.Urine;
 import start.project.higia.services.DoctorService;
 import start.project.higia.services.EvolutionService;
 import start.project.higia.services.UserService;
@@ -43,14 +40,6 @@ public class DoctorController {
 	@Autowired
 	private EvolutionService evoService;
 
-	@Autowired
-	private BloodService bloodservice;
-
-	@Autowired
-	private StoolService stoolservice;
-
-	@Autowired
-	private UrineService urineservice;
 
 	@GetMapping("/doc")
 	public String index(Doctor doctor, Model model) {
@@ -116,26 +105,5 @@ public class DoctorController {
 		return "list/evolution";
 	}
 
-	@GetMapping("/doc/list/bloods")
-	public String bloodList(Blood blood, Model model) {
-		model.addAttribute("bloods", bloodservice.indexAll(blood));
-		System.out.println(bloodservice.indexAll(blood));
-		return "";
-	}
-
-	@GetMapping("/doc/list/stools")
-	public String stoolList(Stool stool, Model model) {
-		model.addAttribute("stools", stoolservice.indexAll(stool));
-		System.out.println(stoolservice.indexAll(stool));
-		return "";
-	}
-
-
-	@GetMapping("/doc/list/urines")
-	public String urineList(Urine urine, Model model) {
-		model.addAttribute("urines", urineservice.indexAll(urine));
-		System.out.println(urineservice.indexAll(urine));
-		return "tests/zap";
-	}
 
 }
