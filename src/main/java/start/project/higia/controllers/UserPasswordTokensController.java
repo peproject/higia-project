@@ -43,9 +43,11 @@ public class UserPasswordTokensController {
 	private Construct construct;
 
 	@PostMapping("/user/restore")
-	public String create(HttpServletRequest request, @RequestParam("email") String email, 
+	public String create(HttpServletRequest request, @RequestParam("email") String email,
 			RedirectAttributes redirect) {
+
 		User user = userService.findByEmail(email);
+
 		if (user == null) {
 
 			redirect.addFlashAttribute("message", "E-mail não cadastrado.");
@@ -55,8 +57,10 @@ public class UserPasswordTokensController {
 			return "redirect:/user/login";
 		}
 		String token = UUID.randomUUID().toString();
+
 		userPasswordTokensServicesservices.create(user, token);
-		mailSender.send(this.construct.ResetTokenEmail("localhost:8080", request.getLocale(), token, user));
+
+		mailSender.send(this.construct.ResetTokenEmail("localhost:8080/user/change?token=", request.getLocale(), token, user));
 		redirect.addFlashAttribute("message", "Por favor, verifique seu e-mail para uma mensagem com seu código!");
 		redirect.addFlashAttribute("style", "p-3 mb-2 bg-primary text-white rounded");
 		redirect.addFlashAttribute("icon", "fa-solid fa-circle-info");
@@ -111,5 +115,5 @@ public class UserPasswordTokensController {
 		}
 	}
 
-	
+
 }
