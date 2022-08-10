@@ -24,9 +24,6 @@ public class ImageExam {
 	@Column(nullable = false)
 	private ImageExamType type;
 
-	@Column(nullable = false)
-	private String name;
-
 	@Column(nullable = false, updatable = false)
 	@CreationTimestamp
 	private Date createdAt;
