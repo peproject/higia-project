@@ -14,7 +14,7 @@ public class DoctorConfigLogged implements WebMvcConfigurer {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(interceptor)
-		.addPathPatterns(new String[] { "/", "/doctor/**"});
+		.addPathPatterns(new String[] { "/", "/doctor/**", "/doctor", "/user", "/user/**"});
 	}
 	
 }
