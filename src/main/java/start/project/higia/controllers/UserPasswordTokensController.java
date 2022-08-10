@@ -79,7 +79,7 @@ public class UserPasswordTokensController {
 			return "redirect:/user/login";
 		} else {
 			model.addAttribute("token", token);
-			return "forget/user";
+			return "forget/patient";
 		}
 	}
 
