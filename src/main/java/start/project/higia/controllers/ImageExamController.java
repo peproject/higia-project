@@ -45,21 +45,22 @@ public class ImageExamController {
 
 
 			image.setUser(user);
-			image.setName(s3.uploadFile(file));
 			service.create(image);
+
+			s3.uploadFile(file, image.getId());
 
 			redirect.addFlashAttribute("message", "Exame salvo");
 			redirect.addFlashAttribute("style", "p-3 mb-2 bg-success text-white rounded");
 			redirect.addFlashAttribute("icon", "fa-solid fa-check");
 
-			return "redirect:/test";
+			return "redirect:/doc/list/images";
 		} catch(NegativeArraySizeException err) {
 
 				redirect.addFlashAttribute("message", "Não existe um paciente com esse CPF");
 				redirect.addFlashAttribute("style", "p-3 mb-2 bg-danger text-white rounded");
 				redirect.addFlashAttribute("icon", "fa-solid fa-triangle-exclamation");
 
-				return "redirect:/test";
+				return "redirect:/doc/list/images";
 		}
 	}
 
