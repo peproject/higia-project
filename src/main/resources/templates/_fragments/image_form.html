@@ -8,92 +8,13 @@
 				</div>
 
 				<div class="modal-body">
-					<form action="/test/save" method="post" enctype="multipart/form-data">
+					<form action="/image/save" method="post" enctype="multipart/form-data">
 						<label for="">Tipo de exame:</label>
 						<div class="mt-1">
 							<select name="type" class="form-select">
-									<option th:value="${T(start.project.higia.models.ImageExamType).TOMOGRAFIA_DE_ABDOMEN_SEM_CONTRASTE}">
-										Tomografia de abdomen sem contraste
-									</option>
-									<option th:value="${T(start.project.higia.models.ImageExamType).TOMOGRAFIA_DE_ABDOMEN_COM_CONTRASTE}">
-										Tomografia  de abdomen com contraste
-									</option>
-									<option th:value="${T(start.project.higia.models.ImageExamType).TOMOGRAFIA_DE_TORAX_SEM_CONTRASTE}">
-										Tomografia de torax sem contraste
-									</option>
-									<option th:value="${T(start.project.higia.models.ImageExamType).TOMOGRAFIA_DE_TORAX_COM_CONTRASTE}">
-											Tomografia de torax com contraste
-									</option>
-									<option th:value="${T(start.project.higia.models.ImageExamType).TOMOGRAFIA_DE_SEIOS_DA_FACE}">
-											Tomografia de seios da face
-									</option>
-									<option th:value="${T(start.project.higia.models.ImageExamType).TOMOGRAFIA_DE_ARTICULACAO_TEMPOROMANDIBULAR}">
-											Tomografia de articulação temporomandibular
-									</option>
-									<option th:value="${T(start.project.higia.models.ImageExamType).TOMOGRAFIA_DE_MAO}">
-											Tomografia de mão
-									</option>
-									<option th:value="${T(start.project.higia.models.ImageExamType).TOMOGRAFIA_DE_COLUNA_CERVICAL}">
-											Tomografia de Coluna cervical
-									</option>
-									<option th:value="${T(start.project.higia.models.ImageExamType).TOMOGRAFIA_DE_COLUNA_LOMBA}">
-											Tomografia de coluna lomba
-									</option>
-									<option th:value="${T(start.project.higia.models.ImageExamType).TOMOGRAFIA_DE_COLUNA_LOMBOSSACRAL}">
-											Tomografia de coluna lombossacral
-									</option>
-									<option th:value="${T(start.project.higia.models.ImageExamType).TOMOGRAFIA_DE_CRANIO}">
-											Tomografia de cranio
-									</option>
-									<option th:value="${T(start.project.higia.models.ImageExamType).RADIOGRAFIA_DE_TORAX_AP}">
-											Radiografia de torax AP
-									</option>
-									<option th:value="${T(start.project.higia.models.ImageExamType).RADIOGRAFIA_DE_TORAX_PERFIL}">
-											Radiografia de torax perfil
-									</option>
-									<option th:value="${T(start.project.higia.models.ImageExamType).RADIOGRAFIA_DE_TORAX_PA}">
-											Radiografia de torax PA
-									</option>
-									<option th:value="${T(start.project.higia.models.ImageExamType).RADIOGRAFIA_DE_PELVE_AP}">
-											Radiografia de pelve AP
-									</option>
-									<option th:value="${T(start.project.higia.models.ImageExamType).RADIOGRAFIA_PA_DE_SEIOS_DA_FACE}">
-											Radiografia PA de seios da face
-									</option>
-									<option th:value="${T(start.project.higia.models.ImageExamType).RADIOGRAFIA_PA_DE_MANDIBULA}">
-											Radiografia PA de mandibula
-									</option>
-									<option th:value="${T(start.project.higia.models.ImageExamType).RADIOGRAFIA_LATERAL_OBLIQUA_DE_MANDIBULA}">
-											Radiografia lateral obliqua de mandibula
-									</option>
-									<option th:value="${T(start.project.higia.models.ImageExamType).USG_DE_PARTES_MOLES}">
-											USG de partes moles
-									</option>
-									<option th:value="${T(start.project.higia.models.ImageExamType).USG_DE_ABDOMEN}">
-											USG de abdomen
-									</option>
-									<option th:value="${T(start.project.higia.models.ImageExamType).USG_DE_CERVICAL}">
-											USG de cervica
-									</option>
-									<option th:value="${T(start.project.higia.models.ImageExamType).USG_DE_TIREOIDE}">
-											USG de tireoide
-									</option>
-									<option th:value="${T(start.project.higia.models.ImageExamType).USG_COM_DOPPLER_DE_MEMBROS_INFERIORES}">
-											USG com doppler de membros inferiores
-									</option>
-									<option th:value="${T(start.project.higia.models.ImageExamType).RESSONANCIA_DA_COLUNA_CERVICAL}">
-											Ressonancia da coluna cervical
-									</option>
-									<option th:value="${T(start.project.higia.models.ImageExamType).RESSONANCIA_DA_COLUNA_LOMBAR}">
-											Ressonancia da coluna lombar
-									</option>
-									<option th:value="${T(start.project.higia.models.ImageExamType).RESSONANCIA_DA_ARTICULACAO_TEMPOROMANDIBULAR}">
-											Ressonancia da articulação temporomandibular
-									</option>
-									<option th:value="${T(start.project.higia.models.ImageExamType).RESSONANCIA_DO_OMBRO}">
-											Ressonancia do ombro
-									</option>
-							</select>
+								<option th:each="image : ${T(start.project.higia.models.ImageExamType).values()}"
+										th:value="${image}" th:text="${image.displayValue}"></option>
+						</select>
 						</div>
 
 						<label for="file" class="mt-1">Imagem:</label>
