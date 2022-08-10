@@ -1,0 +1,49 @@
+<div th:fragment="stool_form">
+	<div class="modal fade" id="stool-form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title-center" id="exampleModalLabel">Novo Exame</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+
+				<div class="modal-body">
+					<form action="/stool/save" method="post">
+						<label for="aspect" class="mt-1">Aspecto:</label>
+						<div class="input-group mt-1">
+							<input type="text" name="aspect" id="aspect" class="form-control"
+								minlength="0" maxlength="400" required>
+						</div>
+
+						<label for="protozoa" class="mt-1">protozoários:</label>
+						<div class="input-group mt-1">
+							<input type="text" name="protozoa" id="protozoa" class="form-control"
+								minlength="0" maxlength="400" required>
+						</div>
+
+						<label for="helminths" class="mt-1">Vermes:</label>
+						<div class="input-group mt-1">
+							<input type="text" name="helminths" id="helminths" class="form-control"
+								minlength="0" maxlength="400" required>
+						</div>
+
+						<label for="comments" class="mt-1">Comentários:</label>
+						<div class="input-group mt-1">
+							<input type="text" name="comments" id="comments" class="form-control"
+								minlength="0" maxlength="400" required>
+						</div>
+
+						<label for="cpf" class="mt-1">CPF do paciente:</label>
+						<div class="input-group mt-1">
+							<input type="text" name="cpf" id="cpf" class="form-control"
+								placeholder="000.000.000-00" required>
+						</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary">Salvar</button>
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	</div>

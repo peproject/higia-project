@@ -1,0 +1,80 @@
+<div th:fragment="urine_form">
+	<div class="modal fade" id="urine-form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title-center" id="exampleModalLabel">Novo Exame</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+
+				<div class="modal-body">
+					<form action="/urine/save" method="post">
+						<label for="density" class="mt-1">Densidade (mg/L):</label>
+						<div class="input-group mt-1">
+							<input type="number" name="density" id="density" class="form-control">
+						</div>
+
+						<label for="ph" class="mt-1">Ph (mg/L):</label>
+						<div class="input-group mt-1">
+							<input type="number" name="ph" id="ph" class="form-control">
+						</div>
+
+						<label for="glucose" class="mt-1">Glicose (mg/L):</label>
+						<div class="input-group mt-1">
+							<input type="number" name="glucose" id="glucose" class="form-control">
+						</div>
+
+						<label for="proteins" class="mt-1">Proteínas (mg/L):</label>
+						<div class="input-group mt-1">
+							<input type="number" name="proteins" id="proteins" class="form-control">
+						</div>
+
+						<label for="redcells" class="mt-1">Células vermelhas (mg/L):</label>
+						<div class="input-group mt-1">
+							<input type="number" name="redcells" id="redcells" class="form-control" required>
+						</div>
+
+						<label for="leukocytes" class="mt-1">Leucócitos (mg/L):</label>
+						<div class="input-group mt-1">
+							<input type="number" name="leukocytes" id="leukocytes" class="form-control" required>
+						</div>
+
+						<label for="ketones" class="mt-1">Cetonas (mg/L):</label>
+						<div class="input-group mt-1">
+							<input type="number" name="ketones" id="ketones" class="form-control" required>
+						</div>
+
+						<label for="urobilinogen" class="mt-1">Urobilinogênio (mg/L):</label>
+						<div class="input-group mt-1">
+							<input type="number" name="urobilinogen" id="urobilinogen" class="form-control" required>
+						</div>
+
+						<label for="nitrite" class="mt-1">Nitrito (mg/L):</label>
+						<div class="input-group mt-1">
+							<input type="number" name="nitrite" id="nitrite" class="form-control" required>
+						</div>
+
+						<label for="crystals" class="mt-1">Cristais (mg/L):</label>
+						<div class="input-group mt-1">
+							<input type="number" name="crystals" id="crystals" class="form-control" required>
+						</div>
+
+						<label for="epithelialcells" class="mt-1">Células epiteliais (mg/L):</label>
+						<div class="input-group mt-1">
+							<input type="number" name="epithelialcells" id="epithelialcells" class="form-control" required>
+						</div>
+
+						<label for="cpf" class="mt-1">CPF do paciente:</label>
+						<div class="input-group mt-1">
+							<input type="text" name="cpf" id="cpf" class="form-control"
+								placeholder="000.000.000-00" required>
+						</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary">Salvar</button>
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	</div>
