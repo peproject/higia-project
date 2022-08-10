@@ -7,11 +7,11 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<img th:src="@{'https://higia-project-start.s3.amazonaws.com/imagens/' + ${patient.name}}" alt="" srcset="" width="300">
+					<img th:src="@{'https://higia-project-start.s3.amazonaws.com/imagens/' + ${patient.id} + '.jpg'}" alt="" srcset="" width="300">
 
 					<div>
 						<label for="hemoglobin" class="mt-1">Tipo de exame:</label>
-						<p th:text="${patient.type}" class=" ms-3 fw-bold"></p>
+						<p th:text="${patient.type.displayValue}" class=" ms-3 fw-bold"></p>
 					</div>
 				</div>
 			</div>
