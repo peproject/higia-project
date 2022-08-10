@@ -25,9 +25,9 @@ public class S3Service {
 	@Autowired
 	private AmazonS3 s3Client;
 
-	public String uploadFile(MultipartFile file) {
+	public String uploadFile(MultipartFile file, Long id) {
 		File fileObj = convertMultiPartFileToFile(file);
-		String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+		String fileName = id + ".jpg";
 		s3Client.putObject(new PutObjectRequest(bucketName, fileName, fileObj));
 		fileObj.delete();
 		return fileName;
