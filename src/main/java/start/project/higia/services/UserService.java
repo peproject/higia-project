@@ -18,13 +18,13 @@ public class UserService {
 	private UserRepository userRepository;
 
 	private static final int passwordComplexity = 10;
-	
+
 	//Serviço para salvar o user no banco
 	public User create(User user) {
 		user.setRole(Roles.USER);
 		return userRepository.save(user);
 	}
-	
+
 	public String encryptPassword(User user) {
 		return BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(passwordComplexity));
 	}
@@ -56,12 +56,18 @@ public class UserService {
 			return null;
 		}
 	}
-	
+
 	public User findByEmail(String email) {
 		return userRepository.findEmail(email);
 	}
-	
+
 	public User findByCpf (String cpf) {
-		return userRepository.findByCpf(cpf);
+		User user = userRepository.findByCpf(cpf);
+
+		if(user == null) {
+			throw new NullPointerException();
+		}
+
+		return user;
 	}
 }
