@@ -1,49 +1,60 @@
 package start.project.higia.controllers.exams;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import start.project.higia.models.User;
 import start.project.higia.models.exams.Stool;
 import start.project.higia.services.UserService;
 import start.project.higia.services.exams.StoolService;
 
 @Controller
 public class StoolController {
-	
+
 	@Autowired
-	private StoolService service; 
-	
+	private StoolService service;
+
 	@Autowired
 	private UserService userService;
-	
-	@GetMapping("/stool/create")
-	public String create(Stool stool) {
 
-		return "";
-	}
-	
-	@PostMapping("/stool/save")
-	public String save(Stool stool) {
-		service.create(stool);
-		return "";
-	}
-	
-	@GetMapping("/stool/index/{id}")
-	public String indexById(@PathVariable Long id, Model model) {
-		model.addAttribute("stools", service.index(id));
-		return "tests/zap";
-	}
-	
 	@GetMapping("/doc/list/stools")
 	public String stoolList(Stool stool, Model model) {
+
 		model.addAttribute("stools", service.indexAll(stool));
-		System.out.println(service.indexAll(stool));
-		return "";
+
+		return "exams/stool";
+
 	}
-	
+
+	@PostMapping("/stool/save")
+	public String save(@Valid Stool stool, String cpf, RedirectAttributes redirect) {
+
+		try {
+			User user = userService.findByCpf(cpf);
+
+			System.out.println(cpf);
+			stool.setUser(user);
+			service.create(stool);
+
+			redirect.addFlashAttribute("message", "Exame salvo");
+			redirect.addFlashAttribute("style", "p-3 mb-2 bg-success text-white rounded");
+			redirect.addFlashAttribute("icon", "fa-solid fa-check");
+
+			return "redirect:/doc/list/stools";
+		} catch(NullPointerException err) {
+
+				redirect.addFlashAttribute("message", "Não existe um paciente com esse CPF");
+				redirect.addFlashAttribute("style", "p-3 mb-2 bg-danger text-white rounded");
+				redirect.addFlashAttribute("icon", "fa-solid fa-triangle-exclamation");
+
+				return "redirect:/doc/list/stools";
+		}
+	}
 
 }
