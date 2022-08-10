@@ -20,7 +20,7 @@ public class ImageExamService {
 		return imageExamRepository.save(imageExam);
 	}
 
-	public List<ImageExam> findAllImageExams(ImageExam imageExam) {
+	public List<ImageExam> findAllImageExams() {
 		return imageExamRepository.findAll();
 	}
 
