@@ -30,7 +30,7 @@ public class S3Service {
 		String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
 		s3Client.putObject(new PutObjectRequest(bucketName, fileName, fileObj));
 		fileObj.delete();
-		return "Arquivo enviado : " + fileName;
+		return fileName;
 	}
 
 
