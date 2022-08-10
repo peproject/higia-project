@@ -26,26 +26,31 @@ public class Blood {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@Column(nullable = false)
 	private Integer hemoglobin;
+
 	@Column(nullable = false)
 	private Integer neutrophils;
+
 	@Column(nullable = false)
 	private Integer eosinophils;
+
 	@Column(nullable = false)
 	private Integer basophiles;
+
 	@Column(nullable = false)
 	private Integer lymphocytes;
+
 	@Column(nullable = false)
 	private Integer monocytes;
+
 	@Column(nullable = false)
 	private Integer platelets;
-	
-	@NotNull
+
 	@ManyToOne
 	private User user;
-	
+
 	@Column(nullable = false, updatable = false)
 	@CreationTimestamp
 	private Date createdAt;
@@ -53,6 +58,6 @@ public class Blood {
 	@Column(nullable = false, updatable = false)
 	@CreationTimestamp
 	private Date updatedAt;
-	
+
 
 }

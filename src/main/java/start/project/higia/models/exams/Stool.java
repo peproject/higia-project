@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -29,14 +28,16 @@ public class Stool {
 
 	@Column(nullable = true, length = 400)
 	private String aspect;
+
 	@Column(nullable = true, length = 400)
 	private String protozoa;
+
 	@Column(nullable = true, length = 400)
 	private String helminths;
+
 	@Column(nullable = true, length = 400)
 	private String comments;
 
-	@NotNull
 	@ManyToOne
 	private User user;
 

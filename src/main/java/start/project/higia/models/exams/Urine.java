@@ -22,35 +22,44 @@ import start.project.higia.models.User;
 @NoArgsConstructor
 @Data
 public class Urine {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@Column(nullable = false)
 	private Integer density;
+
 	@Column(nullable = false)
 	private Integer ph;
+
 	@Column(nullable = false)
 	private Integer glucose;
+
 	@Column(nullable = false)
 	private Integer proteins;
+
 	@Column(nullable = false)
 	private Integer redcells;
+
 	@Column(nullable = false)
 	private Integer leukocytes;
+
 	@Column(nullable = false)
 	private Integer ketones;
+
 	@Column(nullable = false)
 	private Integer urobilinogen;
+
 	@Column(nullable = false)
 	private Integer nitrite;
+
 	@Column(nullable = false)
 	private Integer crystals;
+
 	@Column(nullable = false)
 	private Integer epithelialcells;
-	
-	@NotNull
+
 	@ManyToOne
 	private User user;
 
