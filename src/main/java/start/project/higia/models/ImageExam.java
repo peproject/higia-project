@@ -22,7 +22,7 @@ public class ImageExam {
 	private User user;
 
 	@Column(nullable = false)
-	private ImageExamType imageExamType;
+	private ImageExamType type;
 
 	@Column(nullable = false)
 	private String name;
