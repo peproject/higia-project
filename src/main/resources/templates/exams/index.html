@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="icon" type="image/png" href="/images/icon.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<span th:replace="_fragments/imports_head :: imports_head"></span>
+	<title>Higia - Exames</title>
+</head>
+
+<body class="doctor-home">
+
+
+	<nav class="navbar" style="/*border: 1px solid red;*/">
+		<div class="container-fluid" style="margin: 0; padding: 0;">
+			<a class="navbar-brand hg-logo" href="/doc">
+				<i class="fa-solid fa-stethoscope secret"></i>
+				Hig<span class="secret">i</span>a
+			</a>
+			<div class=" container welcome-home">
+				<div class="welcome-text">
+					<h4>Seja bem-vindo<span style="font-size: 14pt;">(a)</span>, <span th:text="${session.logged.name}"></span>!
+					</h4>
+					<p>Selecione um tipo de exame abaixo.</p>
+				</div>
+
+			</div>
+		</div>
+	</nav>
+
+	<div class="position-absolute top-50 end-0 translate-middle-y hg-me-9 mt-4" style="width: 30rem;">
+		<div class="card-body text-center">
+			<div class="row  mt-5" style="width: 100%;">
+				<div class="col-sm mt-5">
+					<a class="card-link" href="/doc/list/images">
+						<div class="hg-card">
+							<img class="hg-card-icon" src="/images/x-ray-icon.svg" alt="">
+							<p class="p-card">Imagens</p>
+						</div>
+					</a>
+				</div>
+				<div class="col-sm mt-5">
+					<a class="card-link" href="/doc/list/urines">
+						<div class="hg-card">
+							<img class="hg-card-icon" src="/images/urine-icon.svg" alt="">
+							<p class="p-card">Urina</p>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="row" style="width: 100%;">
+				<div class="col-sm">
+					<a class="card-link" href="/doc/list/stools">
+						<div class="hg-card">
+							<img class="hg-card-icon" src="/images/stool-icon.svg" alt="">
+							<p class="p-card">Fezes</p>
+						</div>
+					</a>
+				</div>
+				<div class="col-sm align-items-center">
+					<a class="card-link" href="/doc/list/bloods">
+						<div class="hg-card">
+							<img class="hg-card-icon" src="/images/blood-icon.svg" alt="">
+							<p class="p-card">Sangue</p>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="position-absolute top-0 end-0">
+		<ul class="navbar-nav mt-4 me-4 btn btn-lg btn-hg-blue">
+			<li class="nav-item dropdown dropstart">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+					aria-expanded="false">
+					<i class="fa-solid fa-user"></i>
+					<span></span>
+
+				</a>
+				<ul class="dropdown-menu me-2" aria-labelledby="navbarDropdown">
+					<li>
+						<a class="dropdown-item">
+							Editar dados
+						</a>
+					</li>
+					<li>
+						<hr class="dropdown-divider">
+					</li>
+					<li><a class="dropdown-item" href="/doc/exit">Sair</a></li>
+				</ul>
+		</ul>
+	</div>
+
+	<span th:replace="_fragments/imports_body :: imports_body"></span>
+</body>
+
+</html>
