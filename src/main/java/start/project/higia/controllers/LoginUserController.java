@@ -46,7 +46,7 @@ public class LoginUserController {
 
 	}
 
-	@GetMapping("/user/exit")
+	@GetMapping("/use/exit")
 	public String exit(HttpSession session) {
 		session.invalidate();
 
