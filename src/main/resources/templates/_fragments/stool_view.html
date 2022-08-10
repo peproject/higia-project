@@ -1,0 +1,25 @@
+<div th:fragment="stool_view">
+	<div class="modal fade" th:id="'modal' + ${id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title-center" id="exampleModalLabel" th:text="${stool.user.name + ' ' + stool.user.lastname}"></h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<label for="aspect" class="mt-1">Aspecto:</label>
+						<p th:text="${stool.aspect}" class=" ms-3 fw-bold"></p>
+
+						<label for="protozoa" class="mt-1">Protozoarios:</label>
+						<p th:text="${stool.protozoa}" class=" ms-3 fw-bold"></p>
+
+						<label for="helminths" class="mt-1">Vermes:</label>
+						<p th:text="${stool.helminths}" class=" ms-3 fw-bold"></p>
+
+						<label for="comments" class="mt-1">comments:</label>
+						<p th:text="${stool.comments}" class=" ms-3 fw-bold"></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>

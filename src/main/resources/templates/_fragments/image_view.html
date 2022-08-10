@@ -1,0 +1,20 @@
+<div th:fragment="image_view">
+	<div class="modal fade" th:id="'modal' + ${id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title-center" id="exampleModalLabel" th:text="@{${patient.user.name + ' ' + patient.user.lastname}}"></h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<img th:src="@{'https://higia-project-start.s3.amazonaws.com/imagens/' + ${patient.name}}" alt="" srcset="" width="300">
+
+					<div>
+						<label for="hemoglobin" class="mt-1">Tipo de exame:</label>
+						<p th:text="${patient.type}" class=" ms-3 fw-bold"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>

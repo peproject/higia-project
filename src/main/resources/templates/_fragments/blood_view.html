@@ -1,0 +1,34 @@
+<div th:fragment="blood_view">
+	<div class="modal fade" th:id="'modal' + ${id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title-center" id="exampleModalLabel" th:text="${patient.user.name + ' ' + patient.user.lastname}"></h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<label for="hemoglobin" class="mt-1">hemoglobina:</label>
+						<p th:text="${blood.hemoglobin}" class=" ms-3 fw-bold"></p>
+
+						<label for="protozoa" class="mt-1">neutrófilos:</label>
+						<p th:text="${blood.neutrophils}" class=" ms-3 fw-bold"></p>
+
+						<label for="helminths" class="mt-1">eosinófilos:</label>
+						<p th:text="${blood.eosinophils}" class=" ms-3 fw-bold"></p>
+
+						<label for="comments" class="mt-1">basófilos:</label>
+						<p th:text="${blood.basophiles}" class=" ms-3 fw-bold"></p>
+
+						<label for="comments" class="mt-1">linfócitos:</label>
+						<p th:text="${blood.lymphocytes}" class=" ms-3 fw-bold"></p>
+
+						<label for="comments" class="mt-1">monócitos:</label>
+						<p th:text="${blood.monocytes}" class=" ms-3 fw-bold"></p>
+
+						<label for="comments" class="mt-1">plaquetas:</label>
+						<p th:text="${blood.platelets}" class=" ms-3 fw-bold"></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>

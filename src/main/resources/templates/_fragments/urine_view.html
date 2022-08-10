@@ -1,0 +1,46 @@
+<div th:fragment="urine_view">
+	<div class="modal fade" th:id="'modal' + ${id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title-center" id="exampleModalLabel" th:text="${urine.user.name + ' ' + urine.user.lastname}"></h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<label for="density" class="mt-1">Densidade:</label>
+						<p th:text="${urine.density} + ' mg/L'" class=" ms-3 fw-bold"></p>
+
+						<label for="ph" class="mt-1">Ph:</label>
+						<p th:text="${urine.ph} + ' mg/L'" class=" ms-3 fw-bold"></p>
+
+						<label for="glucose" class="mt-1">Glicose:</label>
+						<p th:text="${urine.glucose} + ' mg/L'" class=" ms-3 fw-bold"></p>
+
+						<label for="proteins" class="mt-1">Proteínas:</label>
+						<p th:text="${urine.proteins} + ' mg/L'" class=" ms-3 fw-bold"></p>
+
+						<label for="redcells" class="mt-1">Células vermelhas:</label>
+						<p th:text="${urine.redcells} + ' mg/L'" class=" ms-3 fw-bold"></p>
+
+						<label for="leukocytes" class="mt-1">Leucócitos:</label>
+						<p th:text="${urine.leukocytes} + ' mg/L'" class=" ms-3 fw-bold"></p>
+
+						<label for="ketones" class="mt-1">Cetonas:</label>
+						<p th:text="${urine.ketones} + ' mg/L'" class=" ms-3 fw-bold"></p>
+
+						<label for="urobilinogen" class="mt-1">Urobilinogênio:</label>
+						<p th:text="${urine.urobilinogen} + ' mg/L'" class=" ms-3 fw-bold"></p>
+
+						<label for="nitrite" class="mt-1">Nitrito:</label>
+						<p th:text="${urine.nitrite} + ' mg/L'" class=" ms-3 fw-bold"></p>
+
+						<label for="crystals" class="mt-1">Cristais:</label>
+						<p th:text="${urine.crystals} + ' mg/L'" class=" ms-3 fw-bold"></p>
+
+						<label for="epithelialcells" class="mt-1">Células epiteliais:</label>
+						<p th:text="${urine.epithelialcells} + ' mg/L'" class=" ms-3 fw-bold"></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
