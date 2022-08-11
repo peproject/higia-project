@@ -48,7 +48,7 @@ public class LoginDoctorController {
 	@GetMapping("/doc/exit")
 	public String exit(HttpSession session) {
 		session.invalidate();
-		return "redirect:/";
+		return "redirect:/cookies";
 	}
 
 }
