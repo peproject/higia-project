@@ -18,6 +18,9 @@ public class ImageExam {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
+	@Column(columnDefinition = "text")
+	private String description;
+
 	@ManyToOne
 	private User user;
 
