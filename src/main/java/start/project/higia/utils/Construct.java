@@ -12,7 +12,7 @@ import start.project.higia.models.User;
 public class Construct {
 
 	public SimpleMailMessage constructResetTokenEmail(String contextPath, Locale locale, String token, Doctor doctor) {
-		String url = contextPath + "/doctor/change?token=" + token;
+		String url = contextPath + token;
 		return constructEmail(
 			"Recuperar senha",
 			"clique <a href=\"" + url + "\" targe=\"_blank\">aqui</a> para alterar sua senha!", doctor.getEmail());
