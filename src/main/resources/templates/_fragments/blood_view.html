@@ -7,26 +7,89 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<label for="hemoglobin" class="mt-1">hemoglobina:</label>
-						<p th:text="${blood.hemoglobin}" class=" ms-3 fw-bold"></p>
+					<label for="hemoglobin" class="my-2">hemoglobina:</label>
+						<div class="container form-control text-end">
+							<span th:text="${blood.hemoglobin}" ></span>
+							<span class=" m3-3 fw-bold">g/dL</span>
 
-						<label for="protozoa" class="mt-1">neutrófilos:</label>
-						<p th:text="${blood.neutrophils}" class=" ms-3 fw-bold"></p>
+							<div class="btn-group">
+								<button type="button" class="btn btn-link " data-bs-toggle="dropdown" aria-expanded="false"
+									style="text-decoration: none;">
+									<i class="fa-solid fa-circle-info"></i>
+								</button>
+								<ul class="dropdown-menu dropdown-large" style="min-width:300px;">
+									<small class="text-break ms-2">
+										<div class="container">
+											<strong>Valores normais:</strong> 11,5 a 13,5 g/dL;
+										</div>
 
-						<label for="helminths" class="mt-1">eosinófilos:</label>
-						<p th:text="${blood.eosinophils}" class=" ms-3 fw-bold"></p>
+										<div class="container">
+											<strong>Crianças de 6 a 12 anos:</strong> 11,5 a 15,5 g/dL;
+										</div>
 
-						<label for="comments" class="mt-1">basófilos:</label>
-						<p th:text="${blood.basophiles}" class=" ms-3 fw-bold"></p>
+										<div class="container">
+											<strong>Homens:</strong> 14 a 18 g/dL;
+										</div>
 
-						<label for="comments" class="mt-1">linfócitos:</label>
-						<p th:text="${blood.lymphocytes}" class=" ms-3 fw-bold"></p>
+										<div class="container">
+											<strong>Mulheres:</strong> 12 a 16 g/dL;
+										</div>
 
-						<label for="comments" class="mt-1">monócitos:</label>
-						<p th:text="${blood.monocytes}" class=" ms-3 fw-bold"></p>
+										<div class="container">
+											<strong>Grávidas:</strong> 11 g/dL.
+										</div>
+									</small>
+								</ul>
+							</div>
+						</div>
 
-						<label for="comments" class="mt-1">plaquetas:</label>
-						<p th:text="${blood.platelets}" class=" ms-3 fw-bold"></p>
+						<label for="protozoa" class="my-2">neutrófilos:</label>
+						<div class="container form-control text-end">
+							<span th:text="${blood.neutrophils}" ></span>
+							<span class=" m3-3 fw-bold">mcl</span>
+
+							<span th:replace="_fragments/info_modal :: info_modal(value='4.000 a 11.000 (µL)')"></span>
+						</div>
+
+						<label for="eosinophils" class="my-2">eosinófilos:</label>
+						<div class="container form-control text-end">
+							<span th:text="${blood.eosinophils}" ></span>
+							<span class=" m3-3 fw-bold">mcl</span>
+
+							<span th:replace="_fragments/info_modal :: info_modal(value='0 a 500 (µL)')"></span>
+						</div>
+
+						<label for="basophiles" class="mb-2">basófilos:</label>
+						<div class="container form-control text-end">
+							<span th:text="${blood.basophiles}" ></span>
+							<span class=" m3-3 fw-bold">mm<sup>3</sup></span>
+
+							<span th:replace="_fragments/info_modal :: info_modal(value='0 a 3(%) 0 – 200(mm3)')"></span>
+						</div>
+
+						<label for="lymphocytes" class="my-2">linfócitos:</label>
+						<div class="container form-control text-end">
+							<span th:text="${blood.lymphocytes}" ></span>
+							<span class=" m3-3 fw-bold">mm<sup>3</sup></span>
+
+							<span th:replace="_fragments/info_modal :: info_modal(value='18 a 48(%) 1.000 – 5.000(mm3)')"></span>
+						</div>
+
+						<label for="monocytes" class="my-2">monócitos:</label>
+						<div class="container form-control text-end">
+							<span th:text="${blood.monocytes}" ></span>
+							<span class=" m3-3 fw-bold">mm<sup>3</sup></span>
+
+							<span th:replace="_fragments/info_modal :: info_modal(value='3 a 10(%) 200 – 1.000(mm3)')"></span>
+						</div>
+
+						<label for="platelets" class="my-2">plaquetas:</label>
+						<div class="container form-control text-end">
+							<span th:text="${blood.platelets}" ></span>
+							<span class=" m3-3 fw-bold">mcl</span>
+
+							<span th:replace="_fragments/info_modal :: info_modal(value='140.000 a 450.000 (µL)')"></span>
+						</div>
 				</div>
 			</div>
 		</div>
