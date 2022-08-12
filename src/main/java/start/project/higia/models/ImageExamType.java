@@ -2,8 +2,8 @@ package start.project.higia.models;
 
 public enum ImageExamType {
 
-	TOMOGRAFIA_DE_ABDOMEN_SEM_CONTRASTE("Tomografia de abdome sem contraste"),
-	TOMOGRAFIA_DE_ABDOMEN_COM_CONTRASTE("Tomografia de abdome com contraste"),
+	TOMOGRAFIA_DE_ABDOMEN_SEM_CONTRASTE("Tomografia de abdômen sem contraste"),
+	TOMOGRAFIA_DE_ABDOMEN_COM_CONTRASTE("Tomografia de abdômen com contraste"),
 	TOMOGRAFIA_DE_TORAX_SEM_CONTRASTE("Tomografia de tórax sem contraste"),
 	TOMOGRAFIA_DE_TORAX_COM_CONTRASTE("Tomografia de tórax com contraste"),
 	TOMOGRAFIA_DE_SEIOS_DA_FACE("Tomografia de seios da face"),
@@ -21,7 +21,7 @@ public enum ImageExamType {
 	RADIOGRAFIA_PA_DE_MANDIBULA("Radiografia PA de mandíbula"),
 	RADIOGRAFIA_LATERAL_OBLIQUA_DE_MANDIBULA("Radiografia lateral oblíqua de mandíbula"),
 	USG_DE_PARTES_MOLES("USG de partes moles"),
-	USG_DE_ABDOMEN("USG de abdome"),
+	USG_DE_ABDOMEN("USG de abdômen"),
 	USG_DE_CERVICAL("USG de cervical"),
 	USG_DE_TIREOIDE("USG de tireoide"),
 	USG_COM_DOPPLER_DE_MEMBROS_INFERIORES("USG com doppler de membros inferiores"),
