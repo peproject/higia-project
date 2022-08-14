@@ -1,5 +1,6 @@
 package start.project.higia.controllers.exams;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,12 +24,20 @@ public class UrineController {
 	private UserService userService;
 
 	@GetMapping("/doc/list/urines")
-	public String urineList(Urine urine, Model model) {
+	public String doctorUrineList(Urine urine, Model model) {
 
 		model.addAttribute("urine", service.indexAll(urine));
 
-		System.out.println(service.indexAll(urine));
 		return "exams/urine";
+
+	}
+
+	@GetMapping("/use/list/urines")
+	public String patientUrineList(Urine urine, Model model, HttpSession session) {
+		User user = (User) session.getAttribute("logged");
+
+		model.addAttribute("urine", service.findAllByUserId(user.getId()));
+		return "user_exams/urine";
 
 	}
 

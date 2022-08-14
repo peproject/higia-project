@@ -1,5 +1,6 @@
 package start.project.higia.controllers.exams;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,17 @@ public class BloodController {
 	private UserService userService;
 
 	@GetMapping("/doc/list/bloods")
-	public String bloodList(Blood blood, Model model) {
+	public String doctorBloodList(Blood blood, Model model) {
 		model.addAttribute("bloods", service.indexAll(blood));
+
+		return "exams/blood";
+	}
+
+	@GetMapping("/use/list/bloods")
+	public String patientBloodList(Blood blood, Model model, HttpSession session) {
+		User user = (User) session.getAttribute("logged");
+
+		model.addAttribute("bloods", service.findAllByUserId(user.getId()));
 
 		return "exams/blood";
 	}

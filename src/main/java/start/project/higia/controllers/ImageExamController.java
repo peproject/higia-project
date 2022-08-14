@@ -15,6 +15,7 @@ import start.project.higia.services.ImageExamService;
 import start.project.higia.services.S3Service;
 import start.project.higia.services.UserService;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -30,10 +31,19 @@ public class ImageExamController {
 	private UserService userService;
 
 	@GetMapping("/doc/list/images")
-	public String imageList(Model model) {
+	public String doctorImageList(Model model) {
 		model.addAttribute("images", service.findAllImageExams());
 
 		return "exams/image";
+	}
+
+	@GetMapping("/use/list/images")
+	public String patientImageList(Model model, HttpSession session) {
+		User user = (User) session.getAttribute("logged");
+
+		model.addAttribute("images", service.findAllByUserId(user.getId()));
+
+		return "user_exams/image";
 	}
 
 	@PostMapping("/image/save")

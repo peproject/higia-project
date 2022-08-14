@@ -1,5 +1,6 @@
 package start.project.higia.controllers.exams;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +25,21 @@ public class StoolController {
 	private UserService userService;
 
 	@GetMapping("/doc/list/stools")
-	public String stoolList(Stool stool, Model model) {
+	public String doctorStoolList(Stool stool, Model model) {
 
 		model.addAttribute("stools", service.indexAll(stool));
 
 		return "exams/stool";
+
+	}
+
+	@GetMapping("/use/list/stools")
+	public String patientStoolList(Stool stool, Model model, HttpSession session) {
+		User user = (User) session.getAttribute("logged");
+
+		model.addAttribute("stools", service.findAllByUserId(user.getId()));
+
+		return "user_exams/stool";
 
 	}
 
