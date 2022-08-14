@@ -6,7 +6,6 @@ import start.project.higia.models.Exam;
 import start.project.higia.repositories.ExamRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ExamService {

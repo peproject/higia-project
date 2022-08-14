@@ -2,6 +2,7 @@ package start.project.higia.controllers;
 
 import java.util.Optional;
 
+import javax.mail.MessagingException;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +20,6 @@ import start.project.higia.models.User;
 import start.project.higia.services.DoctorService;
 import start.project.higia.services.EvolutionService;
 import start.project.higia.services.UserService;
-import start.project.higia.services.exams.BloodService;
-import start.project.higia.services.exams.StoolService;
-import start.project.higia.services.exams.UrineService;
 import start.project.higia.utils.EmailSenderService;
 
 @Controller
@@ -55,7 +53,7 @@ public class DoctorController {
 
 	// Rota para salvar o doutor no banco de dados
 	@PostMapping("/doctor")
-	public String create(@Valid Doctor doctor, RedirectAttributes redirect) {
+	public String create(@Valid Doctor doctor, RedirectAttributes redirect) throws MessagingException {
 
 		try {
 			redirect.addFlashAttribute("message", "Conta criada com sucesso.");
