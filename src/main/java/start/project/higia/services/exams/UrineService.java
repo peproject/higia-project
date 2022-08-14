@@ -10,21 +10,25 @@ import start.project.higia.repositories.exams.UrineRepository;
 
 @Component
 public class UrineService {
-	
+
 	@Autowired
 	private UrineRepository repository;
-	
+
 	public Urine create(Urine urine) {
-		
+
 		return repository.save(urine);
 	}
-	
+
 	public List <Urine> index(Long id) {
 		return repository.findByUserId(id);
 	}
-	
+
 	public List<Urine> indexAll(Urine urine) {
 		return repository.findAll();
+	}
+
+	public List<Urine> findAllByUserId(Long id) {
+		return repository.findAllByUserId(id);
 	}
 
 }

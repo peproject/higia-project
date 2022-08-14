@@ -34,5 +34,9 @@ public class ImageExamService {
 		return "";
 	}
 
+	public List<ImageExam> findAllByUserId(Long id) {
+		return imageExamRepository.findAllByUserId(id);
+	}
+
 
 }

@@ -12,22 +12,26 @@ import start.project.higia.repositories.exams.BloodRepository;
 
 @Component
 public class BloodService {
-	
+
 	@Autowired
 	private BloodRepository repository;
-	
+
 	public Blood create(Blood blood) {
-		
+
 		return repository.save(blood);
 	}
-	
-	
+
+
 	public List<Blood> index(Long id){
 		return repository.findByUserId(id);
 	}
-	
+
 	public List<Blood> indexAll(Blood blood) {
 		return repository.findAll();
+	}
+
+	public List<Blood> findAllByUserId(Long id) {
+		return repository.findAllByUserId(id);
 	}
 
 }
