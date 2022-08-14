@@ -9,7 +9,9 @@ import start.project.higia.models.exams.Urine;
 
 @Component
 public interface UrineRepository extends JpaRepository<Urine, Long> {
-	
-	List<Urine> findByUserId (Long id);
+
+	List<Urine> findByUserId(Long id);
+
+	List<Urine> findAllByUserId(Long id);
 
 }

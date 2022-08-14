@@ -11,5 +11,6 @@ import start.project.higia.models.exams.Blood;
 public interface BloodRepository extends JpaRepository<Blood, Long>{
 
 	List<Blood> findByUserId(Long id);
-	
+
+	List<Blood> findAllByUserId(Long id);
 }
