@@ -4,11 +4,11 @@ import java.util.Locale;
 import java.util.Optional;
 import java.util.UUID;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +21,7 @@ import start.project.higia.security.IUserSecurity;
 import start.project.higia.services.UserPasswordTokensServices;
 import start.project.higia.services.UserService;
 import start.project.higia.utils.Construct;
+import start.project.higia.utils.EmailSenderService;
 import start.project.higia.utils.PasswordDto;
 
 @Controller
@@ -34,7 +35,7 @@ public class UserPasswordTokensController {
 	UserService userService;
 
 	@Autowired
-	private JavaMailSender mailSender;
+	private EmailSenderService mailSender;
 
 	@Autowired
 	private IUserSecurity securityService;
@@ -44,7 +45,7 @@ public class UserPasswordTokensController {
 
 	@PostMapping("/user/restore")
 	public String create(HttpServletRequest request, @RequestParam("email") String email,
-			RedirectAttributes redirect) {
+			RedirectAttributes redirect) throws MessagingException {
 
 		User user = userService.findByEmail(email);
 
@@ -60,7 +61,12 @@ public class UserPasswordTokensController {
 
 		userPasswordTokensServicesservices.create(user, token);
 
-		mailSender.send(this.construct.ResetTokenEmail("localhost:8080/user/change?token=", request.getLocale(), token, user));
+		mailSender.sendEmail(
+			email,
+			"Redefinir senha",
+			this.construct.ResetTokenEmail("http://localhost:8080/user/change?token=", request.getLocale(), token, user)
+			);
+
 		redirect.addFlashAttribute("message", "Por favor, verifique seu e-mail para uma mensagem com seu código!");
 		redirect.addFlashAttribute("style", "p-3 mb-2 bg-primary text-white rounded");
 		redirect.addFlashAttribute("icon", "fa-solid fa-circle-info");

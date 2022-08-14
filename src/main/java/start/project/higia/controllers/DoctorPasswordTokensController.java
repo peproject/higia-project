@@ -4,11 +4,11 @@ import java.util.Locale;
 import java.util.Optional;
 import java.util.UUID;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +22,7 @@ import start.project.higia.security.ISecurityService;
 import start.project.higia.services.DoctorPasswordTokensServices;
 import start.project.higia.services.DoctorService;
 import start.project.higia.utils.Construct;
+import start.project.higia.utils.EmailSenderService;
 import start.project.higia.utils.PasswordDto;
 
 @Controller
@@ -34,7 +35,7 @@ public class DoctorPasswordTokensController {
 	DoctorService doctorService;
 
 	@Autowired
-	private JavaMailSender mailSender;
+	private EmailSenderService mailSender;
 
 	@Autowired
 	private ISecurityService securityService;
@@ -44,7 +45,7 @@ public class DoctorPasswordTokensController {
 
 	@PostMapping("/doctor/restore")
 	public String create(HttpServletRequest request, @RequestParam("email") String email,
-			DoctorPasswordTokens doc, RedirectAttributes redirect) {
+			DoctorPasswordTokens doc, RedirectAttributes redirect) throws MessagingException {
 		Doctor doctor = doctorService.findByEmail(email);
 		if (doctor == null) {
 
@@ -56,7 +57,11 @@ public class DoctorPasswordTokensController {
 		}
 		String token = UUID.randomUUID().toString();
 		doctorPasswordTokensServicesservices.create(doctor, token);
-		mailSender.send(this.construct.constructResetTokenEmail("localhost:8080/doctor/change?token=", request.getLocale(), token, doctor));
+		mailSender.sendEmail(
+			email,
+			"Redefinir senha",
+			this.construct.constructResetTokenEmail("http://localhost:8080/doctor/change?token=", request.getLocale(), token, doctor)
+		);
 
 		redirect.addFlashAttribute("message", "Por favor, verifique seu e-mail para uma mensagem com seu código!");
 		redirect.addFlashAttribute("style", "p-3 mb-2 bg-primary text-white rounded");

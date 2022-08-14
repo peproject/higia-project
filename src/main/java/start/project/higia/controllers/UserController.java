@@ -2,6 +2,7 @@ package start.project.higia.controllers;
 
 import java.util.Optional;
 
+import javax.mail.MessagingException;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,7 @@ public class UserController {
 
 	// Rota post para salvar os usuarios
 	@PostMapping("/user")
-	public String create(@Valid User user, RedirectAttributes redirect) {
+	public String create(@Valid User user, RedirectAttributes redirect) throws MessagingException {
 
 		try {
 			redirect.addFlashAttribute("message", "Conta criada com sucesso.");
