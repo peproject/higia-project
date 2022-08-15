@@ -8,29 +8,32 @@ import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 public class Historic {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@OneToMany(cascade = CascadeType.ALL , mappedBy = "historic")
 	private List<Evolution> evolutions;
-	
+
 	@ManyToOne
 	private Doctor doctor;
-	
+
 	@OneToOne
 	private User user;
-	
-	@Temporal(TemporalType.TIMESTAMP)
+
+	@Column(nullable = false, updatable = false)
+	@CreationTimestamp
 	private Date createdAt;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	@Column(nullable = false, updatable = false)
+	@CreationTimestamp
 	private Date updatedAt;
 
 	public List<Evolution> getEvolutions() {

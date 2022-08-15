@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 @Data
@@ -33,9 +34,11 @@ public class Evolution {
 	@NotNull
 	private Chart chart;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	@Column(nullable = false, updatable = false)
+	@CreationTimestamp
 	private Date createdAt;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	@Column(nullable = false, updatable = false)
+	@CreationTimestamp
 	private Date updatedAt;
 }

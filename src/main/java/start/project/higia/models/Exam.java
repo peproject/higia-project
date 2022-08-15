@@ -17,6 +17,7 @@ import javax.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 
 @Entity
@@ -46,9 +47,11 @@ public class Exam {
 	@Column
 	private Date date;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	@Column(nullable = false, updatable = false)
+	@CreationTimestamp
 	private Date createdAt;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	@Column(nullable = false, updatable = false)
+	@CreationTimestamp
 	private Date updatedAt;
 }

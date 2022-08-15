@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
@@ -50,10 +51,12 @@ public class Doctor {
 	@Enumerated(EnumType.STRING)
 	private Roles role;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	@Column(nullable = false, updatable = false)
+	@CreationTimestamp
 	private Date createdAt;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	@Column(nullable = false, updatable = false)
+	@CreationTimestamp
 	private Date updatedAt;
 
 }

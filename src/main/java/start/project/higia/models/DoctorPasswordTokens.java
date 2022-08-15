@@ -49,7 +49,7 @@ public class DoctorPasswordTokens {
         this.doctor = doctor;
         this.expiryDate = calculateExpiryDate(EXPIRATION);
 }
-	
+
     private Date calculateExpiryDate(final int expiryTimeInMinutes) {
         final Calendar cal = Calendar.getInstance();
         cal.setTimeInMillis(new Date().getTime());
